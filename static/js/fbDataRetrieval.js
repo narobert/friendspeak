@@ -1,5 +1,5 @@
 
- window.fbAsyncInit = function() {
+ windo.fbAsyncInit = function() {
   FB.init({
     appId      : '1565760477011269',
     cookie     : true,  // enable cookies to allow the server to access the session BASE.HTML
@@ -105,7 +105,7 @@
                   var profileAge = document.getElementById("profileAge");
  
                   profilePicture.appendChild(profilePic);                  
-                  profileName.valu = name;
+                  profileName.value = name;
                   profileLocale.value = locale;
                   profileAge.value = age +" years old";
 
