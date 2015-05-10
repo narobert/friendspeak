@@ -1,5 +1,5 @@
 
- windo.fbAsyncInit = function() {
+ window.fbAsyncInit = function() {
   FB.init({
     appId      : '1565760477011269',
     cookie     : true,  // enable cookies to allow the server to access the session BASE.HTML
