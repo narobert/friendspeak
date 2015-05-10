@@ -105,7 +105,7 @@
                   var profileAge = document.getElementById("profileAge");
  
                   profilePicture.appendChild(profilePic);                  
-                  profileName.value = name;
+                  profileName.valu = name;
                   profileLocale.value = locale;
                   profileAge.value = age +" years old";
 
