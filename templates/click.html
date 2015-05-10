@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+
+<br><br>
+  <div class="box">
+    <div class="boxpost">
+      <p class="whitetext">{{profileposts.profilepost}}</p>
+      {% if user.username == profileposts.user1.username %}
+      <p class="textal"><img class="photo-post" src="/static/images/nick_prof.jpg">{{profileposts.timeremoved}} ago</p>
+      {% else %}
+      <p class="textal">{{profileposts.timeremoved}} ago</p>
+      {% endif %}
+    </div>
+    <div class="boxbuttons">
+      <div style="float:right;">
+        <center>
+          {% if like.color == 0 %}
+          <p style="margin:0;"><a href="/likeprofile/{{profileposts.id}}/"><img src="/static/images/0.png"></a></p>
+          {% else %}
+          <p style="margin:0;"><a href="/likeprofile/{{profileposts.id}}/"><img src="/static/images/1.png"></a></p>
+          {% endif %}
+          <p style="margin:0;color:#d4d4d4;">{{profileposts.likes}}</p>
+          {% if dislike.color == 10 %}
+          <p style="margin:0;"><a href="/dislikeprofile/{{profileposts.id}}/"><img src="/static/images/10.png"></a></p>
+          {% else %}
+          <p style="margin:0;"><a href="/dislikeprofile/{{profileposts.id}}/"><img src="/static/images/11.png"></a></p>
+          {% endif %}
+        </center>
+      </div>
+    </div>
+  </div>
+  {% for c in profilecomments %}
+  <div class="comments">
+    <div class="commentident" style="display:inline-block;vertical-align:top;margin-top:5px;">
+      {% if user.username = c.user.username %}
+      <p style="color:#d4d4d4;margin-right:15px;"><img class="photo-comment" src="/static/images/nick_prof.jpg"></p>
+      {% else %}
+      <p style="color:#d4d4d4;margin-right:15px;"><img src="/static/images/comment.png"></p>
+      {% endif %}
+    </div>
+    <div class="commentpoop" style="display:inline-block;">
+      <p class="commentpost" style="display:inline-block;">{{c.profilecomment}}</p><br>
+      <p class="commentdate" style="display:inline-block;">{{c.timeremoved}} ago</p>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="commentbox">
+    <form method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid">
+      <input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
+    </form>
+  </div>
+
+{% endblock %}
+
+{% block extra-js %}
+<script type='text/javascript' src="/static/js/maintainscroll.jquery.js"></script>
+<script>
+
+If cookie is set, scroll to the position saved in the cookie
+Submit form, back to top of page
+$(document).ready(function() {
+
+    if ($.cookie("scroll") !== null) {
+        $(document).scrollTop($.cookie("scroll"));
+    }
+
+    $('#formid').live("submit", function() {
+        $.cookie("scroll", $(document).scrollTop());
+    });
+
+    $('#backtotop').live("click", function() {
+        $.cookie("scroll", $(document).scrollTop(0));
+    });
+
+});
+
+</script>
+{% endblock %}

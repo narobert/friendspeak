@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+
+<br><br>
+
+<div class="container">
+  <center>
+    <div class="alert">Incorrect username/password combination.</div>
+    <form method="POST" action="/register/" enctype="multipart/form-data">
+      <input class="input-block-level" type="text" name="username" maxlength="20" placeholder="Username" required>
+      <input class="input-block-level" type="email" name="email" placeholder="Email" required>
+      <input class="input-block-level lastinput" type="password" name="password" maxlength="40" placeholder="Password" required>
+      <p><button class="btn btn-default input-block-level" name="submit" type="submit">Register</button></p>
+    </form>
+  </center>
+</div>
+
+{% endblock %}
+
+{% block extra-js %}
+{% endblock %}

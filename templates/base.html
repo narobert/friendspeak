@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FriendSpeak | Anonymous social network among friends |</title>
+
+    <!-- Bootstrap -->
+    <link type='text/css' href="/static/css/bootstrap.css" rel="stylesheet" />
+    <link type='text/css' href="/static/css/style.css" rel="stylesheet" />
+    <link type='text/css' href="/static/css/simple-sidebar.css" rel="stylesheet" />
+
+    {% block css %}
+    {% endblock %}
+
+    <style>
+    body {
+      font-family: Baskerville, serif !important;
+      background: #eeeeee;
+      padding-top: 60px;
+    }
+    </style>
+
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  </head>
+
+  <body>
+
+    <script type='text/javascript' src="/static/js/fbDataRetrieval.js"></script>
+    <script type='text/javascript' src="/static/js/fbAuthLogin.js"></script>
+
+    <div id="fb-root"></div>
+
+    {% load humanize %}
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">FriendSpeak</a>
+          <ul class="nav pull-right">
+
+            {% if user.is_authenticated %}
+            <li><a class="photoadjust" href="/myprofile/"><img class="photo-icon" src="/static/images/nick_prof.jpg">&nbsp;&nbsp;&nbsp;{{user.username}}</a></li>
+            <li><a class="navdivider">|</a></li>
+            <li class="dropdown">
+              {% if total > 0 %}
+              <a data-toggle="dropdown" style="cursor:pointer;" id="changemessage"><img id="changemessagecolor" src="/static/images/message.png">&nbsp;&nbsp;<font style="color:#f90;">{{total}}</font></a>
+              {% else %}
+              <a data-toggle="dropdown" style="cursor:pointer;" id="changemessage"><img id="changemessagecolor" src="/static/images/message.png"></a>
+              {% endif %}
+              <ul class="dropdown-menu">
+                {% for a in allposts %}
+                  {% if a.clicked == False %}
+                    <li><a class="needclick" href="/view/{{a.id}}/">new post!</a></li>
+                  {% else %}
+                    <li><a class="clicked" href="/view/{{a.id}}/">old post</a></li>
+                  {% endif %}
+                {% endfor %}
+                <li><a href="/logout/">logout</a></li>
+              </ul>
+            </li>
+            {% else %}
+            <form method="post" action="/login/" style="margin:0;" id="loginForm">
+              <input type="text" name="username" id="profileUserID" maxlength="254" placeholder="Username">
+              <input type="password" name="password" id="password" maxlength="4096" placeholder="Password">
+              <button class="btn" name="submitButton" type="submit">Sign in</button>
+            </form>
+            {% endif %}
+
+          </ul>
+
+          {% if user.is_authenticated %}
+          {% else %}
+          <ul class="nav">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          {% endif %}
+	
+        </div>
+      </div>
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="slidebar">
+      <a href="#menu-toggle" id="menu-toggle">&gt;</a>
+    </div>
+
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav" id="friendsList">
+          <div class="sidebar-brand"><input class="filterinput" id="filterbox" type="text" onkeyup="filter(this)" placeholder="Search..."></div>
+          <div id="profileFriendList"></div>
+        </ul>
+      </div>
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          {% block body %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="container-fluid">
+      <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true" scope="user_birthday,user_about_me,user_location,user_friends"></div>
+      <p>Please login to Facebook</p><br><br>
+      <form method="post" action="/afterlogin/" style="margin:0;" id="userProfileForm">
+        <input type="text" name="profilename" id="profileName" maxlength="254" placeholder="Profile name">
+        <input type="text" name="profilelocale" id="profileLocale" maxlength="254" placeholder="Profile locale">
+        <input type="text" name="profileage" id="profileAge" maxlength="254" placeholder="Profile age">
+        <button class="btn" name="submitButton" type="submit">Update info</button>
+      </form>
+    </div>
+    {% endif %}
+
+    {% block extra-js %}
+    {% endblock %}
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+
+    $("#changemessage").mouseout(function() {
+        $("#changemessagecolor").attr("src", "/static/images/message.png");
+    });
+
+    $("#changemessage").mouseover(function() {
+        $("#changemessagecolor").attr("src", "/static/images/message_red.png");
+    });
+
+    function filter(element) {
+        var value = $(element).val();
+        $("#friendsList > li").each(function() {
+            if ($(this).text().search(value) > -1) {
+                $(this).show();
+            }
+            else {
+                $(this).hide();
+            }
+        });
+    }
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $(".slidebar").toggleClass("switched");
+        if ($("#wrapper").hasClass("toggled")) {
+            $(this).html("&lt;&nbsp;&nbsp;");
+        }
+        else {
+            $(this).html("&gt;");
+        }
+    });
+
+    var dropdown = document.querySelectorAll('.dropdown');
+    var dropdownArray = Array.prototype.slice.call(dropdown,0);
+    dropdownArray.forEach(function(el){
+        var button = el.querySelector('a[data-toggle="dropdown"]'), menu = el.querySelector('.dropdown-menu'), arrow = button.querySelector('i.icon-arrow');
+        button.onclick = function(event) {
+            if(!menu.hasClass('show')) {
+                menu.classList.add('show');
+                menu.classList.remove('hide');
+                arrow.classList.add('open');
+                arrow.classList.remove('close');
+                event.preventDefault();
+            }
+            else {
+                menu.classList.remove('show');
+                menu.classList.add('hide');
+                arrow.classList.remove('open');
+                arrow.classList.add('close');
+                event.preventDefault();
+            }
+        };
+    })
+
+    Element.prototype.hasClass = function(className) {
+        return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
+    };
+
+    </script>
+    <script type='text/javascript' src="/static/js/bootstrap.js"></script>
+    <script type='text/javascript' src="/static/js/Story.js"></script>
+
+  </body>
+</html>

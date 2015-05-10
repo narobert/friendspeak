@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+<script type='text/javascript' src="/static/js/fbDataRetrieval.js"></script>
+<!--<script>
+    console.log('home.html in script trying to set ElementIDs:');
+                  var profileName = document.getElementById("profileName");
+                  var profileLocale = document.getElementById("profileLocale");
+                  var profilePicture= document.getElementById("profilePicture");
+                  var profileAge= document.getElementById("profileAge");
+ 
+                  profilePicture.appendChild(profilePic);                   
+                  profileName.innerHTML = name;
+                  profileLocale.innerHTML = locale;
+                  profileAge.innerHTML = age +" years old";
+</script>
+<!--FB.root-->
+<div id="fb-root"></div>
+
+<br><br>
+  <center>
+  <div class="together">
+    <div class="photo" id="profilePicture"></div>
+    <div class="togetheragain">
+
+      <h3 class="profilename"><div id="profileName"></div></h3>   
+      <p class="city"><div id="profileLocation"></div></p>
+      <p class="age"><div id="profileAge"></div></p>
+      <div id="profileLocale"></div>
+      <div id="profileBio"></div>
+      <div id="friendPicture"></div>
+    </div>
+  </div>
+  <!--shows like and share buttons-->
+  <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
+  <br><br>
+  <form method="POST" action="/postto/{{username}}/" enctype="multipart/form-data" style="margin-bottom:30px;">
+    <input class="input-block-level lastinput" id="textbox" type="text" name="profilepost" maxlength="1000" placeholder="Post anonymously to {{username}}'s wall" required>
+    <div class="buttonbox"><p style="margin:0;text-align:right;"><button class="btn btn-default" id="orangebutton" name="submit" type="submit">Post</button></p></div>
+  </form>
+  </center>
+  {% for p in profileposts %}
+    <div class="boxall">
+    <div class="box">
+      <div class="boxpost">
+        <p class="whitetext">{{p.profilepost}}</p>
+        {% if user.username == p.user1.username %}
+        <p class="textal"><img class="photo-post" src="/static/images/nick_prof.jpg">{{p.timeremoved}} ago</p>
+        {% else %}
+        <p class="textal">{{p.timeremoved}} ago</p>
+        {% endif %}
+      </div>
+      <div class="boxbuttons">
+        <div style="float:right;">
+          <center>
+            <div id="like_profile{{p.id}}"></div>
+            <div id="likes_profile{{p.id}}"></div>
+            <div id="dislike_profile{{p.id}}"></div>
+          </center>
+        </div>
+        {% if p.hascomments == True %}
+        <div class="commenticon" id="getcomments{{p.id}}"><img id="commentimage{{p.id}}" src="/static/images/comment.png"></div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="commentslide" id="commentslider{{p.id}}">
+      <div id="comment_profile{{p.id}}"></div>
+    </div>
+    <div class="commentbox">
+      <form method="POST" action="/commentprofile/{{p.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{p.id}}" data-id="{{p.id}}">
+        <input class="input-block-level commentinput commentfocus{{p.id}}" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
+      </form>
+    </div>
+    </div>
+  {% endfor %}
+<br><br><br>
+
+{% endblock %}
+
+{% block extra-js %}
+
+<script>
+
+var username = "{{user.username}}";
+
+{% for p in profileposts %}
+
+$('#getcomments{{p.id}}').click(function() {
+    if ($("#commentimage{{p.id}}").attr("src") == "/static/images/comment.png") {
+        loadComments({{p.id}});
+        $("#commentimage{{p.id}}").attr("src", "/static/images/comment_blue.png");
+    }
+    else {
+        $("#commentimage{{p.id}}").attr("src", "/static/images/comment.png");
+        $("#commentslider{{p.id}}").slideUp();
+    }
+});
+
+{% if p.hascomments == True %}
+$('.commentfocus{{p.id}}').focus(function() {
+    loadComments({{p.id}});
+    $("#commentimage{{p.id}}").attr("src", "/static/images/comment.png");
+});
+{% endif %}
+
+$('#formid{{p.id}}').live("submit", function(event) {
+    event.preventDefault();
+    $.ajax({
+        url: $('#formid{{p.id}}').attr('action'),
+        type: $('#formid{{p.id}}').attr('method'),
+        data: $('#formid{{p.id}}').serialize(),
+        success: function(data) {
+            loadComments($("#formid{{p.id}}").attr('data-id'));
+            $("#formid{{p.id}} input").val("");
+        }
+    });
+});
+
+$('#like{{p.id}}').live("click", function(event) {
+    event.preventDefault();
+    $.ajax({
+        url: $('#like{{p.id}}').attr('href'),
+        type: 'GET',
+        success: function(data) {
+            loadLike();
+            loadLikes();
+            loadDislike();
+        }
+    });
+});
+
+$('#dislike{{p.id}}').live("click", function(event) {
+    event.preventDefault();
+    $.ajax({
+        url: $('#dislike{{p.id}}').attr('href'),
+        type: 'GET',
+        success: function(data) {
+            loadLike();
+            loadLikes();
+            loadDislike();
+        }
+    });
+});
+
+{% endfor %}
+
+function load() {
+    loadLike();
+    loadLikes();
+    loadDislike();
+}
+window.onload = load;
+
+function loadLike() {
+    $.ajax({
+        url: "/ajax/blog/getLikeP",
+        type: "POST",
+        dataType: "json",
+        success: function(data) {
+            if (data["status"] == "OK") {
+                console.log("hello");
+                var likesp = "";
+                for (var i = 0; i < data["profilelike"].length; i++) {
+                    var likep = data["profilelike"][i];
+                    var likep_id = likep.profileid;
+                    var likep_color = likep.color;
+                    likesp = "<p style='margin:0;'><a id='like" + likep_id + "' href='/likeprofile/" + likep_id + "/'><img src='/static/images/" + likep_color + ".png'></a></p>";
+                    $('#like_profile' + likep_id).html(likesp);
+                }
+            }
+        },
+    });
+}
+
+function loadLikes() {
+    $.ajax({
+        url: "/ajax/blog/getLikesP",
+        type: "POST",
+        dataType: "json",
+        success: function(data) {
+            if (data["status"] == "OK") {
+                var likes = "";
+                for (var i = 0; i < data["profilelikes"].length; i++) {
+                    var like = data["profilelikes"][i];
+                    var like_id = like.id;
+                    var like_likes = like.likes;
+                    likes = "<p style='margin:0;color:#959595;'>" + like_likes + "</p>";
+                    $('#likes_profile' + like_id).html(likes);
+                }
+            }
+        },
+    });
+}
+
+function loadDislike() {
+    $.ajax({
+        url: "/ajax/blog/getDislikeP",
+        type: "POST",
+        dataType: "json",
+        success: function(data) {
+            if (data["status"] == "OK") {
+                var dislikesp = "";
+                for (var i = 0; i < data["profiledislike"].length; i++) {
+                    var dislikep = data["profiledislike"][i];
+                    var dislikep_id = dislikep.profileid;
+                    var dislikep_color = dislikep.color;
+                    dislikesp = "<p style='margin:0;'><a id='dislike" + dislikep_id + "' href='/dislikeprofile/" + dislikep_id + "/'><img src='/static/images/" + dislikep_color + ".png'></a></p>";
+                    $('#dislike_profile' + dislikep_id).html(dislikesp);
+                }
+            }
+        },
+    });
+}
+
+function loadComments(id) {
+    $.ajax({
+        url: "/ajax/blog/getCommentsP",
+        data: ({ id: id }),
+        type: "POST",
+        dataType: "json",
+        success: function(data) {
+            if (data["status"] == "OK") {
+                var comments = "";
+                for (var i = 0; i < data["profilecomments"].length; i++) {
+                    var comment = data["profilecomments"][i];
+                    var comment_user = comment.usercomment;
+                    var comment_comment = comment.profilecomment;
+                    var comment_date = comment.date;
+                    if (username == comment_user) {
+                        comments += "<div class='comments'><div class='commentident' style='display:inline-block;vertical-align:top;margin-top:5px;'><p style='color:#d4d4d4;margin-right:15px;'><img class='photo-comment' src='/static/images/nick_prof.jpg'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p><br><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p></div></div>";
+                    }
+                    else {
+                        comments += "<div class='comments'><div class='commentident' style='display:inline-block;vertical-align:top;margin-top:5px;'><p style='color:#d4d4d4;margin-right:15px;'><img src='/static/images/comment.png'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p><br><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p></div></div>";
+                    }
+                }
+                $('#comment_profile' + id).html(comments);
+                $('#commentslider' + id).slideDown();
+                //$('.commentbox').slideDown();
+            }
+        },
+    });
+}
+
+</script>
+
+
+<script type='text/javascript' src="/static/js/maintainscroll.jquery.js"></script>
+<script>
+
+// If cookie is set, scroll to the position saved in the cookie
+// Submit form, back to top of page
+//$(document).ready(function() {
+
+//    if ($.cookie("scroll") !== null) {
+  //      $(document).scrollTop($.cookie("scroll"));
+    //}
+
+//    $('#formid').live("submit", function() {
+  //      $.cookie("scroll", $(document).scrollTop());
+    //});
+
+//    $('#backtotop').live("click", function() {
+  //      $.cookie("scroll", $(document).scrollTop(0));
+    //});
+
+
+//    $('#clickprofile').live("click", function() {
+  //      $.cookie("scroll", $(document).scrollTop(0));
+    //});
+
+//});
+
+</script>
+{% endblock %}

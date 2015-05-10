@@ -1,0 +1,134 @@
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-right: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-right: 275px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    right: 275px;
+    width: 0;
+    height: 100%;
+    margin-right: -276px;
+    overflow-y: auto;
+    background: #0069a9;
+    border-left: 1px solid #005487;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 275px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -275px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 275px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid #005487;
+    background: #0069a9;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #edcce1;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    color: white;
+    padding-bottom: 6px;
+    padding-top: 2px;
+    text-align: center;
+    background: #6ec8ff;
+    border-bottom: 1px solid #005487;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    font-size: 16px;
+    color: black;
+    line-height: 60px;
+    background: white;
+    border: none;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-right: 275px;
+    }
+
+    #wrapper.toggled {
+        padding-right: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 275px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 0;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
