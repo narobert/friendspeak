@@ -109,8 +109,7 @@ console.log('userInformation userID sent:'+userID);
                 var profName = response.name;
                 var profLocale = response.locale;
                 var profAge;
-                var profilePicture = "https://graph.facebook.com/" + userID + "/picture?width=200";
-                console.log('profile pic: ' + profilePicture);
+                var profPicture = "https://graph.facebook.com/" + userID + "/picture?width=200";
                 
                 function agefinding()
                      {
@@ -129,7 +128,7 @@ console.log('userInformation userID sent:'+userID);
                     console.log('cant find age');
                   }                
                 
-                  //document.getElementById("profilePicture").value = profPicture;
+                  document.getElementById("profilePicture").value = profPicture;
                   document.getElementById("profileName").value = profName;
                   document.getElementById("profileLocale").value = profLocale;
                   document.getElementById("profileAge").value = profAge;       

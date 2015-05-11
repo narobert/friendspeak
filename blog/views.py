@@ -371,10 +371,11 @@ def register(request):
 
 
 def login(request):
-    username = password = profilename = profilelocale = profileage = ''
+    username = password = profilepicture = profilename = profilelocale = profileage = ''
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
+        profilepicture = request.POST.get('profilepicture')
         profilename = request.POST.get('profilename')
         profilelocale = request.POST.get('profilelocale')
         profileage = request.POST.get('profileage')
@@ -386,7 +387,7 @@ def login(request):
         else:
             newuser = User.objects.create_user(username = username, email = 'testemail@ucsd.edu', password = password)
             newuser.save()
-            profile = Profile.objects.create(user = newuser, name = profilename, locale = profilelocale, age = profileage)
+            profile = Profile.objects.create(user = newuser, picture = profilepicture, name = profilename, locale = profilelocale, age = profileage)
             profile.save()
             user = authenticate(username = username, password = password)
             auth_login(request, user)

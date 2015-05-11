@@ -7,6 +7,7 @@ from datetime import datetime
 
 class Profile(models.Model):
   user = models.ForeignKey(User)
+  picture = models.CharField(max_length = 1000)
   name = models.CharField(max_length = 1000)
   locale = models.CharField(max_length = 1000)
   age = models.CharField(max_length = 1000)
