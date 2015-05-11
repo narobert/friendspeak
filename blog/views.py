@@ -1,5 +1,5 @@
 # Create your views here.
-from django.shortcuts import render, get_object_or_404, render_to_response
+from django.shortcuts import render, get_object_or_404, render_to_response, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.utils import timezone
@@ -388,14 +388,14 @@ def login(request):
             newuser.save()
             user = authenticate(username = username, password = password)
             auth_login(request, user)
-            return HttpResponseRedirect('/afterlogin/')
+            return redirect("afterlogin")
     return render_to_response("login.html")
 
 
 def afterlogin(request):
     profilename = profilelocale = profileage = ''
     if request.POST:
-        profilename = request.POS.get('profilename')
+        profilename = request.POST.get('profilename')
         profilelocale = request.POST.get('profilelocale')
         profileage = request.POST.get('profileage')
         profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
