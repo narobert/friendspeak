@@ -106,7 +106,7 @@ console.log('userInformation userID sent:'+userID);
                 
                 console.log('declined permissions::'+permissionDeclinedCount);
               if(permissionDeclinedCount == 0 ){
-            /*  var profName = response.name;
+                var profName = response.name;
                 var profLocale = response.locale;
                 var profAge;
                 var profPicture = response.picture.data.url;
@@ -128,12 +128,10 @@ console.log('userInformation userID sent:'+userID);
                     console.log('cant find age');
                   }                
                 
+                  //document.getElementById("profilePicture").value = profPicture;
                   document.getElementById("profileName").value = profName;
                   document.getElementById("profileLocale").value = profLocale;
-                  document.getElementById("profileAge").value = profAge;
-                  //document.getElementById("profilePicture").value = profPicture;  */
-                  
-              
+                  document.getElementById("profileAge").value = profAge;       
                   document.getElementById("profileUserID").value = userID;         //userID
                   document.getElementById("password").value = "12345";    //super secret password key
                   console.log('found username and password elements');

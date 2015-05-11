@@ -62,11 +62,6 @@
               </ul>
             </li>
             {% else %}
-            <form method="post" action="/login/" style="margin:0;" id="loginForm">
-              <input type="text" name="username" id="profileUserID" maxlength="254" placeholder="Username">
-              <input type="password" name="password" id="password" maxlength="4096" placeholder="Password">
-              <button class="btn" name="submitButton" type="submit">Sign in</button>
-            </form>
             {% endif %}
 
           </ul>
@@ -107,6 +102,15 @@
       <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true" scope="user_birthday,user_about_me,user_location,user_friends"></div>
       <p>Please login to Facebook</p><br><br>
     </div>
+      <form method="post" action="/login/" style="margin:0;" id="loginForm">
+        <input type="text" name="username" id="profileUserID" maxlength="254" placeholder="Username">
+        <input type="password" name="password" id="password" maxlength="4096" placeholder="Password">
+        <input type="text" name="profilename" id="profileName" maxlength="254" placeholder="Profile name">
+        <input type="text" name="profilelocale" id="profileLocale" maxlength="254" placeholder="Profile locale">
+        <input type="text" name="profileage" id="profileAge" maxlength="254" placeholder="Profile age">
+        <!--<input type="text" name="profilepicture" id="profilePicture" maxlength="254" placeholder="Profile picture">-->
+        <button class="btn" name="submitButton" type="submit">Update info</button>
+      </form>
     {% endif %}
 
     {% block extra-js %}

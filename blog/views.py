@@ -373,10 +373,13 @@ def register(request):
 
 
 def login(request):
-    username = password = ''
+    username = password = profilename = profilelocale = profileage = ''
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
+        profilename = request.POST.get('profilename')
+        profilelocale = request.POST.get('profilelocale')
+        profileage = request.POST.get('profileage')
   
         user = authenticate(username = username, password = password)
         if user is not None:
@@ -385,9 +388,11 @@ def login(request):
         else:
             newuser = User.objects.create_user(username = username, email = 'testemail@ucsd.edu', password = password)
             newuser.save()
+            profile = Profile.objects.create(user = newuser, name = profilename, locale = profilelocale, age = profileage)
+            profile.save()
             user = authenticate(username = username, password = password)
             auth_login(request, user)
-            return HttpResponseRedirect('/afterlogin/')
+            return HttpResponseRedirect('/')
     return render_to_response("login.html")
 
 
