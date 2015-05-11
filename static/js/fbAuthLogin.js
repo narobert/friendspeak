@@ -110,6 +110,7 @@ console.log('userInformation userID sent:'+userID);
                 var profLocale = response.locale;
                 var profAge;
                 var profPicture = response.picture.data.url;
+                console.log(profPicture);
                 
                 function agefinding()
                      {
