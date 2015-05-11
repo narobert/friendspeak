@@ -15,6 +15,12 @@ import simplejson as json
 
 
 def home(request):
+    profilename = profilelocale = profileage = ''
+    profilename = request.POST.get('profilename')
+    profilelocale = request.POST.get('profilelocale')
+    profileage = request.POST.get('profileage')
+    profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
+    profile.save()
     total = 0
     wallposts = Wpost.objects.all().order_by("-id")
     wallcomments = Wcomment.objects.all().order_by("-id")
@@ -388,7 +394,7 @@ def login(request):
             newuser.save()
             user = authenticate(username = username, password = password)
             auth_login(request, user)
-            return redirect("afterlogin")
+            return HttpResponseRedirect('/')
     return render_to_response("login.html")
 
 
