@@ -62,6 +62,7 @@ def profile(request, username):
     total = 0
     if (Profile.objects.filter(user__username = username).count() == 0):
         return render_to_response("error.html")
+    profileinfo = Profile.objects.get(user__username = username)
     profileposts = Ppost.objects.filter(user2__username = username).order_by("-id")
     profilecomments = Pcomment.objects.filter(profile = profileposts).order_by("-id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
@@ -70,7 +71,7 @@ def profile(request, username):
         total = total + 1
     if not request.user.is_authenticated():
         return render_to_response("register.html")
-    return render_to_response("profile.html", {"user": request.user, "username": username, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
+    return render_to_response("profile.html", {"user": request.user, "profileinfo": profileinfo, "username": username, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
 
 
 def postwall(request):

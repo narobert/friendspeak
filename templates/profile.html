@@ -4,20 +4,8 @@
 {% endblock %}
 
 {% block body %}
+
 <script type='text/javascript' src="/static/js/fbDataRetrieval.js"></script>
-<!--<script>
-    console.log('home.html in script trying to set ElementIDs:');
-                  var profileName = document.getElementById("profileName");
-                  var profileLocale = document.getElementById("profileLocale");
-                  var profilePicture= document.getElementById("profilePicture");
-                  var profileAge= document.getElementById("profileAge");
- 
-                  profilePicture.appendChild(profilePic);                   
-                  profileName.innerHTML = name;
-                  profileLocale.innerHTML = locale;
-                  profileAge.innerHTML = age +" years old";
-</script>
-<!--FB.root-->
 <div id="fb-root"></div>
 
 <br><br>
@@ -25,13 +13,17 @@
   <div class="together">
     <div class="photo" id="profilePicture"></div>
     <div class="togetheragain">
+      <h3 class="profilename">{{profileinfo.name}}</h3>
+      <p class="city">{{profileinfo.locale}}</p>
+      <p class="age">{{profileinfo.age}} years old</p>
 
-      <h3 class="profilename"><div id="profileName"></div></h3>   
+ <!-- <h3 class="profilename"><div id="profileName"></div></h3>   
       <p class="city"><div id="profileLocation"></div></p>
       <p class="age"><div id="profileAge"></div></p>
       <div id="profileLocale"></div>
       <div id="profileBio"></div>
-      <div id="friendPicture"></div>
+      <div id="friendPicture"></div> -->
+
     </div>
   </div>
   <!--shows like and share buttons-->
