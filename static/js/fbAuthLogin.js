@@ -109,8 +109,9 @@ console.log('userInformation userID sent:'+userID);
                 var profName = response.name;
                 var profLocale = response.locale;
                 var profAge;
-                var profPicture = response.picture.data.url;
-                console.log('profile picture: ' + profPicture);
+                var profilePicture = document.createElement('img');
+                profilePicture.src = 'https://graph.facebook.com/'+response.id+'/picture?width=200';
+                console.log('profile pic: ' + profilePicture);
                 
                 function agefinding()
                      {
