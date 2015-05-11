@@ -131,7 +131,7 @@ console.log('userInformation userID sent:'+userID);
                   document.getElementById("profileName").value = profName;
                   document.getElementById("profileLocale").value = profLocale;
                   document.getElementById("profileAge").value = profAge;
-                  document.getElementById("profilePicture").value = profPicture;
+                  //document.getElementById("profilePicture").value = profPicture;
                   
               
                   document.getElementById("profileUserID").value = userID;         //userID
