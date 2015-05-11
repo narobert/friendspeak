@@ -63,13 +63,14 @@ function userInformation(userID){
       var permissionDeclinedCount;
 console.log('userInformation userID sent:'+userID);
       FB.api(
-        '/me?fields=permissions,name,birthday,location,bio,address,locale,email,picture,taggable_friends',
+        '/me?fields=permissions,name,locale,birthday,picture',
         function (response) {
           console.log('userInformation response:'+JSON.stringify(response));
           if (response && !response.error) {
                permissionDeclinedCount = 0;
                 var permissionsArray = response.permissions.data;
-                console.log('permissionsArray.count:'+permissionsArray);
+                console.log('permissionsArray.count:'+permissionsArray.count);
+                
                 function inPermissions(arr) {
                   for(var i=0; i<arr.length; i++) {
                       if (arr[i]["status"] == "declined"){
@@ -105,6 +106,34 @@ console.log('userInformation userID sent:'+userID);
                 
                 console.log('declined permissions::'+permissionDeclinedCount);
               if(permissionDeclinedCount == 0 ){
+                var profName = response.name;
+                var profLocale = response.locale;
+                var profAge;
+                var profPicture = response.picture.data.url;
+                
+                function agefinding()
+                     {
+                        var birthDay = response.birthday;
+                        var DOB = new Date(birthDay);
+                        var today = new Date();
+                        var ageCalc = today.getTime() - DOB.getTime();
+                        ageCalc = Math.floor(ageCalc / (1000 * 60 * 60 * 24 * 365.25));
+                        return ageCalc;
+                    }                  
+                  if(response.birthday != 'undefined'){
+                    profAge = agefinding();
+                    console.log('age:'+profAge);
+                  }else{
+                    profAge = 'null';
+                    console.log('cant find age');
+                  }                
+                
+                  document.getElementById("profileName").value = profName;
+                  document.getElementById("profileLocale").value = profLocale;
+                  document.getElementById("profileAge").value = profAge;
+                  document.getElementById("profilePicture").value = profPicture;
+                  
+              
                   document.getElementById("profileUserID").value = userID;         //userID
                   document.getElementById("password").value = "12345";    //super secret password key
                   console.log('found username and password elements');
