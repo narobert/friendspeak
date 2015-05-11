@@ -98,14 +98,6 @@
       <div id="page-content-wrapper">
         <div class="container-fluid">
           {% block body %}
-        <br>        
-        <form method="post" action="/afterlogin/" style="margin:0;" id="userProfileForm">
-        <input type="text" name="profilename" id="profileName" maxlength="254" placeholder="Profile name">
-        <input type="text" name="profilelocale" id="profileLocale" maxlength="254" placeholder="Profile locale">
-        <input type="text" name="profileage" id="profileAge" maxlength="254" placeholder="Profile age">
-        <input type="text" name="profilepicture" id="profilePicture" maxlength="254" placeholder="Profile picture">
-        <button class="btn" name="submitButton" type="submit">Update info</button>
-      </form>
           {% endblock %}
         </div>
       </div>
@@ -118,7 +110,14 @@
     
 
     {% endif %}
-
+        <br>        
+        <form method="post" action="/afterlogin/" style="margin:0;" id="userProfileForm">
+        <input type="text" name="profilename" id="profileName" maxlength="254" placeholder="Profile name">
+        <input type="text" name="profilelocale" id="profileLocale" maxlength="254" placeholder="Profile locale">
+        <input type="text" name="profileage" id="profileAge" maxlength="254" placeholder="Profile age">
+        <input type="text" name="profilepicture" id="profilePicture" maxlength="254" placeholder="Profile picture">
+        <button class="btn" name="submitButton" type="submit">Update info</button>
+      </form>
     {% block extra-js %}
     {% endblock %}
 
