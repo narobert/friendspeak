@@ -110,6 +110,7 @@ console.log('userInformation userID sent:'+userID);
                 var profLocale = response.locale;
                 var profAge;
                 var profPicture = "https://graph.facebook.com/" + userID + "/picture?width=200";
+                console.log(response.id);
                 
                 function agefinding()
                      {
