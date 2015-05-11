@@ -109,7 +109,7 @@
                   profileLocale.value = locale;
                   profileAge.value = age +" years old";
 
-                  document.getElementById('userProfileForm').submit();
+                  //document.getElementById('userProfileForm').submit();
                   
                   //getting/setting location
                   if(response.location != 'undefined' && response.location != 'unknown'){
