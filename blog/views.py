@@ -18,19 +18,17 @@ def home(request):
     total = 0
     wallposts = Wpost.objects.all().order_by("-id")
     wallcomments = Wcomment.objects.all().order_by("-id")
-    friends = User.objects.all()
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
     if not request.user.is_authenticated():
         return render_to_response("register.html")
-    return render_to_response("home.html", {"user": request.user, "friends": friends, "wallposts": wallposts, "allposts": allposts, "total": total, "wallcomments": wallcomments})
+    return render_to_response("home.html", {"user": request.user, "wallposts": wallposts, "allposts": allposts, "total": total, "wallcomments": wallcomments})
 
 
 def click(request, id):
     total = 0
-    friends = User.objects.all()
     profileposts = Ppost.objects.get(id = id)
     profileposts.clicked = True
     profileposts.save()
@@ -43,12 +41,12 @@ def click(request, id):
         total = total + 1
     if not request.user.is_authenticated():
         return render_to_response("register.html")
-    return render_to_response("click.html", {"user": request.user, "friends": friends, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "like": like, "dislike": dislike, "total": total})
+    return render_to_response("click.html", {"user": request.user, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "like": like, "dislike": dislike, "total": total})
 
 
 def myprofile(request):
     total = 0
-    friends = User.objects.all()
+    myprofileinfo = Profile.objects.get(user = request.user.id)
     profileposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     profilecomments = Pcomment.objects.filter(profile = profileposts).order_by("-id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
@@ -57,14 +55,13 @@ def myprofile(request):
         total = total + 1
     if not request.user.is_authenticated():
         return render_to_response("register.html")
-    return render_to_response("myprofile.html", {"user": request.user, "friends": friends, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
+    return render_to_response("myprofile.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
 
 
 def profile(request, username):
     total = 0
     if (Profile.objects.filter(user__username = username).count() == 0):
         return render_to_response("error.html")
-    friends = User.objects.all()
     profileposts = Ppost.objects.filter(user2__username = username).order_by("-id")
     profilecomments = Pcomment.objects.filter(profile = profileposts).order_by("-id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
@@ -73,7 +70,7 @@ def profile(request, username):
         total = total + 1
     if not request.user.is_authenticated():
         return render_to_response("register.html")
-    return render_to_response("profile.html", {"user": request.user, "friends": friends, "username": username, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
+    return render_to_response("profile.html", {"user": request.user, "username": username, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
 
 
 def postwall(request):

@@ -99,17 +99,17 @@
                   console.log('user_friends_list [length]:'+user_friends_list.length);
                   console.log('user_friend_list [contents]:'+JSON.stringify(user_friends_list));
 
-                  var profileName = document.getElementById("profileName");
-                  var profileLocale = document.getElementById("profileLocale");
+                  //var profileName = document.getElementById("profileName");
+                  //var profileLocale = document.getElementById("profileLocale");
                   var profilePicture = document.getElementById("profilePicture");
-                  var profileAge = document.getElementById("profileAge");
+                  //var profileAge = document.getElementById("profileAge");
  
                   profilePicture.appendChild(profilePic);                  
-                  profileName.value = name;
-                  profileLocale.value = locale;
-                  profileAge.value = age +" years old";
+                  //profileName.value = name;
+                  //profileLocale.value = locale;
+                  //profileAge.value = age +" years old";
 
-                  document.getElementById('userProfileForm').submit();
+                  //document.getElementById('userProfileForm').submit();
                   
                   //getting/setting location
                   if(response.location != 'undefined' && response.location != 'unknown'){
