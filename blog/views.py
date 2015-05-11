@@ -395,7 +395,7 @@ def login(request):
 def afterlogin(request):
     profilename = profilelocale = profileage = ''
     if request.POST:
-        profilename = request.POST.get('profilenam')
+        profilename = request.POS.get('profilename')
         profilelocale = request.POST.get('profilelocale')
         profileage = request.POST.get('profileage')
         profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
