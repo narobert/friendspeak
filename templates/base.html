@@ -107,17 +107,8 @@
       <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true" scope="user_birthday,user_about_me,user_location,user_friends"></div>
       <p>Please login to Facebook</p><br><br>
     </div>
-    
-
     {% endif %}
-      <br>      
-      <form method="post" action="/afterlogin/" style="margin:0;" id="userProfileForm">
-        <input type="text" name="profilename" id="profileName" maxlength="254" placeholder="Profile name">
-        <input type="text" name="profilelocale" id="profileLocale" maxlength="254" placeholder="Profile locale">
-        <input type="text" name="profileage" id="profileAge" maxlength="254" placeholder="Profile age">
-        <!--<input type="text" name="profilepicture" id="profilePicture" maxlength="254" placeholder="Profile picture">-->
-        <button class="btn" name="submitButton" type="submit">Update info</button>
-      </form>
+
     {% block extra-js %}
     {% endblock %}
 

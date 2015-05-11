@@ -28,7 +28,6 @@ def home(request):
     return render_to_response("home.html", {"user": request.user, "friends": friends, "wallposts": wallposts, "allposts": allposts, "total": total, "wallcomments": wallcomments})
 
 
-
 def click(request, id):
     total = 0
     friends = User.objects.all()
