@@ -52,7 +52,7 @@ def myprofile(request):
     profilename = request.POST.get('profilename')
     profilelocale = request.POST.get('profilelocale')
     profileage = request.POST.get('profileage')
-    profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
+    profile = Profile.objects.create(user = request.user, name = "nick", locale = "yourmom", age = "2")
     profile.save()
     total = 0
     friends = User.objects.all()
