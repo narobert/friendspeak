@@ -49,11 +49,12 @@ def click(request, id):
 
 def myprofile(request):
     profilename = profilelocale = profileage = ''
-    profilename = request.POST.get('profilename')
-    profilelocale = request.POST.get('profilelocale')
-    profileage = request.POST.get('profileage')
-    profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
-    profile.save()
+    if request.POST:
+        profilename = request.POST.get('profilename')
+        profilelocale = request.POST.get('profilelocale')
+        profileage = request.POST.get('profileage')
+        profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
+        profile.save()
     total = 0
     friends = User.objects.all()
     profileposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
