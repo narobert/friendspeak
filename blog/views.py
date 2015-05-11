@@ -48,16 +48,6 @@ def click(request, id):
 
 
 def myprofile(request):
-
-    if Profile.objects.filter(user = request.user.id).count() == 0:
-        profilename = profilelocale = profileage = ''
-        if request.POST:
-            profilename = request.POST.get('profilename')
-            profilelocale = request.POST.get('profilelocale')
-            profileage = request.POST.get('profileage')
-            profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
-            profile.save()
-
     total = 0
     friends = User.objects.all()
     profileposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
@@ -403,14 +393,14 @@ def login(request):
 
 
 def afterlogin(request):
-    profilename = profilelocale = profileage = ''
-    if request.POST:
-        profilename = request.POST.get('profilename')
-        profilelocale = request.POST.get('profilelocale')
-        profileage = request.POST.get('profileage')
-        profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
-        profile.save()
-        return HttpResponseRedirect('/')
+    if Profile.objects.filter(user = request.user.id).count() == 0:
+        profilename = profilelocale = profileage = ''
+        if request.POST:
+            profilename = request.POST.get('profilename')
+            profilelocale = request.POST.get('profilelocale')
+            profileage = request.POST.get('profileage')
+            profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
+            profile.save()
     return render_to_response("login.html")
   
 
