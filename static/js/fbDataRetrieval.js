@@ -84,7 +84,7 @@
                   var numberOfTaggableFriends = response.taggable_friends.data.length;
                   var data = response.taggable_friends.data;
                   var friendsUsingApp = response.friends.data;
-                  console.log(friendsUsingApp);
+                  console.log(friendsUsingApp[0].id);
                   var profileFriendList = document.getElementById("profileFriendList");
                   var myfriends = "";
 
