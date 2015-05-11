@@ -89,11 +89,7 @@
 
                   for (var i = 0; i < numberOfTaggableFriends; i++) {
                      //console.log('data ID of person:'+data[i].id+'; name of person:'+data[i].name+'; friends profile picture:'+data[i].picture.data.url);
-                     {% for f in friends %}
-                         {% if f.name == data[i].name %}
-                             myfriends += "<li><p style='margin:0;color:white;'><a href='/profile/{{f.user.username}}/'>" + data[i].name + "</a></p></li>";
-                         {% endif %}
-                     {% endfor %}
+                     myfriends += "<li><p style='margin:0;color:white;'><a href='/profile/{{f.username}}/'>" + data[i].name + "</a></p></li>";
                   }
 
                   profileFriendList.innerHTML = myfriends;
