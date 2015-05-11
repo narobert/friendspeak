@@ -68,8 +68,8 @@ console.log('userInformation userID sent:'+userID);
           console.log('userInformation response:'+JSON.stringify(response));
           if (response && !response.error) {
                permissionDeclinedCount = 0;
-                var responseArray = response.data;
-                
+                var permissionsArray = response.permissions.data;
+                console.log('permissionsArray.count:'+permissionsArray);
                 function inPermissions(arr) {
                   for(var i=0; i<arr.length; i++) {
                       if (arr[i]["status"] == "declined"){
@@ -101,7 +101,8 @@ console.log('userInformation userID sent:'+userID);
                   }
                 }  
                 
-                inPermissions(responseArray);
+                inPermissions(permissionsArray);
+                
                 console.log('declined permissions::'+permissionDeclinedCount);
               if(permissionDeclinedCount == 0 ){
                   document.getElementById("profileUserID").value = userID;         //userID
