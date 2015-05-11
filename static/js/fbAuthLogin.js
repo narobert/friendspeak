@@ -109,7 +109,6 @@ console.log('userInformation userID sent:'+userID);
                   console.log('found username and password elements');
                   document.getElementById('loginForm').submit();
                   console.log('login form just submitted');
-                  statusChangeCallback(response);
               }else{
                   console.log('couldnt pass permissions, permissionCount:'+permissionCount);
               }

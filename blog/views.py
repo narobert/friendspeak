@@ -1,5 +1,5 @@
 # Create your views here.
-from django.shortcuts import render, get_object_or_404, render_to_response, redirect
+from django.shortcuts import render, get_object_or_404, render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.utils import timezone
@@ -15,12 +15,6 @@ import simplejson as json
 
 
 def home(request):
-    profilename = profilelocale = profileage = ''
-    profilename = request.POST.get('profilename')
-    profilelocale = request.POST.get('profilelocale')
-    profileage = request.POST.get('profileage')
-    profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
-    profile.save()
     total = 0
     wallposts = Wpost.objects.all().order_by("-id")
     wallcomments = Wcomment.objects.all().order_by("-id")
@@ -54,6 +48,12 @@ def click(request, id):
 
 
 def myprofile(request):
+    profilename = profilelocale = profileage = ''
+    profilename = request.POST.get('profilename')
+    profilelocale = request.POST.get('profilelocale')
+    profileage = request.POST.get('profileage')
+    profile = Profile.objects.create(user = request.user, name = profilename, locale = profilelocale, age = profileage)
+    profile.save()
     total = 0
     friends = User.objects.all()
     profileposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
@@ -394,7 +394,7 @@ def login(request):
             newuser.save()
             user = authenticate(username = username, password = password)
             auth_login(request, user)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/afterlogin/')
     return render_to_response("login.html")
 
 
