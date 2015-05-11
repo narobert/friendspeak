@@ -63,7 +63,7 @@ function userInformation(userID){
       var permissionDeclinedCount;
 console.log('userInformation userID sent:'+userID);
       FB.api(
-        '/me/permissions',
+        '/me?fields=permissions,name,birthday,location,bio,address,locale,email,picture,taggable_friends',
         function (response) {
           console.log('userInformation response:'+JSON.stringify(response));
           if (response && !response.error) {
