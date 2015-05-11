@@ -88,7 +88,7 @@
                   var myfriends = "";
 
                   for (var i = 0; i < numberOfTaggableFriends; i++) {
-                     console.log('data ID of person:'+data[i].id+'; name of person:'+data[i].name+'; friends profile picture:'+data[i].picture.data.url);
+                     console.log('data ID of person:'+data[i].userID+'; name of person:'+data[i].name+'; friends profile picture:'+data[i].picture.data.url);
                      myfriends += "<li><p style='margin:0;color:white;'><a href='/profile/{{f.username}}/'>" + data[i].name + "</a></p></li>";
                   }
 
