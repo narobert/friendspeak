@@ -11,7 +11,7 @@
       console.log('fb.event.subscribe 1; response:'+JSON.stringify(response));
       console.log('fbDataRetrieval.js script within Fb.event.subscribe');
       window.location = "https://friendspeak.herokuapp.com";
- });
+  });
 
   FB.getLoginStatus(function(response) {
     //statusChangeCallback(response);
@@ -22,6 +22,14 @@
         console.log('user is not logged into facebook ');
         window.location = "https://friendspeak.herokuapp.com/logout/";
       } 
+  });
+
+  $('.sendInviteButton').click(function() {
+      FB.ui({
+          app_id: '1565760477011269',
+          method: 'send',
+          link: 'https://friendspeak.herokuapp.com',
+      });
   });
 
   //  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1565760477011269&version=v2.3";
@@ -77,45 +85,6 @@
                   console.log('fbDataRetrieval profileName:'+name);
                   //document.getElementById("profileName");
                   //document.getElementById["profileUserID"].innerHTML= name;
-
-
-
-                  var a = new Image();
-                  var b = new Image();
-                  a.src = response.picture.data.url;
-                  b.src = 'https://graph.facebook.com/'+response.id+'/picture?width=200';
-                  var a_base64 = getBase64Image(a);
-                  var b_base64 = getBase64Image(b);
-                  if (a_base64 === b_base64) {
-                      console.log("success!");
-                  }
-                  else {
-                      console.log("fail :(");
-                  }
-
-function getBase64Image(img) {
-    // Create an empty canvas element
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    // Copy the image contents to the canvas
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-
-    // Get the data-URL formatted image
-    // Firefox supports PNG and JPEG. You could check img.src to
-    // guess the original format, but be aware the using "image/jpg"
-    // will re-encode the image.
-    var dataURL = canvas.toDataURL("image/png");
-
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-}
-
-
-
-
-
                   
                   //taggable_friends for loop
                   var friendsIDnames = [];
@@ -130,7 +99,6 @@ function getBase64Image(img) {
                      console.log('data ID of person:'+data[i].id+'; name of person:'+data[i].name+'; friends profile picture:'+data[i].picture);
                      myfriends += "<li><p style='margin:0;color:white;'><a href='/profile/" + friendsUsingApp[0].id + "/'>" + data[i].name + "</a></p></li>";
                   }
-    
     
                   profileFriendList.innerHTML = myfriends;
 
