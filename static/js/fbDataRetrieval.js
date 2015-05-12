@@ -91,14 +91,16 @@
                      //console.log('data ID of person:'+data[i].id+'; name of person:'+data[i].name+'; friends profile picture:'+data[i].picture.data.url);
                      myfriends += "<li><p style='margin:0;color:white;'><a href='/profile/" + friendsUsingApp[0].id + "/'>" + data[i].name + "</a></p></li>";
                   }
-
+    
+    
                   profileFriendList.innerHTML = myfriends;
 
                   user_friends_list = friendsIDnames.join();
-
                   console.log('user_friends_list [length]:'+user_friends_list.length);
                   console.log('user_friend_list [contents]:'+JSON.stringify(user_friends_list));
-
+                  
+                  console.log('taggable_friends array:'+JSON.stringify(response.taggable_friends));
+                  console.log('friends array:'+JSON.stringify(response.friends));
                   //var profileName = document.getElementById("profileName");
                   //var profileLocale = document.getElementById("profileLocale");
                   var profilePicture = document.getElementById("profilePicture");
@@ -183,7 +185,7 @@
             //taggable_friends,user_about_me,user_birthday,user_location
             // handle the response {"authResponse":null,"status":"unknown"} when exit out of dialog box
             console.log('FB.login response handling: this was where strinfigy response happened');
-          }, {scope: 'public_profile', 
+          }, {scope: 'public_profile,user_birthday,user_about_me,user_location,user_friends', 
             return_scopes: true
             }
           );
