@@ -93,9 +93,10 @@
                   }
 
                   FB.ui({
-                      to: 'Corbin Chase',
+                      app_id: '1565760477011269',
+                      to: data[0].id,
                       method: 'send',
-                      link: 'http://friendspeak.herokuapp.com',
+                      link: 'https://friendspeak.herokuapp.com',
                   });
     
     
