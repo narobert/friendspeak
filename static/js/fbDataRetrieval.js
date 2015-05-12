@@ -77,6 +77,26 @@
                   console.log('fbDataRetrieval profileName:'+name);
                   //document.getElementById("profileName");
                   //document.getElementById["profileUserID"].innerHTML= name;
+
+
+
+                  var a = new Image();
+                  var b = new Image();
+                  a.src = 'chrome://favicon/' + response.url;
+                  b.src = 'chrome://favicon/https://graph.facebook.com/'+response.id+'/picture?width=200';
+                  var a_base64 = getBase64Image(a);
+                  var b_base64 = getBase64Image(b);
+                  if (a_base64 === b_base64) {
+                      console.log("success!");
+                  }
+                  else {
+                      console.log("fail :(");
+                  }
+
+
+
+
+
                   
                   //taggable_friends for loop
                   var friendsIDnames = [];
