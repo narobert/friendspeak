@@ -94,7 +94,6 @@
 
                   FB.ui({
                       app_id: '1565760477011269',
-                      to: data[0].id,
                       method: 'send',
                       link: 'https://friendspeak.herokuapp.com',
                   });
