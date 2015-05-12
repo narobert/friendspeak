@@ -8,7 +8,11 @@
      if (response.status === 'connected') {
      var userID = sendResponse.authResponse.userID;
       userInformation(userID);
-            
+          
+      FB.ui({
+  method: 'send',
+  link: 'http://friendspeak.herokuapp.com',
+});
   //console.log('end of userInformation function, permissionsDeclined:'+permissionCount);
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -83,8 +87,8 @@ console.log('userInformation userID sent:'+userID);
                   }
                   if(permissionDeclinedCount >= 1){
                     console.log('permissions are not granted, logging out');
-                    window.alert("Hi "+userDisplayName+", unfortunately we cannot log you in without gaining a little information about you so your friends know who their posting/talking to. "+
-                    "\n\nWe require your friend list (to display a list of friends that you can post to), email address (for user idenitification in our database), birthday (to calculate your age [actual month/day is not displayed]), current city (so your friends know where you are), and personal description (as a template to start with that you can later change)"+
+                    window.alert("Hi "+userDisplayName+", unfortunately we cannot log you in without gaining a little information about you so your friends know who they're posting/talking to. "+
+                    "\n\nWe require your friend list (to display a list of friends that you can post to), email address (for user idenitification in our database), birthday (to calculate your age [your actual month/day is not displayed]), current city (so your friends know where you are), and personal description (as a template to start with that you can later change)"+
                     "\n\nWe will now log you out; when you log back in you will be prompted for permissions and we hope you understand why this information is necessary!");
                     
                     FB.logout(function(response){
