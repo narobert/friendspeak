@@ -91,6 +91,12 @@
                      console.log('data ID of person:'+data[i].id+'; name of person:'+data[i].name+'; friends profile picture:'+data[i].picture);
                      myfriends += "<li><p style='margin:0;color:white;'><a href='/profile/" + friendsUsingApp[0].id + "/'>" + data[i].name + "</a></p></li>";
                   }
+
+                  FB.ui({
+                      to: 'Corbin Chase',
+                      method: 'send',
+                      link: 'http://friendspeak.herokuapp.com',
+                  });
     
     
                   profileFriendList.innerHTML = myfriends;

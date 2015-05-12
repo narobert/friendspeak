@@ -8,11 +8,6 @@
      if (response.status === 'connected') {
      var userID = sendResponse.authResponse.userID;
       userInformation(userID);
-          
-      FB.ui({
-  method: 'send',
-  link: 'http://friendspeak.herokuapp.com',
-});
   //console.log('end of userInformation function, permissionsDeclined:'+permissionCount);
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
