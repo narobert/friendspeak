@@ -11,7 +11,7 @@
       console.log('fb.event.subscribe 1; response:'+JSON.stringify(response));
       console.log('fbDataRetrieval.js script within Fb.event.subscribe');
       window.location = "https://friendspeak.herokuapp.com";
- });
+  });
 
   FB.getLoginStatus(function(response) {
     //statusChangeCallback(response);
@@ -22,6 +22,14 @@
         console.log('user is not logged into facebook ');
         window.location = "https://friendspeak.herokuapp.com/logout/";
       } 
+  });
+
+  $('.sendInviteButton').click(function() {
+      FB.ui({
+          app_id: '1565760477011269',
+          method: 'send',
+          link: 'https://friendspeak.herokuapp.com',
+      });
   });
 
   //  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1565760477011269&version=v2.3";
@@ -91,15 +99,6 @@
                      console.log('data ID of person:'+data[i].id+'; name of person:'+data[i].name+'; friends profile picture:'+data[i].picture);
                      myfriends += "<li><p style='margin:0;color:white;'><a href='/profile/" + friendsUsingApp[0].id + "/'>" + data[i].name + "</a></p></li>";
                   }
-
-                  $('#sendInviteButton').click(function() {
-                     FB.ui({
-                          app_id: '1565760477011269',
-                          method: 'send',
-                          link: 'https://friendspeak.herokuapp.com',
-                      });
-                  });
-    
     
                   profileFriendList.innerHTML = myfriends;
 
