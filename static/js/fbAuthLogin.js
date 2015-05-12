@@ -70,7 +70,7 @@ console.log('userInformation userID sent:'+userID);
                permissionDeclinedCount = 0;
                console.log('fbAuthLogin taggable_friends:'+JSON.stringify(response.taggable_friends));
                console.log('fbAuthLogin friends:'+JSON.stringify(response.friends));
-               break;
+               
                 var permissionsArray = response.permissions.data;
                 console.log('permissionsArray.count:'+permissionsArray.count);
                 
