@@ -92,11 +92,13 @@
                      myfriends += "<li><p style='margin:0;color:white;'><a href='/profile/" + friendsUsingApp[0].id + "/'>" + data[i].name + "</a></p></li>";
                   }
 
-                  FB.ui({
-                      app_id: '1565760477011269',
-                      method: 'send',
-                      link: 'https://friendspeak.herokuapp.com',
-                  });
+                  function sendInvite() {
+                      FB.ui({
+                          app_id: '1565760477011269',
+                          method: 'send',
+                          link: 'https://friendspeak.herokuapp.com',
+                      });
+                  }
     
     
                   profileFriendList.innerHTML = myfriends;
