@@ -67,13 +67,14 @@ function userInformation(userID){
       var permissionDeclinedCount;
 console.log('userInformation userID sent:'+userID);
       FB.api(
-        '/me?fields=permissions,name,locale,birthday,picture,friends,taggable_friends',
+        '/me?fields=permissions,name,locale,birthday,picture,friends,taggable_friends,user_photos',
         function (response) {
           console.log('userInformation response:'+JSON.stringify(response));
           if (response && !response.error) {
                permissionDeclinedCount = 0;
                console.log('fbAuthLogin taggable_friends:'+JSON.stringify(response.taggable_friends));
                console.log('fbAuthLogin friends:'+JSON.stringify(response.friends));
+               console.log('fbAuthLogin photos:'+JSON.stringify(response.user_photos));
                
                 var permissionsArray = response.permissions.data;
                 console.log('permissionsArray.count:'+permissionsArray.count);
