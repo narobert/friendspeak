@@ -104,17 +104,17 @@
                     if (myFriendsArray.indexOf(data[i].name) > -1) {
                       //take out of taggable friends
                     } else {
-                      taggableFriends += "<li><p style='margin:0;color:black;'><a class='sendInviteButton" + i + "'>" + data[i].name + "</a></p></li>";
+                      taggableFriends += "<li id='sendInviteButton'><p style='margin:0;color:black;'>" + data[i].name + "</p></li>";
                     }
-
-                    $('.sendInviteButton' + i).click(function() {
-                      FB.ui({
-                        app_id: '1565760477011269',
-                        method: 'send',
-                        link: 'https://friendspeak.herokuapp.com',
-                      });
-                    });
                   }
+
+                  ('#sendInviteButton').click(function() {
+                    FB.ui({
+                      app_id: '1565760477011269',
+                      method: 'send',
+                      link: 'https://friendspeak.herokuapp.com',
+                    });
+                  });
 
                   profileFriendsApp.innerHTML = myFriends;
                   profileTaggableFriends.innerHTML = taggableFriends;
