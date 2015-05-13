@@ -384,11 +384,11 @@ input[type]:focus,
 }
 
 .clicked {
-  opacity: 0.5 !important;
+  color: #bfbfbf !important;
 }
 
   .clicked:hover {
-    color: black !important;
+    color: #afafaf !important;
   }
 
 .logmeout {
