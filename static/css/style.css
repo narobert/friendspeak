@@ -387,6 +387,10 @@ input[type]:focus,
   color: #bfbfbf !important;
 }
 
+  .clicked {
+    color: #959595 !important;
+  }
+
 .logmeout {
   border-bottom: none !important;
 }
