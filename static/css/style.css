@@ -151,6 +151,7 @@ input[type]:focus,
   padding-top: 20px !important;
   padding-bottom: 20px !important;
   padding-right: 15px !important;
+  margin-top: 60px !important;
 }
 
 .commentinput {
