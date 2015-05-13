@@ -79,7 +79,8 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #bfbfbf;
+    color: #333333;
+    opacity: 0.5;
     border-bottom: 1px solid #959595;
     background: white;
     cursor: pointer;
@@ -87,7 +88,12 @@
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #0085D5;
+    color: #0079c1;
+}
+
+.sidebar-nav li p:hover {
+    text-decoration: none;
+    color: #0079c1;
 }
 
 .sidebar-nav li a:active,
