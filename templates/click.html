@@ -24,7 +24,7 @@
           {% else %}
           <p style="margin:0;"><a href="/likeprofile/{{profileposts.id}}/"><img src="/static/images/1.png"></a></p>
           {% endif %}
-          <p style="margin:0;color:#d4d4d4;">{{profileposts.likes}}</p>
+          <p style="margin:0;color:#333333;">{{profileposts.likes}}</p>
           {% if dislike.color == 10 %}
           <p style="margin-top:-3px;margin-bottom:0;"><a href="/dislikeprofile/{{profileposts.id}}/"><img src="/static/images/10.png"></a></p>
           {% else %}
@@ -35,7 +35,7 @@
     </div>
   </div>
   {% for c in profilecomments %}
-    {% if w.hascomments == True %}
+    {% if profileposts.hascomments == True %}
     <!-- the ladders begin -->
     <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
     <!-- and the ladders end -->
