@@ -90,7 +90,7 @@
                   var myFriends = "";
 
                   for (var i = 0; i < numberOfFriendsApp; i++) {
-                    myFriends += "<li><p style='margin:0;color:white;'><a href='/profile/" + friendsApp[i].id + "/'>" + friendsApp[i].name + "</a></p></li>";
+                    myFriends += "<li><a href='/profile/" + friendsApp[i].id + "/'>" + friendsApp[i].name + "</a></li>";
                     myFriendsArray.push(friendsApp[i].name);
                   }
 
