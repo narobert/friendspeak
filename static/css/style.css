@@ -365,9 +365,18 @@ input[type]:focus,
 }
 
 .clicked {
-  color: #959595 !important;
+  color: #bfbfbf !important;
 }
 
   .clicked:hover {
-    color: #d4d4d4 !important;
+    color: #008cd5 !important;
+  }
+
+.logmeout {
+  color: #d5001b !important;
+  border-bottom: none;
+}
+
+  .logmeout:hover {
+    color: #008cd5 !important;
   }

@@ -9,11 +9,12 @@
   <div class="box">
     <div class="boxpost">
       <p class="whitetext">{{profileposts.profilepost}}</p>
-      {% if user.username == profileposts.user1.username %}
+      <p class="textal">{{profileposts.timeremoved}} ago</p>
+ <!-- {% if user.username == profileposts.user1.username %}
       <p class="textal"><img class="photo-post" src="/static/images/nick_prof.jpg">{{profileposts.timeremoved}} ago</p>
       {% else %}
       <p class="textal">{{profileposts.timeremoved}} ago</p>
-      {% endif %}
+      {% endif %} -->
     </div>
     <div class="boxbuttons">
       <div style="float:right;">
