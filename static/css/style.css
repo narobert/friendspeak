@@ -388,7 +388,7 @@ input[type]:focus,
 }
 
   .clicked:hover {
-    color: #0079c1 !important;
+    color: black !important;
   }
 
 .logmeout {
