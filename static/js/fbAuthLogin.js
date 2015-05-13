@@ -90,7 +90,7 @@ console.log('userInformation userID sent:'+userID);
                     FB.login(function(response) {
                         console.log('rerequesting permissions');
                       }, {scope: 'user_birthday,user_about_me,user_location,user_friends',
-                          auth_type: 'rerequest'
+                          auth_type: 'reauthenticate'
                      });
                     //ENSURE REREQUST POPUP WINDOW CLOSES (AND RELOAD PAGE/REDIRECT TO /HOME/)
                   }else{
