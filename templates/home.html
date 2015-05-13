@@ -186,7 +186,7 @@ function loadDislike() {
                     var dislikew = data["walldislike"][i];
                     var dislikew_id = dislikew.wallid;
                     var dislikew_color = dislikew.color;
-                    dislikesw = "<p style='margin:0;'><a id='dislike" + dislikew_id + "' href='/dislikewall/" + dislikew_id + "/'><img src='/static/images/" + dislikew_color + ".png'></a></p>";
+                    dislikesw = "<p style='margin-top:-3px;margin-bottom:0;'><a id='dislike" + dislikew_id + "' href='/dislikewall/" + dislikew_id + "/'><img src='/static/images/" + dislikew_color + ".png'></a></p>";
                     $('#dislike_wall' + dislikew_id).html(dislikesw);
                 }
             }

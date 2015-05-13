@@ -205,7 +205,7 @@ function loadDislike() {
                     var dislikep = data["profiledislike"][i];
                     var dislikep_id = dislikep.profileid;
                     var dislikep_color = dislikep.color;
-                    dislikesp = "<p style='margin:0;'><a id='dislike" + dislikep_id + "' href='/dislikeprofile/" + dislikep_id + "/'><img src='/static/images/" + dislikep_color + ".png'></a></p>";
+                    dislikesp = "<p style='margin-top:-3px;margin-bottom:0;'><a id='dislike" + dislikep_id + "' href='/dislikeprofile/" + dislikep_id + "/'><img src='/static/images/" + dislikep_color + ".png'></a></p>";
                     $('#dislike_profile' + dislikep_id).html(dislikesp);
                 }
             }
