@@ -96,9 +96,9 @@
 }
 
 .sidebar-nav > .sidebar-brand {
-    color: white;
-    padding-bottom: 6px;
-    padding-top: 2px;
+    color: #333333;
+    padding-bottom: 15px;
+    padding-top: 10px;
     text-align: center;
     background: white;
     border-bottom: 1px solid #959595;
