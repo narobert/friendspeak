@@ -108,7 +108,7 @@
                     }
                   }
 
-                  ('#sendInviteButton').click(function() {
+                  $('#sendInviteButton').click(function() {
                     FB.ui({
                       app_id: '1565760477011269',
                       method: 'send',
