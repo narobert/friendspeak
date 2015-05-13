@@ -318,6 +318,7 @@ input[type]:focus,
 .age {
   text-align: left;
   color: #333333;
+  margin-bottom: 5px;
 }
 
 .city {
@@ -369,5 +370,5 @@ input[type]:focus,
 }
 
 .logmeout {
-  border-bottom: none;
+  border-bottom: none !important;
 }
