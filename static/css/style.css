@@ -203,12 +203,11 @@ input[type]:focus,
 .box {
   border: 1px solid #959595;
   border-radius: 4px;
-  min-height: 70px;
   background: white;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
-  padding-right: 5px;
+  padding-right: 8px;
   margin-top: 20px;
   display: block;
 }
