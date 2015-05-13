@@ -2940,7 +2940,7 @@ table th[class*="span"],
 .dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
-  color: #008cd5;
+  color: #0079c1;
   text-decoration: none;
   background-color: white;
   background-image: -moz-linear-gradient(top, white, white);

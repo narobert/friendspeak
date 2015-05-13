@@ -368,15 +368,6 @@ input[type]:focus,
   color: #bfbfbf !important;
 }
 
-  .clicked:hover {
-    color: #008cd5 !important;
-  }
-
 .logmeout {
-  color: #d5001b !important;
   border-bottom: none;
 }
-
-  .logmeout:hover {
-    color: #008cd5 !important;
-  }
