@@ -1,4 +1,3 @@
-
  // called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('accessToken & status:'+JSON.stringify(response));
@@ -8,6 +7,7 @@
      if (response.status === 'connected') {
      var userID = sendResponse.authResponse.userID;
       userInformation(userID);
+            
   //console.log('end of userInformation function, permissionsDeclined:'+permissionCount);
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -62,15 +62,11 @@ function userInformation(userID){
       var permissionDeclinedCount;
 console.log('userInformation userID sent:'+userID);
       FB.api(
-        '/me?fields=permissions,name,locale,birthday,picture,friends,taggable_friends,user_photos',
+        '/me?fields=permissions,name,locale,birthday,picture',
         function (response) {
           console.log('userInformation response:'+JSON.stringify(response));
           if (response && !response.error) {
                permissionDeclinedCount = 0;
-               console.log('fbAuthLogin taggable_friends:'+JSON.stringify(response.taggable_friends));
-               console.log('fbAuthLogin friends:'+JSON.stringify(response.friends));
-               console.log('fbAuthLogin photos:'+JSON.stringify(response.user_photos));
-               
                 var permissionsArray = response.permissions.data;
                 console.log('permissionsArray.count:'+permissionsArray.count);
                 
@@ -83,8 +79,8 @@ console.log('userInformation userID sent:'+userID);
                   }
                   if(permissionDeclinedCount >= 1){
                     console.log('permissions are not granted, logging out');
-                    window.alert("Hi "+userDisplayName+", unfortunately we cannot log you in without gaining a little information about you so your friends know who they're posting/talking to. "+
-                    "\n\nWe require your friend list (to display a list of friends that you can post to), email address (for user idenitification in our database), birthday (to calculate your age [your actual month/day is not displayed]), current city (so your friends know where you are), and personal description (as a template to start with that you can later change)"+
+                    window.alert("Hi "+userDisplayName+", unfortunately we cannot log you in without gaining a little information about you so your friends know who their posting/talking to. "+
+                    "\n\nWe require your friend list (to display a list of friends that you can post to), email address (for user idenitification in our database), birthday (to calculate your age [actual month/day is not displayed]), current city (so your friends know where you are), and personal description (as a template to start with that you can later change)"+
                     "\n\nWe will now log you out; when you log back in you will be prompted for permissions and we hope you understand why this information is necessary!");
                     
                     FB.logout(function(response){
