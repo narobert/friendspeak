@@ -112,7 +112,7 @@
                     if (myFriendsArray.indexOf(data[i].name) > -1) {
                       //take out of taggable friends
                     } else {
-                      taggableFriends += "<li><p style='margin:0;color:black;'>" + data[i].name + "</p></li>";
+                      taggableFriends += "<li><p style='margin:0;color:black;'><a class='sendInviteButton'>" + data[i].name + "</a></p></li>";
                     }
                   }
 
