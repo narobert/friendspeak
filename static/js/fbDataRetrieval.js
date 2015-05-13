@@ -108,17 +108,12 @@
                     }
                   }
 
-                  $('#sendInviteButton').click(function() {
-
-                    alert("hello");
-                    
-                    //FB.ui({
-                      //app_id: '1565760477011269',
-                      //method: 'send',
-                      //link: 'https://friendspeak.herokuapp.com',
-                    //});
-
-
+                  $('#sendInviteButton').live('click', function() {
+                    FB.ui({
+                      app_id: '1565760477011269',
+                      method: 'send',
+                      link: 'https://friendspeak.herokuapp.com',
+                    });
                   });
 
                   profileFriendsApp.innerHTML = myFriends;
