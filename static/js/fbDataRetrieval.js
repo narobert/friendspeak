@@ -89,18 +89,36 @@
                   //taggable_friends for loop
                   var friendsIDnames = [];
                   var user_friends_list;
+
+                  // Start: menu bar
+                  var myFriendsArray = [];
+                  var numberOfFriendsApp = response.friends.data.length;
+                  var friendsApp = response.friends.data;
+                  var profileFriendsApp = document.getElementById("profileFriendsApp");
+                  var myFriends = "";
+
+                  for (var i = 0; i < numberOfFriendsApp; i++) {
+                    myFriends += "<li><p style='margin:0;color:white;'><a href='/profile/" + friendsApp[i].id + "/'>" + friendsApp[i].name + "</a></p></li>";
+                    myFriendsArray.push(friendsApp[i].name);
+                  }
+
                   var numberOfTaggableFriends = response.taggable_friends.data.length;
                   var data = response.taggable_friends.data;
-                  var friendsUsingApp = response.friends.data;
-                  var profileFriendList = document.getElementById("profileFriendList");
-                  var myfriends = "";
+                  var profileTaggableFriends = document.getElementById("profileTaggableFriends");
+                  var taggableFriends = "";
 
                   for (var i = 0; i < numberOfTaggableFriends; i++) {
-                     console.log('data ID of person:'+data[i].id+'; name of person:'+data[i].name+'; friends profile picture:'+data[i].picture);
-                     myfriends += "<li><p style='margin:0;color:white;'><a href='/profile/" + friendsUsingApp[0].id + "/'>" + data[i].name + "</a></p></li>";
+                    //console.log('data ID of person:'+data[i].id+'; name of person:'+data[i].name+'; friends profile picture:'+data[i].picture);
+                    if (myFriendsArray.indexOf(data[i].name) > -1) {
+                      //take out of taggable friends
+                    } else {
+                      taggableFriends += "<li><p style='margin:0;color:black;'>" + data[i].name + "</p></li>";
+                    }
                   }
-    
-                  profileFriendList.innerHTML = myfriends;
+
+                  profileFriendsApp.innerHTML = myFriends;
+                  profileTaggableFriends.innerHTML = taggableFriends;
+                  // End: menu bar
 
                   user_friends_list = friendsIDnames.join();
                   console.log('user_friends_list [length]:'+user_friends_list.length);
