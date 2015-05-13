@@ -240,7 +240,7 @@ input[type]:focus,
   border: 1px solid #959595;
   border-radius: 4px;
   background: white;
-  padding-top: 25px;
+  padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
   display: block;
@@ -248,7 +248,7 @@ input[type]:focus,
 
 .comments {
   background: white;
-  padding-bottom: 25px;
+  padding-bottom: 27px;
   display: block;
 }
 
@@ -366,7 +366,7 @@ input[type]:focus,
 .textal {
   text-align: left;
   color: #959595;
-  margin-bottom: 15px;
+  margin-bottom: 0;
 }
 
 .fullbutton {
