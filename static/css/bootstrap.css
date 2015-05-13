@@ -4589,13 +4589,13 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a {
   float: none;
-  padding: 19px 15px 17px;
+  padding: 19px 15px 19px;
   color: #d4d4d4;
   text-decoration: none;
 }
 
 .photoadjust {
-  padding: 19px 15px 18px !important;
+  padding: 19px 15px 19px !important;
 }
 
 .navdivider {
