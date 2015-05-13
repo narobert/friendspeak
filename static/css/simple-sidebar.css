@@ -74,6 +74,16 @@
     background: #0069a9;
 }
 
+.sidebar-nav li p {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #959595;
+    border-bottom: 1px solid #959595;
+    background: #f9f9f9;
+}
+
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #edcce1;

@@ -35,11 +35,6 @@
   color: #0069a9;
 }
 
-.taggable a {
-  color: #999999;
-  background: #eeeeee;
-}
-
 textarea:focus, 
 input:focus, 
 input[type]:focus, 
