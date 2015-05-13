@@ -74,7 +74,7 @@
     background: #0069a9;
 }
 
-.sidebar-nav li p > #sendInviteButton {
+.sidebar-nav li p #sendInviteButton {
     font-size: 14px;
     display: block;
     text-align: center;
