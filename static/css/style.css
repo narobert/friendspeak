@@ -23,16 +23,16 @@
   color: #959595;
 }
 #filterbox::-webkit-input-placeholder {
-  color: #0069a9;
+  color: #959595;
 }
 #filterbox:-moz-placeholder {
-  color: #0069a9;
+  color: #959595;
 }
 #filterbox::-moz-placeholder {
-  color: #0069a9;
+  color: #959595;
 }
 #filterbox:-ms-input-placeholder {
-  color: #0069a9;
+  color: #959595;
 }
 
 textarea:focus, 
@@ -58,7 +58,7 @@ input[type]:focus,
 
 #menu-toggle {
   text-decoration: none;
-  color: white;
+  color: #333333;
 }
 
 .imagelinkbox {
@@ -84,8 +84,7 @@ input[type]:focus,
 }
 
 .whitetext {
-  color: #0069a9;
-  margin-bottom: 5px;
+  color: #0079c1;
 }
 
 .darkorange {
@@ -93,27 +92,28 @@ input[type]:focus,
 }
 
 #orangebutton {
-  background: #0069a9;
+  background: #0085D5;
   text-shadow: none;
   width: 15%;
   color: white;
-  border: 1px solid #005487;
+  border: 1px solid #006dae;
 }
 
   #orangebutton:hover {
-    color: #edcce1;
+    background: white;
+    color: #006dae;
   }
 
 .slidebar {
   position: fixed;
   z-index: 1000;
-  background: #0069a9;
+  background: white;
   right: 275px;
   top: 67px;
   padding: 2px 7px;
-  border-top: 1px solid #005487;
-  border-bottom: 1px solid #005487;
-  border-left: 1px solid #005487;
+  border-top: 1px solid #959595;
+  border-bottom: 1px solid #959595;
+  border-left: 1px solid #959595;
   overflow-y: auto;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -134,10 +134,10 @@ input[type]:focus,
 }
 
 .filterinput {
-  background: #6ec8ff !important;
+  background: white !important;
   box-shadow: none !important;
-  border: none !important;
-  color: white !important;
+  border: 1px solid #959595 !important;
+  color: #333333 !important;
   padding-left: 10px !important;
 }
 
@@ -146,10 +146,11 @@ input[type]:focus,
   border: 1px solid #959595 !important;
   background: white !important;
   box-shadow: none !important;
-  color: #0069a9 !important;
+  color: #0079c1 !important;
   padding-left: 15px !important;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
+  padding-right: 15px !important;
 }
 
 .commentinput {
@@ -157,60 +158,86 @@ input[type]:focus,
   border: none !important;
   background: white !important;
   box-shadow: none !important;
-  color: #0069a9 !important;
+  color: #0079c1 !important;
 }
 
 .formcontainer {
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 20px;
-  border: 1px solid #4a6a86;
-  border-radius: 6px;
+  border: 1px solid #959595;
+  /*border-radius: 6px;*/
   background: white;
 }
 
+.ladder {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.ladders {
+  display: table-cell;
+  border-right: 1px solid #333333;
+  padding: 5px;
+}
+
+  .ladders:last-child {
+    border-right: none;
+  }
+
 .box {
   border: 1px solid #959595;
+  border-radius: 4px;
   min-height: 70px;
   background: white;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 5px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  margin-top: 20px;
   display: block;
 }
 
 .commentbox {
-  border-bottom: 1px solid #959595;
-  border-left: 1px solid #959595;
-  border-right: 1px solid #959595;
+  border: 1px solid #959595;
   background: white;
+  border-radius: 4px;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 10px;
-  margin-bottom: 30px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
   display: block;
   /*display: none;*/
 }
 
-.comments {
+.commentboxnone {
   border-left: 1px solid #959595;
+  border-bottom: 1px solid #959595;
   border-right: 1px solid #959595;
+  border-radius: 4px;
   background: white;
-  padding-top: 15px;
-  padding-bottom: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 10px;
+  display: block;
+  /*display: none;*/
+}
+
+.commentsbox {
+  border: 1px solid #959595;
+  border-radius: 4px;
+  background: white;
+  padding-top: 25px;
   padding-left: 15px;
   padding-right: 15px;
   display: block;
 }
 
-  .comments:last-child {
-    padding-bottom: 15px;
-  }
+.comments {
+  background: white;
+  padding-bottom: 25px;
+  display: block;
+}
 
 .cushion {
   padding: 10px;
@@ -219,8 +246,7 @@ input[type]:focus,
 }
 
 .commentpost {
-  color: #0069a9;
-  margin-bottom: 5px;
+  color: #0079c1;
 }
 
 .commentdate {
@@ -249,7 +275,7 @@ input[type]:focus,
 
 .photo {
   border-radius: 4px;
-  /* border: 2px solid #0069a9; */
+  border: 1px solid #333333;
   position: relative;
   float: left;
   width: 145px;
@@ -262,7 +288,7 @@ input[type]:focus,
   border-radius: 4px;
   width: auto;
   height: 20px;
-  border: 1px solid #151c2b; 
+  border: 1px solid black; 
 }
 
 .photo-post {
@@ -270,18 +296,18 @@ input[type]:focus,
   border-radius: 4px;
   width: auto;
   height: 17px;
-  border: 1px solid #4a6a86;
+  border: 1px solid #333333;
 }
 
 .photo-comment {
   border-radius: 4px;
   width: auto;
   height: 17px;
-  border: 1px solid #4a6a86;
+  border: 1px solid #333333;
 }
 
 .profilename {
-  color: #4a6a86;
+  color: #333333;
   text-align: left;
   margin-bottom: 10px;
   margin-top: 0;
@@ -337,7 +363,7 @@ input[type]:focus,
 }
 
 .clicked {
-  color: #777777 !important;
+  color: #959595 !important;
 }
 
   .clicked:hover {

@@ -17,7 +17,7 @@
     <style>
     body {
       font-family: Baskerville, serif !important;
-      background: #eeeeee;
+      background: #f1f1f1;
       padding-top: 60px;
     }
     </style>
@@ -38,7 +38,7 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="brand" href="/">FriendSpeak</a>
+          <a class="brand" href="/">Friend<font style="color:#0085D5;">Speak</font></a>
           <ul class="nav pull-right">
 
             {% if user.is_authenticated %}
@@ -46,7 +46,7 @@
             <li><a class="navdivider">|</a></li>
             <li class="dropdown">
               {% if total > 0 %}
-              <a data-toggle="dropdown" style="cursor:pointer;" id="changemessage"><img id="changemessagecolor" src="/static/images/message.png">&nbsp;&nbsp;<font style="color:#f90;">{{total}}</font></a>
+              <a data-toggle="dropdown" style="cursor:pointer;" id="changemessage"><img id="changemessagecolor" src="/static/images/message.png">&nbsp;&nbsp;<font style="color:#0085D5;">{{total}}</font></a>
               {% else %}
               <a data-toggle="dropdown" style="cursor:pointer;" id="changemessage"><img id="changemessagecolor" src="/static/images/message.png"></a>
               {% endif %}

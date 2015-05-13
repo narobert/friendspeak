@@ -53,19 +53,26 @@
             <div id="dislike_profile{{p.id}}"></div>
           </center>
         </div>
-        {% if p.hascomments == True %}
         <div class="commenticon" id="getcomments{{p.id}}"><img id="commentimage{{p.id}}" src="/static/images/comment.png"></div>
-        {% endif %}
       </div>
     </div>
     <div class="commentslide" id="commentslider{{p.id}}">
-      <div id="comment_profile{{p.id}}"></div>
-    </div>
-    <div class="commentbox">
-      <form method="POST" action="/commentprofile/{{p.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{p.id}}" data-id="{{p.id}}">
-        <input class="input-block-level commentinput commentfocus{{p.id}}" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
-      </form>
-    </div>
+      {% if p.hascomments == True %}
+      <!-- the ladders begin -->
+      <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
+      <!-- and the ladders end -->
+      <div class="commentsbox">
+        <div id="comment_profile{{w.id}}"></div>
+      </div>
+      {% endif %}
+      <!-- the ladders begin -->
+      <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
+      <!-- and the ladders end -->
+      <div class="commentbox">
+        <form method="POST" action="/commentprofile/{{p.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{p.id}}" data-id="{{p.id}}">
+          <input class="input-block-level commentinput commentfocus{{p.id}}" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
+        </form>
+      </div>
     </div>
   {% endfor %}
 <br><br><br>
@@ -179,7 +186,7 @@ function loadLikes() {
                     var like = data["profilelikes"][i];
                     var like_id = like.id;
                     var like_likes = like.likes;
-                    likes = "<p style='margin:0;color:#959595;'>" + like_likes + "</p>";
+                    likes = "<p style='margin:0;color:#333333;'>" + like_likes + "</p>";
                     $('#likes_profile' + like_id).html(likes);
                 }
             }
