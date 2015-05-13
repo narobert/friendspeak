@@ -387,7 +387,7 @@ input[type]:focus,
   color: #bfbfbf !important;
 }
 
-  .clicked {
+  .clicked:hover {
     color: #959595 !important;
   }
 
