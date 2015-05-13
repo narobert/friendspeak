@@ -315,10 +315,15 @@ input[type]:focus,
   margin-top: 0;
 }
 
+.likefb {
+  text-align: left;
+  color: #333333;
+}
+
 .age {
   text-align: left;
   color: #333333;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .city {

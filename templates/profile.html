@@ -16,6 +16,7 @@
       <h3 class="profilename">{{profileinfo.name}}</h3>
       <p class="city">{{profileinfo.locale}}</p>
       <p class="age">{{profileinfo.age}} years old</p>
+      <p class="likefb"><div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div></p>
 
  <!-- <h3 class="profilename"><div id="profileName"></div></h3>   
       <p class="city"><div id="profileLocation"></div></p>
@@ -25,10 +26,7 @@
       <div id="friendPicture"></div> -->
 
     </div>
-  </div><br>
-  <!-- shows like and share buttons  -->
-  <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div> 
-  <br><br>
+  </div>
   <form method="POST" action="/postto/{{username}}/" enctype="multipart/form-data" style="margin-bottom:30px;">
     <input class="input-block-level lastinput" id="textbox" type="text" name="profilepost" maxlength="1000" placeholder="Post anonymously to {{profileinfo.name}}'s wall" required>
     <div class="buttonbox"><p style="margin:0;text-align:right;"><button class="btn btn-default" id="orangebutton" name="submit" type="submit">Post</button></p></div>
