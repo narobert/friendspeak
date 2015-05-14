@@ -60,21 +60,22 @@ function userInformation(userID){
       var userLocale = "en_US";
       var userDisplayName = "";
       var permissionDeclinedCount;
-console.log('userInformation userID sent:'+userID);
+      console.log('userInformation userID sent:'+userID+' making fb.api call.');
+
       FB.api(
         '/me?fields=permissions,name,locale,birthday,picture',
         function (response) {
-          console.log('userInformation response:'+JSON.stringify(response));
+          console.log('userInformation response in fb.api call:'+JSON.stringify(response));
           if (response && !response.error) {
                permissionDeclinedCount = 0;
                 var permissionsArray = response.permissions.data;
+                console.log('full response'+JSON.stringify(response));
                 console.log('permissionsArray.count:'+permissionsArray.count);
                 
                 function inPermissions(arr) {
                   for(var i=0; i<arr.length; i++) {
                       if (arr[i]["status"] == "declined"){
-                        permissionDeclinedCount++;
-                        
+                        permissionDeclinedCount++; 
                       }
                   }
                   if(permissionDeclinedCount >= 1){
