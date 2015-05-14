@@ -70,6 +70,7 @@ function userInformation(userID){
                permissionDeclinedCount = 0;
                 var permissionsArray = response.permissions.data;
                 console.log('full response'+JSON.stringify(response));
+                consolel.log('response.permissions: '+JSON.stringify(response.permissions));
                 console.log('permissionsArray.count:'+permissionsArray.count);
                 
                 function inPermissions(arr) {
