@@ -2895,7 +2895,7 @@ table th[class*="span"],
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 300px;
+  min-width: 360px;
   padding: 0;
   margin: 0;
   list-style: none;
