@@ -95,17 +95,18 @@ function userInformation(userID){
                       //console.log('user is logged out');
                     //});
                 
-                    console.log('JUST LOGGED OUT, TRYING TO CALL FOR REREQUEST LOG BACK IN ');
-                    // FB.LOGIN IS NOT BEING CALLED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    console.log('stopped loggout, TRYING TO CALL FOR REREQUEST LOG BACK IN ');
                     
                     FB.login(function(response) {
                         console.log('rerequesting permissions');
-                      }, {scope: 'user_birthday,user_about_me,user_location,user_friends',
+                      }, {
+                          scope: 'user_birthday,user_about_me,user_location,user_friends',
                           auth_type: 'rerequest'
+                          return_scopes: true
                      });
-
+                      console.log('after fb.login within fbAuthLogin.js to see if grantedScopes of authresponse works:'+authResponse.grantedScopes);
                       
-                     window.alert('I have rerequested....');
+                     window.alert('login rerequest has been sent; hopefully this breaks back to rerequest permissions on submit....');
                     //ENSURE REREQUST POPUP WINDOW CLOSES (AND RELOAD PAGE/REDIRECT TO /HOME/)
                   }else{
                     console.log('all permissions granted');
