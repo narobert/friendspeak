@@ -92,6 +92,7 @@ console.log('userInformation userID sent:'+userID);
                       }, {scope: 'user_birthday,user_about_me,user_location,user_friends',
                           auth_type: 'reauthenticate'
                      });
+                     window.alert('I have rerequested....');
                     //ENSURE REREQUST POPUP WINDOW CLOSES (AND RELOAD PAGE/REDIRECT TO /HOME/)
                   }else{
                     console.log('all permissions granted');
