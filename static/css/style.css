@@ -220,7 +220,6 @@ input[type]:focus,
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 10px;
-  margin-left: 70px;
   display: block;
   /*display: none;*/
 }
@@ -234,7 +233,6 @@ input[type]:focus,
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 10px;
-  margin-left: 70px;
   display: block;
   /*display: none;*/
 }

@@ -38,14 +38,6 @@
       </div>
     </div>
     <div class="commentslide" id="commentslider{{w.id}}">
-      {% if w.hascomments == True %}
-      <!-- the ladders begin -->
-      <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
-      <!-- and the ladders end -->
-      <div class="commentsbox">
-        <div id="comment_wall{{w.id}}"></div>
-      </div>
-      {% endif %}
       <!-- the ladders begin -->
       <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
       <!-- and the ladders end -->
@@ -54,6 +46,14 @@
           <input class="input-block-level commentinput commentfocus{{w.id}}" id="textbox" type="text" name="wallcomment" maxlength="500" placeholder="Write a comment..." required>
         </form>
       </div>
+      {% if w.hascomments == True %}
+      <!-- the ladders begin -->
+      <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
+      <!-- and the ladders end -->
+      <div class="commentsbox">
+        <div id="comment_wall{{w.id}}"></div>
+      </div>
+      {% endif %}
     </div>
   {% endfor %}
 <br><br><br>
