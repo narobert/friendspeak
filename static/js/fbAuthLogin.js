@@ -109,7 +109,6 @@ function userInformation(userID){
                       //});
                       
                      window.alert('I have rerequested....');
-                     break;
                     //ENSURE REREQUST POPUP WINDOW CLOSES (AND RELOAD PAGE/REDIRECT TO /HOME/)
                   }else{
                     console.log('all permissions granted');
