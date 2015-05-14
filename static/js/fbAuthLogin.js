@@ -55,7 +55,16 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk')); 
 
-
+function newLoginDialog(){
+    FB.login(function(response) {
+    console.log('INSIDE newLoginDialog; rerequesting permissions');
+    },
+    {
+      scope: 'user_birthday,user_about_me,user_location,user_friends',
+      auth_type: 'rerequest'
+      return_scopes: true
+   });
+}
 function userInformation(userID){
       var userLocale = "en_US";
       var userDisplayName = "";
@@ -89,21 +98,16 @@ function userInformation(userID){
                     "\n\nWe require your friend list (to display a list of friends that you can post to), email address (for user idenitification in our database), birthday (to calculate your age [actual month/day is not displayed]), current city (so your friends know where you are), and personal description (as a template to start with that you can later change)"+
                     "\n\nWe will now log you out; when you log back in you will be prompted for permissions and we hope you understand why this information is necessary!");
                     
-                    console.log('after alert window; permissions are not granted, SKIPPING LOGOUT');
+                    console.log('after alert window; permissions are not granted, SKIPPING LOGOUT, running newLoginDialog');
                     
+                    newLoginDialog();
                     //FB.logout(function(response){
                       //console.log('user is logged out');
                     //});
                 
-                    console.log('stopped loggout, TRYING TO CALL FOR REREQUEST LOG BACK IN ');
+                    console.log('JUST RAN newLoginDialog::::::DID NOT stopped loggout, TRYING TO CALL FOR REREQUEST LOG BACK IN ');
                     
-                    FB.login(function(response) {
-                        console.log('rerequesting permissions');
-                      }, {
-                          scope: 'user_birthday,user_about_me,user_location,user_friends',
-                          auth_type: 'rerequest'
-                          return_scopes: true
-                     });
+                    
                       console.log('after fb.login within fbAuthLogin.js to see if grantedScopes of authresponse works:'+authResponse.grantedScopes);
                       
                      window.alert('login rerequest has been sent; hopefully this breaks back to rerequest permissions on submit....');
