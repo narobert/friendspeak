@@ -34,6 +34,14 @@
       </div>
     </div>
   </div>
+  <!-- the ladders begin -->
+  <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
+  <!-- and the ladders end -->
+  <div class="commentbox">
+    <form method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid">
+      <input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
+    </form>
+  </div>
   {% for c in profilecomments %}
     {% if profileposts.hascomments == True %}
     <!-- the ladders begin -->
@@ -56,14 +64,6 @@
     </div>
     {% endif %}
   {% endfor %}
-  <!-- the ladders begin -->
-  <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
-  <!-- and the ladders end -->
-  <div class="commentbox">
-    <form method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid">
-      <input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
-    </form>
-  </div>
 
 {% endblock %}
 
