@@ -58,11 +58,9 @@ window.fbAsyncInit = function() {
 function newLoginDialog(){
     FB.login(function(response) {
     console.log('INSIDE newLoginDialog; rerequesting permissions');
-    },
-    {
-      scope: 'user_birthday,user_about_me,user_location,user_friends',
-      auth_type: 'rerequest'
-      return_scopes: true
+    },{scope: 'user_birthday,user_about_me,user_location,user_friends',
+        auth_type: 'rerequest',
+        return_scopes: true
    });
 }
 function userInformation(userID){
