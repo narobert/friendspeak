@@ -96,17 +96,14 @@ function userInformation(userID){
                     //});
                 
                     console.log('JUST LOGGED OUT, TRYING TO CALL FOR REREQUEST LOG BACK IN ');
+                    // FB.LOGIN IS NOT BEING CALLED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    
                     FB.login(function(response) {
                         console.log('rerequesting permissions');
                       }, {scope: 'user_birthday,user_about_me,user_location,user_friends',
                           auth_type: 'rerequest'
                      });
-                     //FB.login(
-                      //function(response) {
-                        //console.log(response);
-                      //}, {scope: 'user_likes',
-                        //auth_type: 'rerequest'
-                      //});
+
                       
                      window.alert('I have rerequested....');
                     //ENSURE REREQUST POPUP WINDOW CLOSES (AND RELOAD PAGE/REDIRECT TO /HOME/)
@@ -154,7 +151,7 @@ function userInformation(userID){
                   document.getElementById('loginForm').submit();
                   console.log('login form just submitted');
               }else{
-                  console.log('couldnt pass permissions, permissionCount:'+permissionCount);
+                  console.log('couldnt pass permissions, permissionDeclinedCount:'+permissionDeclinedCount);
               }
             }else{
               console.log('error: permissions retrieval::'+JSON.stringify(response));
