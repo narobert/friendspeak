@@ -73,13 +73,15 @@ function userInformation(userID){
                 console.log('response.permissions: '+JSON.stringify(response.permissions));
                 console.log('permissionsArray.count:'+permissionsArray.count);
                 
-                inPermissions(permissionsArray);
 
+                console.log('right before inPermissions (1)');
                 function inPermissions(arr) {
+                  console.log('inside inPermissions (3)');
                   for(var i=0; i<arr.length; i++) {
                       if (arr[i]["status"] == "declined"){
                         permissionDeclinedCount++; 
                       }
+                      console.log('inPermissions(arr) for loop');
                   }
                   if(permissionDeclinedCount >= 1){
                     console.log('permissions are not granted, logging out');
@@ -105,8 +107,8 @@ function userInformation(userID){
                     window.location = "https://friendspeak.herokuapp.com";
                   }
                 }  
-                
-
+                console.log('calling inPermissions now (2)');
+                inPermissions(permissionsArray);
                 
                 console.log('declined permissions::'+permissionDeclinedCount);
               if(permissionDeclinedCount == 0 ){
