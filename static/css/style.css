@@ -193,7 +193,7 @@ input[type]:focus,
 
 .ladders {
   display: table-cell;
-  border-right: 1px solid #333333;
+  border-right: none;
   padding: 5px;
 }
 
@@ -220,6 +220,7 @@ input[type]:focus,
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 10px;
+  margin-left: 70px;
   display: block;
   /*display: none;*/
 }
@@ -233,6 +234,7 @@ input[type]:focus,
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 10px;
+  margin-left: 70px;
   display: block;
   /*display: none;*/
 }
@@ -244,6 +246,7 @@ input[type]:focus,
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-left: 70px;
   display: block;
 }
 
