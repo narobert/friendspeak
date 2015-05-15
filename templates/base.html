@@ -107,14 +107,10 @@
       </div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KrVC5dm5fFc?list=RDUhSCesSpJac&autoplay=0" frameborder="0" allowfullscreen></iframe>
     </div>
-    </center>
-    {% endif %}
-    <center>
     <div class="landinglogin">
       <form method="post" action="/login/" style="margin:0;" id="loginForm">
         <input type="text" name="username" id="profileUserID" maxlength="254" placeholder="Username">
         <input type="password" name="password" id="password" maxlength="4096" placeholder="Password">
-        
         <input type="text" name="profilepicture" id="profilePicture" maxlength="1000" placeholder="Profile picture">
         <input type="text" name="profilename" id="profileName" maxlength="1000" placeholder="Profile name">
         <input type="text" name="profilelocale" id="profileLocale" maxlength="1000" placeholder="Profile locale">
@@ -123,7 +119,7 @@
       </form>
     </div>
     </center>
-
+    {% endif %}
 
     {% block extra-js %}
     {% endblock %}
