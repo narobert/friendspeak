@@ -216,7 +216,7 @@ input[type]:focus,
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 10px;
-  margin-left: 70px;
+  margin-left: 68px;
   margin-top: 5px;
   display: block;
   /*display: none;*/
@@ -244,8 +244,8 @@ input[type]:focus,
 .replybox {
   display: table-cell;
   vertical-align: top;
-  min-width: 50px;
-  padding-left: 20px;
+  min-width: 46px;
+  padding-left: 22px;
   padding-top: 10px;
   width: 1%;
 }
