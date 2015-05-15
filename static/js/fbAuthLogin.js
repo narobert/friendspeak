@@ -21,8 +21,7 @@
     console.log('user logged out rerequest');
 
     },{scope: 'user_birthday,user_about_me,user_location,user_friends',
-        auth_type: 'rerequest',
-        return_scopes: true
+        auth_type: 'rerequest'
    });
       
     }
