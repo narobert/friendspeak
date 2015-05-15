@@ -80,14 +80,18 @@
                   console.log('error retrieving some shit:::'+JSON.stringify(response.error));
                 }
             });
-            
+      
      function getUserLocation() {
          FB.api(
-                "/v2.0/me?fields=location,bio,address,email,taggable_friends,friends,address",
+                "/v2.0/me?fields=location",
                 function (response) {
                   if (response && !response.error) {
-                   console.log('Successful login for: ' + response.name + ' Email: ' + response.email);
-    
+                   console.log('getUserLocation, location:'+JSON.stringify(response));
+                  }else{
+                    console.log('error thrown in getUserLocation:'+response.error);
+                  }
+                });
+      }
     }else if (response.status === 'not_authorized') {
       console.log('person is logged into FB but not app');
       // The person is logged into Facebook, but not your app.
