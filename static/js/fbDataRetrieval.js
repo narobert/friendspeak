@@ -21,9 +21,11 @@
   function statusChangeCallback(response) {
     // defines current login status of the person
     if (response.status === 'connected') {
+            //address:The person's address
+            //location: The person's current location as entered by them on their profile. This field is not related to check-ins
            //name,birthday,location,bio,address,locale,email,picture,taggable_friends,friends",
             FB.api(
-                "/me?fields=location,bio,address,email,taggable_friends,friends,address",
+                "/me?fields=location,bio,email,taggable_friends,friends,address",
                 function (response) {
                   if (response && !response.error) {
                    console.log('Successful login for: ' + response.name + ' Email: ' + response.email);
@@ -77,6 +79,14 @@
                   console.log('error retrieving some shit:::'+JSON.stringify(response.error));
                 }
             });
+            
+     function getUserLocation() {
+         FB.api(
+                "/v2.0/me?fields=location,bio,address,email,taggable_friends,friends,address",
+                function (response) {
+                  if (response && !response.error) {
+                   console.log('Successful login for: ' + response.name + ' Email: ' + response.email);
+    
     }else if (response.status === 'not_authorized') {
       console.log('person is logged into FB but not app');
       // The person is logged into Facebook, but not your app.
