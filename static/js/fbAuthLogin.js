@@ -58,6 +58,8 @@ window.fbAsyncInit = function() {
 function newLoginDialog(){
     FB.login(function(response) {
     console.log('INSIDE newLoginDialog; rerequesting permissions');
+    console.log('after fb.login within fbAuthLogin.js to see if grantedScopes of authresponse works:'+authResponse.grantedScopes);
+
     },{scope: 'user_birthday,user_about_me,user_location,user_friends',
         auth_type: 'rerequest',
         return_scopes: true
@@ -92,6 +94,7 @@ function userInformation(userID){
                   }
                   if(permissionDeclinedCount >= 1){
                     console.log('permissionCount >= 1, they denied:'+permissionDeclinedCount+' permissions');
+                    
                     window.alert("Hi "+userDisplayName+", unfortunately we cannot log you in without gaining a little information about you so your friends know who their posting/talking to. "+
                     "\n\nWe require your friend list (to display a list of friends that you can post to), email address (for user idenitification in our database), birthday (to calculate your age [actual month/day is not displayed]), current city (so your friends know where you are), and personal description (as a template to start with that you can later change)"+
                     "\n\nWe will now log you out; when you log back in you will be prompted for permissions and we hope you understand why this information is necessary!");
@@ -106,7 +109,6 @@ function userInformation(userID){
                     console.log('JUST RAN newLoginDialog::::::DID NOT stopped loggout, TRYING TO CALL FOR REREQUEST LOG BACK IN ');
                     
                     
-                      console.log('after fb.login within fbAuthLogin.js to see if grantedScopes of authresponse works:'+authResponse.grantedScopes);
                       
                      window.alert('login rerequest has been sent; hopefully this breaks back to rerequest permissions on submit....');
                     //ENSURE REREQUST POPUP WINDOW CLOSES (AND RELOAD PAGE/REDIRECT TO /HOME/)
