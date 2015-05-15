@@ -220,6 +220,7 @@ input[type]:focus,
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 10px;
+  margin-left: 75px;
   display: block;
   /*display: none;*/
 }
@@ -237,6 +238,7 @@ input[type]:focus,
   /*display: none;*/
 }
 
+/*
 .reply {
   display: table;
   width: 100%;
@@ -250,6 +252,7 @@ input[type]:focus,
   padding-top: 10px;
   width: 1%;
 }
+*/
 
 .commentsbox {
   border: 1px solid #959595;
@@ -258,6 +261,7 @@ input[type]:focus,
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-left: 75px;
   display: block;
 }
 
