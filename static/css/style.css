@@ -216,8 +216,8 @@ input[type]:focus,
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 10px;
-  margin-left: 100px;
-  margin-top: 10px;
+  margin-left: 70px;
+  margin-top: 5px;
   display: block;
   /*display: none;*/
 }
@@ -238,14 +238,14 @@ input[type]:focus,
 .reply {
   display: table;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .replybox {
   display: table-cell;
   vertical-align: top;
-  min-width: 60px;
-  padding-left: 40px;
+  min-width: 50px;
+  padding-left: 20px;
   padding-top: 10px;
   width: 1%;
 }
