@@ -25,7 +25,7 @@ def home(request):
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
-    return render_to_response("mypofile.html", {"user": request.user, "myprofileinfo": myprofileinfo, "wallposts": wallposts, "allposts": allposts, "total": total, "wallcomments": wallcomments})
+    return render_to_response("myprofile.html", {"user": request.user, "myprofileinfo": myprofileinfo, "wallposts": wallposts, "allposts": allposts, "total": total, "wallcomments": wallcomments})
 
 
 def click(request, id):
