@@ -44,6 +44,12 @@ input[type]:focus,
   box-shadow: none;
 }
 
+.separator {
+  border-bottom: 1px solid #bfbfbf;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
 .commentslide {
   display: none;
 }
