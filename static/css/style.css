@@ -237,6 +237,25 @@ input[type]:focus,
   /*display: none;*/
 }
 
+.reply {
+  display: table;
+  width: 100%;
+}
+
+.replybox {
+  display: table-cell;
+  vertical-align: top;
+  min-width: 50px;
+  width: 1%;
+}
+
+.commentsbox {
+  border: 1px solid #959595;
+  border-radius: 4px;
+  background: white;
+  display: table-cell;
+}
+
 .commentsbox {
   border: 1px solid #959595;
   border-radius: 4px;
