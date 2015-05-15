@@ -45,7 +45,7 @@
         <div class="comments">
           <div class="commentident" style="display:inline-block;vertical-align:top;margin-top:5px;">
             {% if user.username = c.user.username %}
-            <p style="color:#d4d4d4;margin-right:15px;"><img class="photo-comment" src="/static/images/nick_prof.jpg"></p>
+            <p style="color:#d4d4d4;margin-right:15px;"><img class="photo-comment" src="{{myprofileinfo.picture}}"></p>
             {% else %}
             <p style="color:#d4d4d4;margin-right:15px;"><img src="/static/images/comment.png"></p>
             {% endif %}
