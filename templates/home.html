@@ -66,22 +66,35 @@ var username = "{{user.username}}";
 
 {% for w in wallposts %}
 
-$('#getcomments{{w.id}}').click(function() {
-    if ($("#commentimage{{w.id}}").attr("src") == "/static/images/comment.png") {
-        loadComments({{w.id}});
-        $("#commentimage{{w.id}}").attr("src", "/static/images/comment_blue.png");
-    }
-    else {
-        $("#commentimage{{w.id}}").attr("src", "/static/images/comment.png");
-        $("#commentslider{{w.id}}").slideUp();
-    }
-});
+    {% if w.hascomments == True %}
 
-{% if w.hascomments == True %}
-$('.commentfocus{{w.id}}').focus(function() {
-    loadComments({{w.id}});
-    $("#commentimage{{w.id}}").attr("src", "/static/images/comment_blue.png");
-});
+        $('#getcomments{{w.id}}').click(function() {
+            if ($("#commentimage{{w.id}}").attr("src") == "/static/images/comment.png") {
+                loadComments({{w.id}});
+                $("#commentimage{{w.id}}").attr("src", "/static/images/comment_blue.png");
+        }
+        else {
+                $("#commentimage{{w.id}}").attr("src", "/static/images/comment.png");
+                $("#commentslider{{w.id}}").slideUp();
+        }
+    });
+
+{% else %}
+
+
+    {% if w.hascomments == True %}
+
+        $('#getcomments{{w.id}}').click(function() {
+            if ($("#commentimage{{w.id}}").attr("src") == "/static/images/comment.png") {
+                loadCommentBox({{w.id}});
+                $("#commentimage{{w.id}}").attr("src", "/static/images/comment_blue.png");
+        }
+        else {
+                $("#commentimage{{w.id}}").attr("src", "/static/images/comment.png");
+                $("#commentslider{{w.id}}").slideUp();
+        }
+    });
+
 {% endif %}
 
 $('#formid{{w.id}}').live("submit", function(event) {
@@ -216,6 +229,20 @@ function loadComments(id) {
                 $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div>");
                 $('#commentslider' + id).slideDown();
                 //$('.commentbox').slideDown();
+            }
+        },
+    });
+}
+
+function loadCommentBox(id) {
+    $.ajax({
+        url: "/ajax/blog/getCommentsW",
+        data: ({ id: id }),
+        type: "POST",
+        dataType: "json",
+        success: function(data) {
+            if (data["status"] == "OK") {
+                $('#commentslider' + id).slideDown();
             }
         },
     });
