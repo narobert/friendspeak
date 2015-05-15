@@ -7,8 +7,6 @@
      if (response.status === 'connected') {
      var userID = sendResponse.authResponse.userID;
       userInformation(userID);
-            
-  //console.log('end of userInformation function, permissionsDeclined:'+permissionCount);
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       console.log('response.status==not_authorized: logged into fb but not app; logging out of fb now');
@@ -17,13 +15,11 @@
       console.log('user is not logged into facebook, trying new login rerequest');
       // person not logged into Facebook; unsure if they're logged into app or not.
       // document.getElementById('status').innerHTML = 'Please log into Facebook.';
-       FB.login(function(response) {
-    console.log('user logged out rerequest');
-
-    },{scope: 'user_birthday,user_about_me,user_location,user_friends',
+      FB.login(function(response) {
+        console.log('user logged out rerequest');
+      },{scope: 'user_birthday,user_about_me,user_location,user_friends',
         auth_type: 'rerequest'
-   });
-      
+     }); 
     }
   }
   
