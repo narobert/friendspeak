@@ -55,7 +55,7 @@ input[type]:focus,
     border-bottom: none;
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: none;
+    margin-bottom: 0;
   }
 
 .commentslide {
