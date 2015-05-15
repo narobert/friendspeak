@@ -51,6 +51,13 @@ input[type]:focus,
   margin-bottom: 10px;
 }
 
+  .separator:last-child {
+    border-bottom: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: none;
+  }
+
 .commentslide {
   display: none;
 }
