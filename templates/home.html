@@ -72,30 +72,27 @@ var username = "{{user.username}}";
             if ($("#commentimage{{w.id}}").attr("src") == "/static/images/comment.png") {
                 loadComments({{w.id}});
                 $("#commentimage{{w.id}}").attr("src", "/static/images/comment_blue.png");
-        }
-        else {
+            }
+            else {
                 $("#commentimage{{w.id}}").attr("src", "/static/images/comment.png");
                 $("#commentslider{{w.id}}").slideUp();
-        }
-    });
+            }
+        });
 
-{% else %}
-
-
-    {% if w.hascomments == True %}
+    {% else %}
 
         $('#getcomments{{w.id}}').click(function() {
             if ($("#commentimage{{w.id}}").attr("src") == "/static/images/comment.png") {
                 loadCommentBox({{w.id}});
                 $("#commentimage{{w.id}}").attr("src", "/static/images/comment_blue.png");
-        }
-        else {
+            }
+            else {
                 $("#commentimage{{w.id}}").attr("src", "/static/images/comment.png");
                 $("#commentslider{{w.id}}").slideUp();
-        }
-    });
+            }
+        });
 
-{% endif %}
+    {% endif %}
 
 $('#formid{{w.id}}').live("submit", function(event) {
     event.preventDefault();
