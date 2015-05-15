@@ -246,14 +246,9 @@ input[type]:focus,
   display: table-cell;
   vertical-align: top;
   min-width: 50px;
+  padding-left: 25px;
+  padding-top: 10px;
   width: 1%;
-}
-
-.commentsbox {
-  border: 1px solid #959595;
-  border-radius: 4px;
-  background: white;
-  display: table-cell;
 }
 
 .commentsbox {
@@ -263,7 +258,6 @@ input[type]:focus,
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-left: 70px;
   display: block;
 }
 
