@@ -34,36 +34,33 @@
       </div>
     </div>
   </div>
-  <!-- the ladders begin -->
-  <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
-  <!-- and the ladders end -->
+  <div class="reply">
+    <div class="replybox"><img src="/static/images/reply.png"></div>
+    {% for c in profilecomments %}
+      {% if profileposts.hascomments == True %}
+      <div class="commentsbox">
+        <div class="comments">
+          <div class="commentident" style="display:inline-block;vertical-align:top;margin-top:5px;">
+            {% if user.username = c.user.username %}
+            <p style="color:#d4d4d4;margin-right:15px;"><img class="photo-comment" src="/static/images/nick_prof.jpg"></p>
+            {% else %}
+            <p style="color:#d4d4d4;margin-right:15px;"><img src="/static/images/comment.png"></p>
+            {% endif %}
+          </div>
+          <div class="commentpoop" style="display:inline-block;">
+            <p class="commentpost" style="display:inline-block;">{{c.profilecomment}}</p><br>
+            <p class="commentdate" style="display:inline-block;">{{c.timeremoved}} ago</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
   <div class="commentbox">
     <form method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid">
       <input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
     </form>
   </div>
-  {% for c in profilecomments %}
-    {% if profileposts.hascomments == True %}
-    <!-- the ladders begin -->
-    <div class="ladder"><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div><div class="ladders"></div></div>
-    <!-- and the ladders end -->
-    <div class="commentsbox">
-      <div class="comments">
-        <div class="commentident" style="display:inline-block;vertical-align:top;margin-top:5px;">
-          {% if user.username = c.user.username %}
-          <p style="color:#d4d4d4;margin-right:15px;"><img class="photo-comment" src="/static/images/nick_prof.jpg"></p>
-          {% else %}
-          <p style="color:#d4d4d4;margin-right:15px;"><img src="/static/images/comment.png"></p>
-          {% endif %}
-        </div>
-        <div class="commentpoop" style="display:inline-block;">
-          <p class="commentpost" style="display:inline-block;">{{c.profilecomment}}</p><br>
-          <p class="commentdate" style="display:inline-block;">{{c.timeremoved}} ago</p>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-  {% endfor %}
 
 {% endblock %}
 
