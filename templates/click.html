@@ -34,10 +34,10 @@
       </div>
     </div>
   </div>
+  {% if profileposts.hascomments == True %}
   <div class="reply">
     <div class="replybox"><img src="/static/images/reply.png"></div>
     {% for c in profilecomments %}
-      {% if profileposts.hascomments == True %}
       <div class="commentsbox">
         <div class="comments">
           <div class="commentident" style="display:inline-block;vertical-align:top;margin-top:5px;">
@@ -53,9 +53,9 @@
           </div>
         </div>
       </div>
-      {% endif %}
     {% endfor %}
   </div>
+  {% endif %}
   <div class="commentbox">
     <form method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid">
       <input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
