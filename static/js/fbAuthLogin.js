@@ -72,7 +72,7 @@ function userInformation(userID){
       console.log('userInformation userID sent:'+userID+' making fb.api call.');
 
       FB.api(
-        '/me?fields=permissions,name,locale,birthday,picture',
+        '/me?fields=permissions,name,locale,birthday,picture,email,bio',
         function (response) {
           console.log('userInformation response in fb.api call:'+JSON.stringify(response));
           if (response && !response.error) {
@@ -83,9 +83,7 @@ function userInformation(userID){
                 console.log('permissionsArray.count:'+permissionsArray.count);
                 
 
- //               console.log('right before inPermissions (1)');
                 function inPermissions(arr) {
-//                  console.log('inside inPermissions (3)')
                   for(var i=0; i<arr.length; i++) {
                       if (arr[i]["status"] == "declined"){
                         permissionDeclinedCount++; 
@@ -99,19 +97,7 @@ function userInformation(userID){
                     "\n\nWe require your friend list (to display a list of friends that you can post to), email address (for user idenitification in our database), birthday (to calculate your age [actual month/day is not displayed]), current city (so your friends know where you are), and personal description (as a template to start with that you can later change)"+
                     "\n\nWe will now log you out; when you log back in you will be prompted for permissions and we hope you understand why this information is necessary!");
                     
-                    console.log('after alert window; permissions are not granted, SKIPPING LOGOUT, running newLoginDialog');
-                    
                     newLoginDialog();
-                    //FB.logout(function(response){
-                      //console.log('user is logged out');
-                    //});
-                
-                    console.log('JUST RAN newLoginDialog::::::DID NOT stopped loggout, TRYING TO CALL FOR REREQUEST LOG BACK IN ');
-                    
-                    
-                      
-                     window.alert('login rerequest has been sent; hopefully this breaks back to rerequest permissions on submit....');
-                    //ENSURE REREQUST POPUP WINDOW CLOSES (AND RELOAD PAGE/REDIRECT TO /HOME/)
                   }else{
                     console.log('all permissions granted');
                   }
@@ -119,10 +105,8 @@ function userInformation(userID){
                     window.location = "https://friendspeak.herokuapp.com";
                   }
                 }  
-//                console.log('calling inPermissions now (2)');
                 inPermissions(permissionsArray);
                 
-                console.log('declined permissions::'+permissionDeclinedCount);
               if(permissionDeclinedCount == 0 ){
                 var profName = response.name;
                 var profLocale = response.locale;
@@ -144,8 +128,10 @@ function userInformation(userID){
                   }else{
                     profAge = 'null';
                     console.log('cant find age');
-                  }                
-                
+                  }             
+                  //document.getElementById("profileBio").value = profBio;
+                  //document.getElementById("profileEmail").value = profEmail;
+                  //document.getElementById("profileLocation").value = profLocation;
                   document.getElementById("profilePicture").value = profPicture;
                   document.getElementById("profileName").value = profName;
                   document.getElementById("profileLocale").value = profLocale;
@@ -156,7 +142,7 @@ function userInformation(userID){
                   document.getElementById('loginForm').submit();
                   console.log('login form just submitted');
               }else{
-                  console.log('couldnt pass permissions, permissionDeclinedCount:'+permissionDeclinedCount);
+                  console.log('declined permissions count:'+permissionDeclinedCount);
               }
             }else{
               console.log('error: permissions retrieval::'+JSON.stringify(response));

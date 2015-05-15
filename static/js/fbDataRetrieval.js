@@ -23,7 +23,7 @@
     if (response.status === 'connected') {
            //name,birthday,location,bio,address,locale,email,picture,taggable_friends,friends",
             FB.api(
-                "/me?fields=location,bio,address,email,taggable_friends,friends",
+                "/me?fields=location,bio,address,email,taggable_friends,friends,address",
                 function (response) {
                   if (response && !response.error) {
                    console.log('Successful login for: ' + response.name + ' Email: ' + response.email);
