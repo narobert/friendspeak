@@ -221,6 +221,7 @@ input[type]:focus,
   padding-bottom: 0;
   padding-left: 10px;
   margin-left: 100px;
+  margin-top: 10px;
   display: block;
   /*display: none;*/
 }
@@ -262,6 +263,7 @@ input[type]:focus,
   padding-left: 15px;
   padding-right: 15px;
   margin-left: 100px;
+  margin-top: 10px;
   display: block;
 }
 
