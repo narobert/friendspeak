@@ -242,6 +242,7 @@ input[type]:focus,
 .reply {
   display: table;
   width: 100%;
+  margin-top: 10px;
 }
 
 .replybox {
@@ -260,7 +261,6 @@ input[type]:focus,
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-top: 10px;
   display: block;
 }
 
