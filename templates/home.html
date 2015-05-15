@@ -38,8 +38,6 @@
       </div>
     </div>
     <div class="commentslide" id="commentslider{{w.id}}">
- <!-- <div class="reply">
-      <div class="replybox"><img src="/static/images/reply.png"></div> -->
       <div id="comment_wall{{w.id}}"></div>
       <div class="commentbox">
         <form method="POST" action="/commentwall/{{w.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{w.id}}" data-id="{{w.id}}">
@@ -210,7 +208,7 @@ function loadComments(id) {
                     total = total + 1;
                 }
                 if (total > 0) {
-                    $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div>");
+                    $('#comment_wall' + id).html("<div class='reply'><div class='replybox'><img src='/static/images/reply.png'></div><div class='commentsbox'>" + comments + "</div></div>");
                     $('#commentslider' + id).slideDown();
                 }
                 else {
