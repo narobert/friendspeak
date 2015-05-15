@@ -14,10 +14,16 @@
       console.log('response.status==not_authorized: logged into fb but not app; logging out of fb now');
       document.getElementById('status').innerHTML = 'Please log in to facebook again ';
     } else {
-      console.log('user is not logged into facebook');
+      console.log('user is not logged into facebook, trying new login rerequest');
       // person not logged into Facebook; unsure if they're logged into app or not.
       // document.getElementById('status').innerHTML = 'Please log into Facebook.';
-      
+       FB.login(function(response) {
+    console.log('user logged out rerequest');
+
+    },{scope: 'user_birthday,user_about_me,user_location,user_friends',
+        auth_type: 'rerequest',
+        return_scopes: true
+   });
       
     }
   }
