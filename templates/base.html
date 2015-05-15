@@ -42,7 +42,7 @@
           <ul class="nav pull-right">
 
             {% if user.is_authenticated %}
-            <li><a class="photoadjust" href="/myprofile/"><img class="photo-icon" src="/static/images/nick_prof.jpg">&nbsp;&nbsp;&nbsp;{{user.username}}</a></li>
+            <li><a class="photoadjust" href="/myprofile/"><img class="photo-icon" src="{{myprofileinfo.picture}}">&nbsp;&nbsp;&nbsp;{{myprofileinfo.name}}</a></li>
             <li><a class="navdivider">|</a></li>
             <li class="dropdown">
               {% if total > 0 %}
