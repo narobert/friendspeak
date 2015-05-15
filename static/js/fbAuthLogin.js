@@ -75,7 +75,7 @@ function userInformation(userID) {
     console.log('userInformation userID sent:'+userID+' making fb.api call.');
 
     FB.api(
-        '/me?fields=permissions,name,locale,birthday,picture,email,bio',
+        '/me?fields=permissions,name,locale,birthday,picture,email,bio,location,address',
         function (response) {
             //console.log('userInformation response in fb.api call:'+JSON.stringify(response));
             if (response && !response.error) {
@@ -123,6 +123,10 @@ function userInformation(userID) {
                     var profLocale = response.locale;
                     var profAge;
                     var profPicture = "https://graph.facebook.com/" + userID + "/picture?width=200";
+                    var profEmail = response.email;
+                    var profBio = response.bio;
+                    var profLocation = response.location;
+                    var profAddress = response.address;
                 
                     function agefinding() {
                         var birthDay = response.birthday;
@@ -140,13 +144,14 @@ function userInformation(userID) {
                         profAge = 'null';
                         console.log('cant find age');
                     }             
-                    //document.getElementById("profileBio").value = profBio;
-                    //document.getElementById("profileEmail").value = profEmail;
-                    //document.getElementById("profileLocation").value = profLocation;
-                    document.getElementById("profilePicture").value = profPicture;
                     document.getElementById("profileName").value = profName;
                     document.getElementById("profileLocale").value = profLocale;
-                    document.getElementById("profileAge").value = profAge;       
+                    document.getElementById("profileAge").value = profAge;
+                    document.getElementById("profilePicture").value = profPicture;
+                    document.getElementById("profileEmail").value = profEmail;
+                    document.getElementById("profileBio").value = profBio;
+                    document.getElementById("profileLocation").value = profLocation;
+                    document.getElementById("profileAddress").value = profAddress;      
                     document.getElementById("profileUserID").value = userID;         //userID
                     document.getElementById("password").value = "12345";    //super secret password key
                     console.log('found username and password elements');

@@ -7,10 +7,13 @@ from datetime import datetime
 
 class Profile(models.Model):
   user = models.ForeignKey(User)
-  picture = models.CharField(max_length = 1000)
   name = models.CharField(max_length = 1000)
   locale = models.CharField(max_length = 1000)
   age = models.CharField(max_length = 1000)
+  picture = models.CharField(max_length = 1000)
+  bio = models.CharField(max_length = 1000)
+  location = models.CharField(max_length = 1000)
+  address = models.CharField(max_length = 1000)
 
 class Wpost(models.Model):
   id = models.AutoField('#', primary_key=True)

@@ -374,23 +374,27 @@ def register(request):
 
 
 def login(request):
-    username = password = profilepicture = profilename = profilelocale = profileage = ''
+    username = password = profilename = profilelocale = profileage = profilepicture = profileemail = profilebio = profilelocation = profileaddress = ''
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
-        profilepicture = request.POST.get('profilepicture')
         profilename = request.POST.get('profilename')
         profilelocale = request.POST.get('profilelocale')
         profileage = request.POST.get('profileage')
+        profilepicture = request.POST.get('profilepicture')
+        profileemail = request.POST.get('profileemail')
+        profilebio = request.POST.get('profilebio')
+        profilelocation = request.POST.get('profilelocation')
+        profileaddress = request.POST.get('profileaddress')
   
         user = authenticate(username = username, password = password)
         if user is not None:
             auth_login(request, user)
             return HttpResponseRedirect('/')
         else:
-            newuser = User.objects.create_user(username = username, email = 'testemail@ucsd.edu', password = password)
+            newuser = User.objects.create_user(username = username, email = profileemail, password = password)
             newuser.save()
-            profile = Profile.objects.create(user = newuser, picture = profilepicture, name = profilename, locale = profilelocale, age = profileage)
+            profile = Profile.objects.create(user = newuser, name = profilename, locale = profilelocale, age = profileage, picture = profilepicture, bio = profilebio, location = profilelocation, address = profileaddress)
             profile.save()
             user = authenticate(username = username, password = password)
             auth_login(request, user)
