@@ -105,5 +105,5 @@
           //);
       document.getElementById('status').innerHTML = 'Please log into Facebook.';
     }
-  }
+  })
 };
