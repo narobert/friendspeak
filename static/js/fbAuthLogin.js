@@ -145,6 +145,7 @@ function userInformation(userID){
                   //document.getElementById("profileBio").value = profBio;
                   //document.getElementById("profileEmail").value = profEmail;
                   //document.getElementById("profileLocation").value = profLocation;
+                  console.log('fbAuthLogin profPicture'+profPicture);
                   document.getElementById("profilePicture").value = profPicture;
                   document.getElementById("profileName").value = profName;
                   document.getElementById("profileLocale").value = profLocale;
