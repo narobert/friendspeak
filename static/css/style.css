@@ -332,6 +332,7 @@ input[type]:focus,
 
 .togetheragain {
   display: inline-block;
+  margin-bottom: 20px;
 }
 
 .photo {
@@ -407,7 +408,6 @@ input[type]:focus,
 
 .likefb {
   text-align: left;
-  margin-bottom: 15px;
   color: #333333;
 }
 
