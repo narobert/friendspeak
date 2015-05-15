@@ -15,6 +15,8 @@ import simplejson as json
 
 
 def home(request):
+    if not request.user.is_authenticated():
+        return render_to_response("register.html")
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
     wallposts = Wpost.objects.all().order_by("-id")
@@ -23,12 +25,12 @@ def home(request):
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
-    if not request.user.is_authenticated():
-        return render_to_response("register.html")
     return render_to_response("home.html", {"user": request.user, "myprofileinfo": myprofileinfo, "wallposts": wallposts, "allposts": allposts, "total": total, "wallcomments": wallcomments})
 
 
 def click(request, id):
+    if not request.user.is_authenticated():
+        return render_to_response("register.html")
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
     profileposts = Ppost.objects.get(id = id)
@@ -41,12 +43,12 @@ def click(request, id):
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
-    if not request.user.is_authenticated():
-        return render_to_response("register.html")
     return render_to_response("click.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "like": like, "dislike": dislike, "total": total})
 
 
 def myprofile(request):
+    if not request.user.is_authenticated():
+        return render_to_response("register.html")
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
     profileposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
@@ -55,12 +57,12 @@ def myprofile(request):
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
-    if not request.user.is_authenticated():
-        return render_to_response("register.html")
     return render_to_response("myprofile.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
 
 
 def profile(request, username):
+    if not request.user.is_authenticated():
+        return render_to_response("register.html")
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
     if (Profile.objects.filter(user__username = username).count() == 0):
@@ -72,8 +74,6 @@ def profile(request, username):
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
-    if not request.user.is_authenticated():
-        return render_to_response("register.html")
     return render_to_response("profile.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileinfo": profileinfo, "username": username, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
 
 
