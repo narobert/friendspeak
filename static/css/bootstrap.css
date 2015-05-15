@@ -2900,11 +2900,14 @@ table th[class*="span"],
   margin: 0;
   list-style: none;
   background-color: white;
-  border-left: 1px solid #959595;
-  border-right: 1px solid #959595;
-  border-bottom: 1px solid #959595;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
+  -webkit-box-shadow: 0 5px 10px #bfbfbf;
+     -moz-box-shadow: 0 5px 10px #bfbfbf;
+          box-shadow: 0 5px 10px #bfbfbf;
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
