@@ -79,12 +79,12 @@ function userInformation(userID){
       FB.api(
         '/me?fields=permissions,name,locale,birthday,picture,email,bio',
         function (response) {
-          console.log('userInformation response in fb.api call:'+JSON.stringify(response));
+          //console.log('userInformation response in fb.api call:'+JSON.stringify(response));
           if (response && !response.error) {
                permissionDeclinedCount = 0;
                 var permissionsArray = response.permissions.data;
-                console.log('full response'+JSON.stringify(response));
-                console.log('response.permissions: '+JSON.stringify(response.permissions));
+                //console.log('full response'+JSON.stringify(response));
+                //console.log('response.permissions: '+JSON.stringify(response.permissions));
                 console.log('permissionsArray.count:'+permissionsArray.count);
                 
 
@@ -105,12 +105,12 @@ function userInformation(userID){
                     // window.location = "https://friendspeak.herokuapp.com/logout/";
                     FB.logout(function(response) {
                       // user is now logged out
-                      //FB.logout will log the user out of both your site and Facebook. You will need to have a valid access token for the user in order to call the function.
-                      //Calling FB.logout will also invalidate the access token that you have for the user, unless you have extended the access token. More info on how to extend the access token here.
+                      //FB.logout will log the user out of both your site and Facebook. You will need to have a valid access token for the user in order to call the function. (check)
+                      //Calling FB.logout will also invalidate the access token that you have for the user, unless you have extended the access token. More info on how to extend the access token here. (maybe need to convert to extended?)
                       console.log('LOGGED OUT USER');
                     });
-                    newLoginDialog();
-                    console.log('just ran NEWLOGINDIALOG');
+                    newLoginDialog(); //never runs
+
                   }else{
                     console.log('all permissions granted');
                   }

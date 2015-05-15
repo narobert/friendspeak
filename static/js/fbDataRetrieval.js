@@ -44,6 +44,7 @@
 
                   var numberOfTaggableFriends = response.taggable_friends.data.length;
                   var data = response.taggable_friends.data;
+                  console.log('fbDataRetrieval, taggable_friends.data.length:'+numberOfTaggableFriends+', and taggable_friends.data:'JSON.stringify(data));
                   var profileTaggableFriends = document.getElementById("profileTaggableFriends");
                   var taggableFriends = "";
 
