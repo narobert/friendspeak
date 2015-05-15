@@ -44,6 +44,21 @@ input[type]:focus,
   box-shadow: none;
 }
 
+.landing {
+  text-align: left;
+  padding: 20px;
+  border: 1px solid #959595;
+  background: white;
+  margin-bottom: 20px;
+}
+
+.landinglogin {
+  padding: 20px;
+  border: 1px solid #959595;
+  background: white;
+  margin-bottom: 20px;
+}
+
 .separator {
   border-bottom: 1px solid #bfbfbf;
   margin-left: -15px;
