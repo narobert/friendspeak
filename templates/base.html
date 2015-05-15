@@ -102,10 +102,10 @@
     <br><br><br><br><br><br>
     <center>
     <div class="container-fluid">
-      <p>Please login to Facebook</p>
       <div class="landing">
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true" scope="user_birthday,user_about_me,user_location,user_friends"></div>
       </div>
+      <p>Please login to Facebook</p>
     </div>
     <div class="landinglogin">
       <form method="post" action="/login/" style="margin:0;" id="loginForm">
@@ -114,7 +114,7 @@
         <input type="text" name="profilepicture" id="profilePicture" maxlength="1000" placeholder="Profile picture">
         <input type="text" name="profilename" id="profileName" maxlength="1000" placeholder="Profile name">
         <input type="text" name="profilelocale" id="profileLocale" maxlength="1000" placeholder="Profile locale">
-        <input type="text" name="profileage" id="profileAge" maxlength="1000" placeholder="Profile age"><br>
+        <input type="text" name="profileage" id="profileAge" style="margin-bottom:15px;" maxlength="1000" placeholder="Profile age">
         <button class="btn" name="submitButton" type="submit">Update info</button>
       </form>
     </div>
