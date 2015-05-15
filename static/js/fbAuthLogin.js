@@ -56,6 +56,7 @@ window.fbAsyncInit = function() {
   }(document, 'script', 'facebook-jssdk')); 
 
 function newLoginDialog(){
+console.log('IN NEWLOGINDIALOG');
     FB.login(function(response) {
     console.log('granted scopes:'+authResponse.grantedScopes);
 
@@ -96,7 +97,15 @@ function userInformation(userID){
                     "\n\nWe require your friend list (to display a list of friends that you can post to), email address (for user idenitification in our database), birthday (to calculate your age [actual month/day is not displayed]), current city (so your friends know where you are), and personal description (as a template to start with that you can later change)"+
                     "\n\nWe will now log you out; when you log back in you will be prompted for permissions and we hope you understand why this information is necessary!");
                     
+                    // window.location = "https://friendspeak.herokuapp.com/logout/";
+                    FB.logout(function(response) {
+                      // user is now logged out
+                      //FB.logout will log the user out of both your site and Facebook. You will need to have a valid access token for the user in order to call the function.
+                      //Calling FB.logout will also invalidate the access token that you have for the user, unless you have extended the access token. More info on how to extend the access token here.
+                      console.log('LOGGED OUT USER');
+                    });
                     newLoginDialog();
+                    console.log('just ran NEWLOGINDIALOG');
                   }else{
                     console.log('all permissions granted');
                   }
