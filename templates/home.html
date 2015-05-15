@@ -187,7 +187,6 @@ function loadDislike() {
 }
 
 function loadComments(id) {
-    var flag = false;
     $.ajax({
         url: "/ajax/blog/getCommentsW",
         data: ({ id: id }),
@@ -196,27 +195,27 @@ function loadComments(id) {
         success: function(data) {
             if (data["status"] == "OK") {
                 var comments = "";
+                var total = 0;
                 for (var i = 0; i < data["wallcomments"].length; i++) {
                     var comment = data["wallcomments"][i];
                     var comment_user = comment.usercomment;
                     var comment_comment = comment.wallcomment;
                     var comment_date = comment.date;
-                    console.log("comments: " + comment_comment);
-                    if (comment_comment == "") {
-                        flag = true;
-                        break;
-                    }
                     if (username == comment_user) {
                         comments += "<div class='comments'><div class='commentident' style='display:inline-block;vertical-align:top;margin-top:5px;'><p style='color:#d4d4d4;margin-right:15px;'><img class='photo-comment' src='/static/images/nick_prof.jpg'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p><br><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p></div></div>";
                     }
                     else {
                         comments += "<div class='comments'><div class='commentident' style='display:inline-block;vertical-align:top;margin-top:5px;'><p style='color:#d4d4d4;margin-right:15px;'><img src='/static/images/comment.png'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p><br><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p></div></div>";
                     }
+                    total = total + 1;
                 }
-                if (flag == false) {
+                if (total > 0) {
                     $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div>");
+                    $('#commentslider' + id).slideDown();
                 }
-                $('#commentslider' + id).slideDown();
+                else {
+                    $('#commentslider' + id).slideDown();
+                }
             }
         },
     });
