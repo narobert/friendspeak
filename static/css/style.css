@@ -374,6 +374,7 @@ input[type]:focus,
 .photo-mycomment {
   border-radius: 4px;
   width: auto;
+  margin-top: 9px;
   height: 17px;
   position: absolute;
   margin-left: 30px;
