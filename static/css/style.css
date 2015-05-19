@@ -375,10 +375,8 @@ input[type]:focus,
   border-radius: 4px;
   width: auto;
   z-index: -1;
-  margin-top: 9px;
   height: 17px;
   position: absolute;
-  margin-left: 65px;
   border: 1px solid #333333;
 }
 
