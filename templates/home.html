@@ -20,6 +20,7 @@
       <div class="boxpost">
         <p class="whitetext">{{w.wallpost}}</p>
         <p class="textal">{{w.timeremoved}} ago</p>
+        <div class="commenticon" id="getcomments{{w.id}}"><img id="commentimage{{w.id}}" src="/static/images/comment.png"></div>
    <!-- {% if user.username == w.user.username %}
         <p class="textal"><img class="photo-post" src="/static/images/nick_prof.jpg">{{w.timeremoved}} ago</p>
         {% else %}
@@ -34,7 +35,6 @@
             <div id="dislike_wall{{w.id}}"></div>
           </center>
         </div>
-        <div class="commenticon" id="getcomments{{w.id}}"><img id="commentimage{{w.id}}" src="/static/images/comment.png"></div>
       </div>
       <form method="POST" action="/commentwall/{{w.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{w.id}}" data-id="{{w.id}}">
         <input class="input-block-level commentinput commentfocus{{w.id}}" id="textbox" type="text" name="wallcomment" maxlength="500" placeholder="Write a comment..." required>
