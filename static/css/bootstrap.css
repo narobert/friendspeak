@@ -2877,6 +2877,7 @@ table th[class*="span"],
   width: 0;
   height: 0;
   vertical-align: middle;
+  margin-top: -1px;
   border-top: 4px solid #bfbfbf;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
