@@ -60,20 +60,12 @@ var comment_picture = "{{myprofileinfo.picture}}";
 
 {% for w in wallposts %}
 
-var commentflag = "false{{w.id}}";
-
 $('#getcomments{{w.id}}').click(function() {
-    console.log($(this).html());
-    if ($(this).html() === "view all comments <span class='caret'></span>") {
+
         loadComments({{w.id}});
         $(this).html("view all comments <span class='caret' style='transform:rotate(180deg);border-top:4px solid #959595;'></span>");
         $(this).css("color", "#959595");
-    }
-    else {
-        $(this).html("view all comments <span class='caret'></span>");
-        $(this).css("color", "#bfbfbf");
-        $('#commentslider{{w.id}}').slideUp();
-    }
+
 });
 
 {% if w.hascomments == True %}
