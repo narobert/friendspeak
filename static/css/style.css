@@ -195,8 +195,8 @@ input[type]:focus,
 }
 
 .commentinput {
-  margin-bottom: 0 !important;
-  border: 1px solid #cccccc !important;
+  margin-bottom: 5px;
+  border: none !important;
   background: white !important;
   box-shadow: none !important;
   color: #0079c1 !important;
@@ -234,7 +234,7 @@ input[type]:focus,
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 10px;
   margin-top: 20px;
   display: block;
 }
@@ -432,7 +432,7 @@ input[type]:focus,
   display: inline-block;
   margin-right: 15px;
   color: #959595;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .fullbutton {
