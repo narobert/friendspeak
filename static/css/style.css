@@ -257,6 +257,7 @@ input[type]:focus,
 .mycommenticon {
   position: absolute;
   margin-left: 30px;
+  margin-top: 8px;
 }
 
 .commentboxnone {
@@ -377,7 +378,6 @@ input[type]:focus,
 
 .photo-mycomment {
   border-radius: 4px;
-  margin-top: 8px;
   width: auto;
   height: 17px;
   border: 1px solid #333333;
