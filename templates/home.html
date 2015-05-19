@@ -56,24 +56,24 @@
 
 var username = "{{user.username}}";
 var comment_picture = "{{myprofileinfo.picture}}";
+var loadflag = false;
 
 {% for w in wallposts %}
 
 $('#getcomments{{w.id}}').click(function() {
-    if ($("#commentimage{{w.id}}").attr("src") == "/static/images/comment.png") {
+    if (loadflag == false) {
         loadComments({{w.id}});
-        $("#commentimage{{w.id}}").attr("src", "/static/images/comment_blue.png");
+        loadflag = true;
     }
     else {
-        $("#commentimage{{w.id}}").attr("src", "/static/images/comment.png");
         $("#commentslider{{w.id}}").slideUp();
+        loadflag = false;
     }
 });
 
 {% if w.hascomments == True %}
 $('.commentfocus{{w.id}}').focus(function() {
     loadComments({{w.id}});
-    $("#commentimage{{w.id}}").attr("src", "/static/images/comment_blue.png");
 });
 {% endif %}
 
