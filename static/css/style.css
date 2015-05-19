@@ -244,7 +244,7 @@ input[type]:focus,
   border: 1px solid #959595;
   background: white;
   border-radius: 4px;
-  margin-left: 68px;
+  margin-left: 75px;
   margin-top: 10px;
   padding-left: 7px;
   padding-top: 5px;
@@ -257,7 +257,6 @@ input[type]:focus,
 .mycommenticon {
   position: absolute;
   margin-left: 30px;
-  margin-top: 17px;
 }
 
 .commentboxnone {
@@ -289,13 +288,11 @@ input[type]:focus,
 }
 
 .commentsbox {
-  border-top: 1px solid #959595;
-  border-left: 1px solid #959595;
-  border-right: 1px solid #959595;
-  border-bottom: 1px solid #bfbfbf;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  border: 1px solid #959595;
+  border-radius: 4px;
   background: white;
+  margin-left: 75px;
+  margin-top: 10px;
   padding-top: 13px;
   padding-left: 15px;
   padding-right: 15px;
@@ -373,6 +370,14 @@ input[type]:focus,
 
 .photo-comment {
   border-radius: 4px;
+  width: auto;
+  height: 17px;
+  border: 1px solid #333333;
+}
+
+.photo-mycomment {
+  border-radius: 4px;
+  margin-top: 8px;
   width: auto;
   height: 17px;
   border: 1px solid #333333;
