@@ -196,6 +196,7 @@ input[type]:focus,
 }
 
 .commentinput {
+  margin-top: 0 !important;
   border: none !important;
   background: white !important;
   box-shadow: none !important;
@@ -248,8 +249,8 @@ input[type]:focus,
   border-bottom-right-radius: 4px;
   margin-left: 68px;
   padding-left: 43px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-right: 15px;
   display: block;
   /*display: none;*/
@@ -258,6 +259,7 @@ input[type]:focus,
 .mycommenticon {
   position: absolute;
   margin-left: -28px;
+  margin-top: 7px;
 }
 
 .commentboxnone {
