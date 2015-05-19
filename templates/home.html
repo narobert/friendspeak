@@ -60,10 +60,21 @@ var comment_picture = "{{myprofileinfo.picture}}";
 
 {% for w in wallposts %}
 
+var commentflag = "false{{w.id}}";
+
 $('#getcomments{{w.id}}').click(function() {
+    if (commentflag == "false{{w.id}}") {
         loadComments({{w.id}});
-        $(this).html("view all comments <span class='caret' style='transform:rotate(180deg);border-top:4px solid #333333;'></span>");
-        $(this).css("color", "#333333");
+        $(this).html("view all comments <span class='caret' style='transform:rotate(180deg);border-top:4px solid #959595;'></span>");
+        $(this).css("color", "#959595");
+        commentflag = "true{{w.id}}";
+    }
+    else {
+        $(this).html("view all comments <span class='caret' style:'border-top:4px solid #bfbfbf;'></span>");
+        $(this).css("color", "#bfbfbf");
+        $('#commentslider{{w.id}}').slideUp();
+        commentflag = "false{{w.id}}";
+    }
 });
 
 {% if w.hascomments == True %}
