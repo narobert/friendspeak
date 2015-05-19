@@ -63,13 +63,13 @@ var loadflag = false;
 $('#getcomments{{w.id}}').click(function() {
     if (loadflag == false) {
         loadComments({{w.id}});
-        $(this).html("view all comments <span class='caret' style='transform:rotate(180deg);color:#333333;'></span>");
+        $(this).html("view all comments <span class='caret' style='transform:rotate(180deg);border-top:4px solid #333333;'></span>");
         $(this).css("color", "#333333");
         loadflag = true;
     }
     else {
         $("#commentslider{{w.id}}").slideUp();
-        $(this).html("view all comments <span class='caret' style='transform:rotate(180deg);color:#bfbfbf;'></span>");
+        $(this).html("view all comments <span class='caret' style='border-top:4px solid #bfbfbf;'></span>");
         $(this).css("color", "#bfbfbf");
         loadflag = false;
     }
