@@ -128,6 +128,7 @@ input[type]:focus,
   text-shadow: none;
   width: 15%;
   color: white;
+  margin-bottom: 10px;
   border: 1px solid #006dae;
 }
 
@@ -236,7 +237,8 @@ input[type]:focus,
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: block;
 }
 
