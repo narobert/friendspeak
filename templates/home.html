@@ -63,17 +63,15 @@ var comment_picture = "{{myprofileinfo.picture}}";
 var commentflag = "false{{w.id}}";
 
 $('#getcomments{{w.id}}').click(function() {
-    if (commentflag == "false{{w.id}}") {
+    if ($(this).html() == "view all comments <span class='caret'></span>") {
         loadComments({{w.id}});
         $(this).html("view all comments <span class='caret' style='transform:rotate(180deg);border-top:4px solid #959595;'></span>");
         $(this).css("color", "#959595");
-        commentflag = "true{{w.id}}";
     }
     else {
-        $(this).html("view all comments <span class='caret' style:'border-top:4px solid #bfbfbf;'></span>");
+        $(this).html("view all comments <span class='caret'></span>");
         $(this).css("color", "#bfbfbf");
         $('#commentslider{{w.id}}').slideUp();
-        commentflag = "false{{w.id}}";
     }
 });
 
