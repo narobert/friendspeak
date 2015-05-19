@@ -40,6 +40,7 @@
     <div class="commentslide" id="commentslider{{w.id}}">
       <div id="comment_wall{{w.id}}"></div>
       <div class="commentbox">
+        <div class="mycommenticon"><img class="photo-comment" src="{{myprofileinfo.picture}}"></div>
         <form method="POST" action="/commentwall/{{w.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{w.id}}" data-id="{{w.id}}">
           <input class="input-block-level commentinput commentfocus{{w.id}}" id="textbox" type="text" name="wallcomment" maxlength="500" placeholder="Write a comment..." required>
         </form>
@@ -56,22 +57,19 @@
 
 var username = "{{user.username}}";
 var comment_picture = "{{myprofileinfo.picture}}";
-var loadflag = false;
 
 {% for w in wallposts %}
 
 $('#getcomments{{w.id}}').click(function() {
-    if (loadflag == false) {
+    if ($(this).css("color") == "#bfbfbf") {
         loadComments({{w.id}});
         $(this).html("view all comments <span class='caret' style='transform:rotate(180deg);border-top:4px solid #333333;'></span>");
         $(this).css("color", "#333333");
-        loadflag = true;
     }
     else {
         $("#commentslider{{w.id}}").slideUp();
         $(this).html("view all comments <span class='caret' style='border-top:4px solid #bfbfbf;'></span>");
         $(this).css("color", "#bfbfbf");
-        loadflag = false;
     }
 });
 
