@@ -254,11 +254,6 @@ input[type]:focus,
   /*display: none;*/
 }
 
-.mycommenticon {
-  position: absolute;
-  margin-left: 30px;
-}
-
 .commentboxnone {
   border-left: 1px solid #959595;
   border-bottom: 1px solid #959595;
@@ -379,6 +374,8 @@ input[type]:focus,
   border-radius: 4px;
   width: auto;
   height: 17px;
+  position: absolute;
+  margin-left: 30px;
   border: 1px solid #333333;
 }
 
