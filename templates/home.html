@@ -38,11 +38,13 @@
       </div>
     </div>
     <div class="commentslide" id="commentslider{{w.id}}">
-      <div id="comment_wall{{w.id}}"></div>
+      <div class="commentbox">
+        <img class="photo-mycomment" src="{{myprofileinfo.picture}}">
         <form method="POST" action="/commentwall/{{w.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{w.id}}" data-id="{{w.id}}">
           <input class="input-block-level commentinput commentfocus{{w.id}}" id="textbox" type="text" name="wallcomment" maxlength="500" placeholder="Write a comment..." required>
         </form>
       </div>
+      <div id="comment_wall{{w.id}}"></div>
     </div>
   {% endfor %}
 <br><br><br>
@@ -209,7 +211,7 @@ function loadComments(id) {
                     total = total + 1;
                 }
                 if (total > 0) {
-                    $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div><div class='commentbox'><img class='photo-mycomment' src='" + comment_picture + "'>");
+                    $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div>");
                     $('#commentslider' + id).slideDown();
                 }
                 else {
