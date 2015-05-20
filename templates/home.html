@@ -209,7 +209,12 @@ function loadComments(id) {
                     }
                     total = total + 1;
                 }
-                $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div>");
+                if (total > 0) {
+                    $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div>");
+                }
+                else {
+                    $('#comment_wall' + id).html("<div class='commentsbox'>Be the first to comment!</div>");
+                }
             }
         },
     });
