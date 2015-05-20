@@ -66,7 +66,6 @@ input[type]:focus,
 .separator {
   border-bottom: 1px solid #eeeeee;
   margin-top: 15px;
-  margin-left: 78px;
 }
 
 .commentslide {
@@ -189,7 +188,8 @@ input[type]:focus,
 }
 
 .commentinput {
-  margin-top: 0 !important;
+  margin-left: -5px !important;
+  margin-top: 2px !important;
   border: none !important;
   background: white !important;
   box-shadow: none !important;
@@ -237,7 +237,6 @@ input[type]:focus,
 .commentbox {
   background: white;
   border-radius: 4px;
-  padding-left: 120px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 7px;
@@ -277,7 +276,6 @@ input[type]:focus,
 .commentsbox {
   border-bottom: 1px solid #eeeeee;
   background: white;
-  margin-left: 78px;
   margin-bottom: 0px;
   padding-top: 13px;
   padding-left: 15px;
