@@ -64,7 +64,7 @@ input[type]:focus,
 }
 
 .separator {
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #eeeeee;
   margin-top: 15px;
   margin-right: 5px;
 }
@@ -275,7 +275,7 @@ input[type]:focus,
 }
 
 .commentsbox {
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #eeeeee;
   background: white;
   margin-bottom: 0px;
   padding-top: 13px;
