@@ -1,38 +1,38 @@
 #textbox::-webkit-input-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #textbox:-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #textbox::-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #textbox:-ms-input-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #inputbox::-webkit-input-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #inputbox:-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #inputbox::-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #inputbox:-ms-input-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #filterbox::-webkit-input-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #filterbox:-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #filterbox::-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #filterbox:-ms-input-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 
 textarea:focus, 
