@@ -189,7 +189,7 @@ input[type]:focus,
 }
 
 .commentinput {
-  margin-top: 0 !important;
+  margin-top: -40px !important;
   border: none !important;
   background: white !important;
   box-shadow: none !important;
@@ -238,10 +238,9 @@ input[type]:focus,
   background: white;
   padding-left: 43px;
   padding-top: 10px;
-  padding-bottom: 10px;
   padding-right: 7px;
-  margin-bottom: -12px;
   margin-right: 5px;
+  margin-bottom: -15px;
   display: block;
   /*display: none;*/
 }
@@ -371,7 +370,7 @@ input[type]:focus,
   height: 17px;
   margin-top: 6px;
   margin-left: -28px;
-  position: absolute;
+  position: relative;
   border: 1px solid #333333;
 }
 
