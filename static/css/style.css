@@ -190,6 +190,7 @@ input[type]:focus,
 
 .commentinput {
   margin-top: -40px !important;
+  margin-bottom: 0 !important;
   border: none !important;
   background: white !important;
   box-shadow: none !important;
