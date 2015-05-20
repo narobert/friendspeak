@@ -243,7 +243,6 @@ input[type]:focus,
 }
 
 .commentbox {
-  border: 1px solid #959595;
   background: white;
   border-radius: 4px;
   padding-left: 40px;
