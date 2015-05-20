@@ -278,9 +278,9 @@ input[type]:focus,
 }
 
 .commentsbox {
-  border-bottom: 1px solid #eeeeee;
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #d4d4d4;
+  border-left: 1px solid #d4d4d4;
+  border-right: 1px solid #d4d4d4;
   background: white;
   margin-bottom: 0px;
   padding-top: 13px;
