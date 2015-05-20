@@ -64,7 +64,7 @@ input[type]:focus,
 }
 
 .separator {
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #d4d4d4;
   margin-top: 15px;
   margin-right: 5px;
 }
@@ -235,11 +235,11 @@ input[type]:focus,
 }
 
 .commentbox {
-  border-bottom: 1px solid #eeeeee;
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #d4d4d4;
+  border-left: 1px solid #d4d4d4;
+  border-right: 1px solid #d4d4d4;
   background: white;
-  padding-left: 5px;
+  padding-left: 9px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 7px;
@@ -250,9 +250,9 @@ input[type]:focus,
 }
 
 .commentboxnone {
-  border-left: 1px solid #959595;
-  border-bottom: 1px solid #959595;
-  border-right: 1px solid #959595;
+  border-left: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+  border-right: 1px solid #d4d4d4;
   border-radius: 4px;
   background: white;
   padding-top: 0;
