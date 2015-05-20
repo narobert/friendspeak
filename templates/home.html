@@ -20,7 +20,7 @@
       <div class="boxpost">
         <p class="whitetext">{{w.wallpost}}</p>
         <p class="textal">{{w.timeremoved}} ago</p>
-        <div class="commenticon" id="getcomments{{w.id}}">view all comments <span class='caret'></span></div>
+        <div class="commenticon"><a href="#myModal{{w.id}}" id="getcomments{{w.id}}" data-toggle="modal">view all comments</a></div>
    <!-- {% if user.username == w.user.username %}
         <p class="textal"><img class="photo-post" src="/static/images/nick_prof.jpg">{{w.timeremoved}} ago</p>
         {% else %}
@@ -36,15 +36,22 @@
           </center>
         </div>
       </div>
-      <div class="commentslide" id="commentslider{{w.id}}">
-        <div class="separator"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal{{w.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 id="myModalLabel">{{w.wallpost}}</h3>
+      </div>
+      <div class="modal-body">
         <div id="comment_wall{{w.id}}"></div>
-        <div class="commentbox">
-          <img class="photo-mycomment" src="{{myprofileinfo.picture}}">
-          <form method="POST" action="/commentwall/{{w.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{w.id}}" data-id="{{w.id}}">
-            <input class="input-block-level commentinput commentfocus{{w.id}}" id="textbox" type="text" name="wallcomment" maxlength="500" placeholder="Write a comment..." required>
-          </form>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <!--<img class="photo-mycomment" src="{{myprofileinfo.picture}}">-->
+        <form method="POST" action="/commentwall/{{w.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{w.id}}" data-id="{{w.id}}">
+          <input class="input-block-level commentinput commentfocus{{w.id}}" id="textbox" type="text" name="wallcomment" maxlength="500" placeholder="Write a comment..." required>
+        </form>
       </div>
     </div>
   {% endfor %}
@@ -62,16 +69,7 @@ var comment_picture = "{{myprofileinfo.picture}}";
 {% for w in wallposts %}
 
 $('#getcomments{{w.id}}').click(function() {
-    if ($('#commentslider{{w.id}}').css("display") == "block") {
-        $(this).html("view all comments <span class='caret'></span>");
-        $(this).css("color", "#bfbfbf");
-        $('#commentslider{{w.id}}').slideUp();
-    }
-    else {
-        loadComments({{w.id}});
-        $(this).html("view all comments <span class='caret' style='transform:rotate(180deg);border-top:4px solid #333333;'></span>");
-        $(this).css("color", "#333333");
-    }
+    loadComments({{w.id}});
 });
 
 {% if w.hascomments == True %}
@@ -211,13 +209,7 @@ function loadComments(id) {
                     }
                     total = total + 1;
                 }
-                if (total > 0) {
-                    $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div>");
-                    $('#commentslider' + id).slideDown();
-                }
-                else {
-                    $('#commentslider' + id).slideDown();
-                }
+                $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div>");
             }
         },
     });
