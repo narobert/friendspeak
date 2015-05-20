@@ -237,8 +237,7 @@ input[type]:focus,
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: block;
 }
 
@@ -246,10 +245,11 @@ input[type]:focus,
   border: 1px solid #959595;
   background: white;
   border-radius: 4px;
-  padding-left: 7px;
+  padding-left: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 7px;
+  margin-top: -5px;
   display: block;
   /*display: none;*/
 }
@@ -287,7 +287,7 @@ input[type]:focus,
   border-radius: 4px;
   background: white;
   margin-left: 100px;
-  margin-top: 10px;
+  margin-top: 5px;
   padding-top: 13px;
   padding-left: 15px;
   padding-right: 15px;
@@ -373,8 +373,9 @@ input[type]:focus,
 .photo-mycomment {
   border-radius: 4px;
   width: auto;
-  z-index: -1;
   height: 17px;
+  margin-top: 6px;
+  margin-left: -25px;
   position: absolute;
   border: 1px solid #333333;
 }
