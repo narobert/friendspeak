@@ -66,6 +66,7 @@ input[type]:focus,
 .separator {
   border-bottom: 1px solid #eeeeee;
   margin-top: 15px;
+  margin-right: 5px;
 }
 
 .commentslide {
@@ -280,6 +281,7 @@ input[type]:focus,
   padding-top: 13px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-right: 5px;
   display: block;
 }
 
