@@ -237,7 +237,7 @@ input[type]:focus,
 
 .commentbox {
   background: white;
-  padding-left: 43px;
+  padding-left: 53px;
   padding-top: 10px;
   padding-right: 7px;
   margin-right: 5px;
@@ -279,7 +279,7 @@ input[type]:focus,
   background: white;
   margin-bottom: 0px;
   padding-top: 13px;
-  padding-left: 15px;
+  padding-left: 25px;
   padding-right: 15px;
   margin-right: 5px;
   display: block;
