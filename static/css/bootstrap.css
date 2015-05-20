@@ -5199,7 +5199,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .modal.fade.in {
-  top: 10%;
+  top: 14%;
 }
 
 .modal-header {
@@ -5208,7 +5208,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .modal-header .close {
-  margin-top: 2px;
+  margin-top: 7px;
 }
 
 .modal-header h4 {
@@ -5219,6 +5219,7 @@ input[type="submit"].btn.btn-mini {
 .modal-body {
   position: relative;
   max-height: 400px;
+  min-height: 320px;
   padding: 15px;
   overflow-y: auto;
 }
