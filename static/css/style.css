@@ -235,15 +235,12 @@ input[type]:focus,
 }
 
 .commentbox {
-  border-bottom: 1px solid #d4d4d4;
-  border-left: 1px solid #d4d4d4;
-  border-right: 1px solid #d4d4d4;
   background: white;
-  padding-left: 9px;
+  padding-left: 42px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 7px;
-  margin-bottom: 0;
+  margin-bottom: -12px;
   margin-right: 5px;
   display: block;
   /*display: none;*/
@@ -279,8 +276,6 @@ input[type]:focus,
 
 .commentsbox {
   border-bottom: 1px solid #d4d4d4;
-  border-left: 1px solid #d4d4d4;
-  border-right: 1px solid #d4d4d4;
   background: white;
   margin-bottom: 0px;
   padding-top: 13px;
