@@ -245,11 +245,12 @@ input[type]:focus,
 .commentbox {
   background: white;
   border-radius: 4px;
-  padding-left: 40px;
+  padding-left: 120px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 7px;
   margin-top: -5px;
+  margin-bottom: -10px;
   display: block;
   /*display: none;*/
 }
