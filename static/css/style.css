@@ -64,7 +64,8 @@ input[type]:focus,
 }
 
 .separator {
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #eeeeee;
+  margin-top: 15px;
   margin-left: 78px;
 }
 
@@ -240,7 +241,7 @@ input[type]:focus,
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 7px;
-  margin-bottom: -15px;
+  margin-bottom: -12px;
   display: block;
   /*display: none;*/
 }
@@ -274,10 +275,9 @@ input[type]:focus,
 }
 
 .commentsbox {
-  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #eeeeee;
   background: white;
   margin-left: 78px;
-  margin-top: 15px;
   margin-bottom: 0px;
   padding-top: 13px;
   padding-left: 15px;
