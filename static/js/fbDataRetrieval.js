@@ -58,7 +58,7 @@ window.fbAsyncInit = function() {
                             }
                         }
 
-                        $('#sendInviteButton').on('click', function() {
+                        $(document).on("click", "#sendInviteButton", function() {
                             FB.ui({
                                 app_id: '1565760477011269',
                                 method: 'send',
