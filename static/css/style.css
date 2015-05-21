@@ -63,18 +63,10 @@ input[type]:focus,
   display: none;
 }
 
-.separator1 {
+.separator {
   border-bottom: 1px solid #eeeeee;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: -15px;
-  margin-right: -10px;
-}
-
-.separator2 {
-  border-bottom: 1px solid #eeeeee;
-  margin-top: 20px;
-  margin-bottom: 15px;
   margin-left: -15px;
   margin-right: -10px;
 }
@@ -261,8 +253,8 @@ input[type]:focus,
 .commentbox {
   display: block;
   padding-right: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .commentsbox {
@@ -292,10 +284,6 @@ input[type]:focus,
   padding-bottom: 25px;
   display: table;
 }
-
-  .clickcomments:last-child {
-    padding-bottom: 5px;
-  }
 
 .cushion {
   padding: 10px;

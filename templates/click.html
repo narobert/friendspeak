@@ -36,7 +36,7 @@
         </center>
       </div>
     </div>
-    <div class="separator1"></div>
+    <div class="separator"></div>
     {% if profileposts.hascomments == True %}
     <div class="clickcommentsbox">
       {% for c in profilecomments %}
@@ -56,7 +56,6 @@
       {% endfor %}
     </div>
     {% endif %}
-    <div class="separator2"></div>
     <div class="commentbox">
       <form method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid">
         <input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
