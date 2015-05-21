@@ -281,6 +281,14 @@ def getCommentsP(request):
 
 
 @ajax_request
+def getCommentP(request):
+    profilepost = Ppost.objects.all().order_by("-id")
+    profilecomment = [pl.for_json() for pl in profilepost]
+
+    return {"status": "OK", "profilecomment": profilecomment}
+
+
+@ajax_request
 def likeprofile(request, id):
     profilepost = Ppost.objects.get(id = id)
     profilelike = Plike.objects.get(user = request.user, profile = profilepost)
