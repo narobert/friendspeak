@@ -76,6 +76,9 @@ input[type]:focus,
 .commenticon {
   display: inline-block;
   cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 0;
+  color: #bfbfbf;
 }
 
   .commenticon a {

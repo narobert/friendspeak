@@ -20,7 +20,7 @@
       <div class="boxpost">
         <p class="whitetext">{{w.wallpost}}</p>
         <p class="textal">{{w.timeremoved}} ago</p>
-        <div class="commenticon"><a href="#myModal{{w.id}}" id="getcomments{{w.id}}" data-toggle="modal">view all comments</a></div>
+        <div class="commenticon"><a href="#myModal{{w.id}}" id="getcomments{{w.id}}" data-toggle="modal"><div id="comment_wall_num{{w.id}}"></div></a></div>
    <!-- {% if user.username == w.user.username %}
         <p class="textal"><img class="photo-post" src="/static/images/nick_prof.jpg">{{w.timeremoved}} ago</p>
         {% else %}
@@ -120,11 +120,37 @@ $('#dislike{{w.id}}').live("click", function(event) {
 {% endfor %}
 
 function load() {
+    loadComment();
     loadLike();
     loadLikes();
     loadDislike();
 }
 window.onload = load;
+
+function loadComment() {
+    $.ajax({
+        url: "/ajax/blog/getCommentW",
+        type: "POST",
+        dataType: "json",
+        success: function(data) {
+            if (data["status"] == "OK") {
+                var commentsw = "";
+                for (var i = 0; i < data["wallcomment"].length; i++) {
+                    var commentw = data["wallcomment"][i];
+                    var commentw_id = commentw.id;
+                    var commentw_numcomments = commentw.numcomments;
+                    if (commentw_numcomments == 1) {
+                        commentsw = commentw_numcomments + " comment";
+                    }
+                    else {
+                        commentsw = commentw_numcomments + " comments";
+                    }
+                    $('#comment_wall_num' + commentw_id).html(commentsw);
+                }
+            }
+        },
+    });
+}
 
 function loadLike() {
     $.ajax({
@@ -215,6 +241,7 @@ function loadComments(id) {
                 else {
                     $('#comment_wall' + id).html("Be the first to comment!");
                 }
+                loadComment();
             }
         },
     });

@@ -20,11 +20,12 @@ class Wpost(models.Model):
   date = models.DateTimeField(default = datetime.now())
   wallpost = models.CharField(max_length = 1000)
   hascomments = models.BooleanField(default = False)
+  numcomments = models.IntegerField(default = 0)
   likes = models.IntegerField(default = 0)
   user = models.ForeignKey(User)
 
   def for_json(self):
-      return {"id": self.id, "likes": self.likes}
+      return {"id": self.id, "likes": self.likes, "numcomments": self.numcomments}
 
   def timeremoved(self):
       return timesince(self.date).split(', ')[0]
@@ -36,11 +37,12 @@ class Ppost(models.Model):
   user1 = models.ForeignKey(User, related_name='user1')
   user2 = models.ForeignKey(User, related_name='user2')
   hascomments = models.BooleanField(default = False)
+  numcomments = models.IntegerField(default = 0)
   clicked = models.BooleanField(default=False)
   likes = models.IntegerField(default = 0)
 
   def for_json(self):
-      return {"id": self.id, "likes": self.likes}
+      return {"id": self.id, "likes": self.likes, "numcomments": self.numcomments}
 
   def timeremoved(self):
       return timesince(self.date).split(', ')[0]

@@ -100,9 +100,10 @@ def commentwall(request, id):
         form = WCommentForm(request.POST)
         if form.is_valid():
             wallpost = Wpost.objects.get(id = id)
+            wallpost.numcomments += 1
             if wallpost.hascomments == False:
                 wallpost.hascomments = True
-                wallpost.save()
+            wallpost.save()
             wallcomment = form.cleaned_data['wallcomment']
             createcomment = Wcomment.objects.create(user = request.user, wallcomment = wallcomment, wall = wallpost)
             createcomment.save()
@@ -121,6 +122,14 @@ def getCommentsW(request):
     wallcomments = [pl.for_json() for pl in comments]
 
     return {"status": "OK", "wallcomments": wallcomments}
+
+
+@ajax_request
+def getCommentW(request):
+    wallpost = Wpost.objects.all().order_by("-id")
+    wallcomment = [pl.for_json() for pl in wallpost]
+
+    return {"status": "OK", "wallcomment": wallcomment}
 
 
 @ajax_request

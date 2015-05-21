@@ -6,6 +6,8 @@ urlpatterns = patterns(
 
     (r'getCommentsW$', 'getCommentsW'),
     (r'getCommentsP$', 'getCommentsP'),
+    (r'getCommentW$', 'getCommentW'),
+    (r'getCommentP$', 'getCommentP'),
     (r'getLikeW$', 'getLikeW'),
     (r'getLikesW$', 'getLikesW'),
     (r'getDislikeW$', 'getDislikeW'),
