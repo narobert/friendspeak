@@ -290,9 +290,6 @@ input[type]:focus,
 .commentsbox {
   background: white;
   margin-bottom: 0px;
-  padding-left: 25px;
-  padding-right: 15px;
-  margin-right: 5px;
   display: block;
 }
 
