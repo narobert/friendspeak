@@ -296,7 +296,7 @@ input[type]:focus,
 .comments {
   background: white;
   padding-bottom: 25px;
-  display: block;
+  display: table;
 }
 
   .comments:last-child {
@@ -368,6 +368,8 @@ input[type]:focus,
 
 .photo-comment {
   border-radius: 4px;
+  margin-right: 15px;
+  margin-top: 10px;
   width: auto;
   height: 17px;
   border: 1px solid #333333;
