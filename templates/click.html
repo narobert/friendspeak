@@ -38,7 +38,7 @@
     </div>
     <div class="separator"></div>
     {% if profileposts.hascomments == True %}
-    <p class="commenticon" style="margin-bottom:15px;">{{p.numcomments}}</p>
+    <p class="commenticon" style="margin-bottom:15px;">{{profileposts.numcomments}}</p>
     <div class="clickcommentsbox">
       {% for c in profilecomments %}
         <div class="clickcomments">
