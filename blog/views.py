@@ -275,9 +275,10 @@ def commentpost(request, id):
         form = PCommentForm(request.POST)
         if form.is_valid():
             profilepost = Ppost.objects.get(id = id)
+            profilepost.numcomments += 1
             if profilepost.hascomments == False:
                 profilepost.hascomments = True
-                profilepost.save()
+            profilepost.save()
             profilecomment = form.cleaned_data['profilecomment']
             createcomment = Pcomment.objects.create(user = request.user, profilecomment = profilecomment, profile = profilepost)
             createcomment.save()
