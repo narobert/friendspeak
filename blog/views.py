@@ -233,6 +233,24 @@ def postprofile(request, username):
     return render_to_response("error.html", {"form": form})
 
 
+def postmyprofile(request):
+    if request.method == 'POST':
+        form = PPostForm(request.POST)
+        if form.is_valid():
+            profilepost = form.cleaned_data['profilepost']
+            createpost = Ppost.objects.create(user1 = request.user, user2 = request.user, profilepost = profilepost)
+            createpost.save()
+            for u in User.objects.all():
+                createlike = Plike.objects.create(user = u, profile = createpost)
+                createdislike = Pdislike.objects.create(user = u, profile = createpost)
+                createlike.save()
+                createdislike.save()
+            return HttpResponseRedirect('/myprofile/')
+    else:
+        form = PPostForm()
+    return render_to_response("error.html", {"form": form})
+
+
 def commentprofile(request, id):
     if request.method == 'POST':
         form = PCommentForm(request.POST)
