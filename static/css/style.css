@@ -322,12 +322,12 @@ input[type]:focus,
 .boxpost {
   display: inline-block;
   vertical-align: top;
-  width: 85%;
+  width: 94%;
 }
 
 .boxbuttons {
   display: inline-block;
-  width: 14%;
+  width: 5%;
 }
 
 .together {
