@@ -63,10 +63,20 @@ input[type]:focus,
   display: none;
 }
 
-.separator {
+.separator1 {
   border-bottom: 1px solid #eeeeee;
-  margin-top: 15px;
-  margin-right: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: -15px;
+  margin-right: -10px;
+}
+
+.separator2 {
+  border-bottom: 1px solid #eeeeee;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: -15px;
+  margin-right: -10px;
 }
 
 .commentslide {
@@ -249,42 +259,10 @@ input[type]:focus,
 }
 
 .commentbox {
-  background: white;
-  padding-left: 53px;
-  padding-top: 10px;
-  padding-right: 7px;
-  margin-right: 5px;
-  margin-bottom: -15px;
   display: block;
-  /*display: none;*/
-}
-
-.commentboxnone {
-  border-left: 1px solid #d4d4d4;
-  border-bottom: 1px solid #d4d4d4;
-  border-right: 1px solid #d4d4d4;
-  border-radius: 4px;
-  background: white;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 10px;
-  display: block;
-  /*display: none;*/
-}
-
-.reply {
-  display: table;
-  width: 100%;
-  margin-top: 5px;
-}
-
-.replybox {
-  display: table-cell;
-  vertical-align: top;
-  min-width: 46px;
-  padding-left: 22px;
+  padding-right: 5px;
   padding-top: 10px;
-  width: 1%;
+  padding-bottom: 10px;
 }
 
 .commentsbox {
@@ -300,6 +278,22 @@ input[type]:focus,
 }
 
   .comments:last-child {
+    padding-bottom: 5px;
+  }
+
+.clickcommentsbox {
+  background: white;
+  margin-bottom: 0;
+  display: block;
+}
+
+.clickcomments {
+  background: white;
+  padding-bottom: 25px;
+  display: table;
+}
+
+  .clickcomments:last-child {
     padding-bottom: 5px;
   }
 
