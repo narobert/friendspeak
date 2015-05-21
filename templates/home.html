@@ -20,7 +20,7 @@
       <div class="boxpost">
         <p class="whitetext">{{w.wallpost}}</p>
         <p class="textal">{{w.timeremoved}} ago</p>
-        <div class="commenticon"><a href="#myModal{{w.id}}" id="getcomments{{w.id}}" data-toggle="modal"><div id="comment_wall_num{{w.id}}"></div></a></div>
+        <div class="commenticon"><a href="#myModal{{w.id}}" id="getcomments{{w.id}}" data-toggle="modal"><div id="comment_wall_number{{w.id}}"></div></a></div>
    <!-- {% if user.username == w.user.username %}
         <p class="textal"><img class="photo-post" src="/static/images/nick_prof.jpg">{{w.timeremoved}} ago</p>
         {% else %}
@@ -139,13 +139,16 @@ function loadComment() {
                     var commentw = data["wallcomment"][i];
                     var commentw_id = commentw.id;
                     var commentw_numcomments = commentw.numcomments;
-                    if (commentw_numcomments == 1) {
+                    if (commentw_numcomments == 0) {
+                        commentsw = "be the first to comment!";
+                    }
+                    else if (commentw_numcomments == 1) {
                         commentsw = commentw_numcomments + " comment";
                     }
                     else {
                         commentsw = commentw_numcomments + " comments";
                     }
-                    $('#comment_wall_num' + commentw_id).html(commentsw);
+                    $('#comment_wall_number' + commentw_id).html(commentsw);
                 }
             }
         },
