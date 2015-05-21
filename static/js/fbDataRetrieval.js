@@ -68,6 +68,8 @@ window.fbAsyncInit = function() {
 
                         profileFriendsApp.innerHTML = myFriends;
                         profileTaggableFriends.innerHTML = taggableFriends;
+                        console.log(profileFriendsApp);
+                        console.log(profileTaggableFriends);
                         // End: menu bar
 
                         if (response.location != 'undefined' && response.location != 'unknown') {
