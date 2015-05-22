@@ -348,6 +348,15 @@ input[type]:focus,
   border: 1px solid #333333;
 }
 
+.icon-comment {
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 17px;
+  min-width: 17px;
+  height: auto;
+  border: 1px solid #ffffff;
+}
+
 .photo-comment {
   border-radius: 4px;
   margin-top: 10px;
