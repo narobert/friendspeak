@@ -20,7 +20,7 @@ def home(request):
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
     wallposts = Wpost.objects.all().order_by("-id")
-    wallcomments = Wcomment.objects.all()
+    wallcomments = Wcomment.objects.all().order_by("id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
@@ -38,7 +38,7 @@ def click(request, id):
     profileposts.save()
     like = Plike.objects.get(user = request.user.id, profile = profileposts)
     dislike = Pdislike.objects.get(user = request.user.id, profile = profileposts)
-    profilecomments = Pcomment.objects.filter(profile = profileposts)
+    profilecomments = Pcomment.objects.filter(profile = profileposts).order_by("id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
@@ -52,7 +52,7 @@ def myprofile(request):
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
     profileposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
-    profilecomments = Pcomment.objects.filter(profile = profileposts)
+    profilecomments = Pcomment.objects.filter(profile = profileposts).order_by("id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
@@ -69,7 +69,7 @@ def profile(request, username):
         return render_to_response("error.html")
     profileinfo = Profile.objects.get(user__username = username)
     profileposts = Ppost.objects.filter(user2__username = username).order_by("-id")
-    profilecomments = Pcomment.objects.filter(profile = profileposts)
+    profilecomments = Pcomment.objects.filter(profile = profileposts).order_by("id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
