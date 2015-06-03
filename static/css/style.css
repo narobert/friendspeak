@@ -2,10 +2,10 @@
   color: #bfbfbf;
 }
 #textbox:-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #textbox::-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #textbox:-ms-input-placeholder {
   color: #bfbfbf;
@@ -14,21 +14,15 @@
   color: #bfbfbf;
 }
 #inputbox:-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #inputbox::-moz-placeholder {
-  color: #bfbfbf;
+  color: #959595;
 }
 #inputbox:-ms-input-placeholder {
   color: #bfbfbf;
 }
 #filterbox::-webkit-input-placeholder {
-  color: #bfbfbf;
-}
-#filterbox:-moz-placeholder {
-  color: #bfbfbf;
-}
-#filterbox::-moz-placeholder {
   color: #bfbfbf;
 }
 #filterbox:-ms-input-placeholder {
@@ -133,7 +127,7 @@ input[type]:focus,
   text-shadow: none;
   width: 15%;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   border: 1px solid #006dae;
 }
 
@@ -176,27 +170,29 @@ input[type]:focus,
 }
 
 .lastinput {
+  height: auto !important;
   margin-bottom: 5px !important;
   border: 1px solid #959595 !important;
   background: white !important;
   box-shadow: none !important;
   color: #0079c1 !important;
   padding-left: 15px !important;
-  padding-top: 20px !important;
-  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
   padding-right: 15px !important;
   margin-top: 60px !important;
 }
 
 .profileinput {
+  height: auto !important;
   margin-bottom: 5px !important;
   border: 1px solid #959595 !important;
   background: white !important;
   box-shadow: none !important;
   color: #0079c1 !important;
   padding-left: 15px !important;
-  padding-top: 20px !important;
-  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
   padding-right: 15px !important;
   margin-top: 10px !important;
 }
@@ -237,6 +233,16 @@ input[type]:focus,
     border-right: none;
   }
 
+.modalbox {
+  border-radius: 4px;
+  background: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  padding-right: 10px;
+  display: block;
+}
+
 .box {
   border: 1px solid #959595;
   border-radius: 4px;
@@ -246,7 +252,7 @@ input[type]:focus,
   padding-left: 15px;
   padding-right: 10px;
   margin-top: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   display: block;
 }
 
@@ -306,6 +312,7 @@ input[type]:focus,
 }
 
 .boxpost {
+  cursor: pointer;
   display: inline-block;
   vertical-align: top;
   width: 94%;
@@ -314,6 +321,12 @@ input[type]:focus,
 .boxbuttons {
   display: inline-block;
   width: 5%;
+}
+
+.modalboxpost {
+  display: inline-block;
+  vertical-align: top;
+  width: 94%;
 }
 
 .together {
@@ -435,10 +448,6 @@ input[type]:focus,
 .cell2 {
   display: table-cell;
   text-align: right;
-}
-
-.boxall {
-  margin-bottom: 30px;
 }
 
 .textal {

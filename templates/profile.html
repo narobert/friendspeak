@@ -36,12 +36,11 @@
   </form>
   </center>
   {% for p in profileposts %}
-    <div class="boxall">
     <div class="box">
-      <div class="boxpost">
+      <div class="boxpost" href="#myModal{{p.id}}" id="getcomments{{p.id}}" data-toggle="modal">
         <p class="whitetext">{{p.profilepost}}</p>
         <p class="textal">{{p.timeremoved}} ago</p>
-        <div class="commenticon"><a href="#myModal{{p.id}}" id="getcomments{{p.id}}" data-toggle="modal"><div id="comment_prof_number{{p.id}}"></div></a></div>
+        <div class="commenticon"><div id="comment_prof_number{{p.id}}"></div></div>
    <!-- {% if user.username == p.user1.username %}
         <p class="textal"><img class="photo-post" src="/static/images/nick_prof.jpg">{{p.timeremoved}} ago</p>
         {% else %}
@@ -62,8 +61,22 @@
     <!-- Modal -->
     <div id="myModal{{p.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 id="myModalLabel">{{p.profilepost}}</h4>
+        <div class="modalbox">
+          <div class="modalboxpost">
+            <p class="whitetext">{{p.profilepost}}</p>
+            <p class="textal">{{p.timeremoved}} ago</p>
+            <div class="commenticon"><div id="comment_modal_prof_number{{p.id}}"></div></div>
+          </div>
+          <div class="boxbuttons">
+            <div style="float:right;">
+              <center>
+                <div id="like_modal_profile{{p.id}}"></div>
+                <div id="likes_modal_profile{{p.id}}"></div>
+                <div id="dislike_modal_profile{{p.id}}"></div>
+              </center>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-body">
         <div id="comment_profile{{p.id}}"></div>
@@ -170,6 +183,7 @@ function loadComment() {
                         commentsp = commentp_numcomments + " comments";
                     }
                     $('#comment_prof_number' + commentp_id).html(commentsp);
+                    $('#comment_modal_prof_number' + commentp_id).html(commentsp);
                 }
             }
         },
@@ -191,6 +205,7 @@ function loadLike() {
                     var likep_color = likep.color;
                     likesp = "<p style='margin:0;'><a id='like" + likep_id + "' href='/likeprofile/" + likep_id + "/'><img src='/static/images/" + likep_color + ".png'></a></p>";
                     $('#like_profile' + likep_id).html(likesp);
+                    $('#like_modal_profile' + likep_id).html(likesp);
                 }
             }
         },
@@ -211,6 +226,7 @@ function loadLikes() {
                     var like_likes = like.likes;
                     likes = "<p style='margin:0;color:#333333;'>" + like_likes + "</p>";
                     $('#likes_profile' + like_id).html(likes);
+                    $('#likes_modal_profile' + like_id).html(likes);
                 }
             }
         },
@@ -231,6 +247,7 @@ function loadDislike() {
                     var dislikep_color = dislikep.color;
                     dislikesp = "<p style='margin-top:-3px;margin-bottom:0;'><a id='dislike" + dislikep_id + "' href='/dislikeprofile/" + dislikep_id + "/'><img src='/static/images/" + dislikep_color + ".png'></a></p>";
                     $('#dislike_profile' + dislikep_id).html(dislikesp);
+                    $('#dislike_modal_profile' + dislikep_id).html(dislikesp);
                 }
             }
         },
