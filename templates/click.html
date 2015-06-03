@@ -10,9 +10,14 @@
 
 <br><br>
   <div class="box">
-    <div class="boxpost">
+    <div class="modalboxpost">
       <p class="whitetext">{{profileposts.profilepost}}</p>
       <p class="textal">{{profileposts.timeremoved}} ago</p>
+      {% if profileposts.numcomments == 1 %}
+      <p class="commenticon">{{profileposts.numcomments}} comment</p>
+      {% else %}
+      <p class="commenticon">{{profileposts.numcomments}} comments</p>
+      {% endif %}
  <!-- {% if user.username == profileposts.user1.username %}
       <p class="textal"><img class="photo-post" src="/static/images/nick_prof.jpg">{{profileposts.timeremoved}} ago</p>
       {% else %}
@@ -36,13 +41,8 @@
         </center>
       </div>
     </div>
-    <div class="separator"></div>
+    <div class="separator_click_top"></div>
     {% if profileposts.hascomments == True %}
-      {% if profileposts.numcomments == 1 %}
-      <p class="commenticon" style="margin-bottom:20px;">{{profileposts.numcomments}} comment</p>
-      {% else %}
-      <p class="commenticon" style="margin-bottom:20px;">{{profileposts.numcomments}} comments</p>
-      {% endif %}
       <div class="clickcommentsbox">
         {% for c in profilecomments %}
           <div class="clickcomments">
@@ -58,10 +58,12 @@
               <p class="commentdate" style="display:inline-block;">{{c.timeremoved}} ago</p>
             </div>
           </div>
+          <div class="separator_click"></div>
         {% endfor %}
       </div>
     {% else %}
-      <p class="commenticon" style="margin-bottom:85px;">Be the first to comment!</p>
+      <center><p class="commenticon" style="margin-bottom:40px;margin-top:40px;">No comments yet!</p></center>
+      <div class="separator_click"></div>
     {% endif %}
     <div class="commentbox">
       <form method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid">
