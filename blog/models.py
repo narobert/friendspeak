@@ -14,6 +14,7 @@ class Profile(models.Model):
   bio = models.CharField(max_length = 1000)
   location = models.CharField(max_length = 1000)
   address = models.CharField(max_length = 1000)
+  friends = models.CharField(max_length = 1000)
 
 class Wpost(models.Model):
   id = models.AutoField('#', primary_key=True)

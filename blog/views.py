@@ -423,6 +423,7 @@ def login(request):
         profilebio = request.POST.get('profilebio')
         profilelocation = request.POST.get('profilelocation')
         profileaddress = request.POST.get('profileaddress')
+        profilefriends = request.POST.get('profilefriends')
   
         user = authenticate(username = username, password = password)
         if user is not None:
@@ -431,7 +432,7 @@ def login(request):
         else:
             newuser = User.objects.create_user(username = username, email = profileemail, password = password)
             newuser.save()
-            profile = Profile.objects.create(user = newuser, name = profilename, locale = profilelocale, age = profileage, picture = profilepicture, bio = profilebio, location = profilelocation, address = profileaddress)
+            profile = Profile.objects.create(user = newuser, name = profilename, locale = profilelocale, age = profileage, picture = profilepicture, bio = profilebio, location = profilelocation, address = profileaddress, friends = profilefriends)
             profile.save()
             user = authenticate(username = username, password = password)
             auth_login(request, user)
