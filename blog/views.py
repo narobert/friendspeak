@@ -21,7 +21,7 @@ def home(request):
     myprofileinfo = Profile.objects.get(user = request.user.id)
     
     friendArray = []
-    friendStr = myprofileinfo.friends
+    friendStr = str(myprofileinfo.friends)
     friendParse = friendStr.split(",")
 
     wallposts = Wpost.objects.all().order_by("-id")
