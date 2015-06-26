@@ -124,14 +124,11 @@ function userInformation(userID) {
                     var profFriends = "";
                     var numberOfFriendsApp = response.friends.data.length;
                     var friendsApp = response.friends.data;
+                    
+                    profFriends += userID
 
                     for (var i = 0; i < numberOfFriendsApp; i++) {
-                        if (i == 0) {
-                            profFriends += friendsApp[i].id;
-                        }
-                        else {
-                            profFriends += "," + friendsApp[i].id;
-                        }
+                        profFriends += "," + friendsApp[i].id;
                     }
 
                     document.getElementById("profileFriends").value = profFriends;
