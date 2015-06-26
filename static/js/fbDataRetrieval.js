@@ -1,7 +1,7 @@
 
 window.fbAsyncInit = function() {
     FB.init({
-        appId      : '1603028726617777',
+        appId      : '1565760477011269',
         cookie     : true,  // enable cookies to allow the server to access the session BASE.HTML
         xfbml      : true,  // parse social plugins on this page
         version    : 'v2.3' 
@@ -60,7 +60,7 @@ window.fbAsyncInit = function() {
 
                         $(document).on("click", "#sendInviteButton", function() {
                             FB.ui({
-                                app_id: '1603028726617777',
+                                app_id: '1565760477011269',
                                 method: 'send',
                                 link: 'https://friendspeak.herokuapp.com',
                             });
