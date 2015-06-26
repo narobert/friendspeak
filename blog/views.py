@@ -19,6 +19,7 @@ def home(request):
         return render_to_response("register.html")
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
+    print myprofileinfo.friends
     wallposts = Wpost.objects.all().order_by("-id")
     wallcomments = Wcomment.objects.all().order_by("id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")

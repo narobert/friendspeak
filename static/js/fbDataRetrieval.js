@@ -49,9 +49,6 @@ window.fbAsyncInit = function() {
                         var profileTaggableFriends = document.getElementById("profileTaggableFriends");
                         var taggableFriends = "";
 
-                        console.log("friends: " + friendsApp);
-                        console.log("taggable friends: " + data);
-
                         for (var i = 0; i < numberOfTaggableFriends; i++) {
                             if (myFriendsArray.indexOf(data[i].name) > -1) {
                                 //take out of taggable friends
