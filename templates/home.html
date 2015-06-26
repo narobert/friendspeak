@@ -17,7 +17,7 @@
     <div class="buttonbox"><p style="margin:0;text-align:right;"><button class="btn btn-default" id="orangebutton" name="submit" type="submit">Post</button></p></div>
   </form>
   {% for w in wallposts %}
-    {% if w.user is in friendParse %}
+    {% if w.user.username in friendParse %}
     <p>chill</p>
     {% else %}
     <div class="box">
