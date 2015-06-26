@@ -18,8 +18,6 @@
   </form>
   {% for w in wallposts %}
     {% if w.user.username in friendParse %}
-    <p>chill</p>
-    {% else %}
     <div class="box">
       <div class="boxpost" href="#myModal{{w.id}}" id="getcomments{{w.id}}" data-toggle="modal">
         <p class="whitetext">{{w.wallpost}}</p>
