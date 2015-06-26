@@ -22,7 +22,7 @@ def home(request):
     
     friendArray = []
     friendStr = str(myprofileinfo.friends)
-    friendParse = friendStr.strip().split(",")
+    friendParse = friendStr.split(",")
 
     wallposts = Wpost.objects.all().order_by("-id")
     wallcomments = Wcomment.objects.all().order_by("id")
