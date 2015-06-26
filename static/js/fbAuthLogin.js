@@ -126,7 +126,12 @@ function userInformation(userID) {
                     var friendsApp = response.friends.data;
 
                     for (var i = 0; i < numberOfFriendsApp; i++) {
-                        profFriends += friendsApp[i].id + ",";
+                        if (i == 0) {
+                            profFriends += friendsApp[i].id;
+                        }
+                        else {
+                            profFriends += "," + friendsApp[i].id;
+                        }
                     }
 
                     document.getElementById("profileFriends").value = profFriends;
