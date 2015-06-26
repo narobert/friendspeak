@@ -75,7 +75,7 @@ function userInformation(userID) {
     console.log('userInformation userID sent:'+userID+' making fb.api call.');
 
     FB.api(
-        '/me?fields=permissions,name,locale,birthday,picture,email,bio,location,address',
+        '/me?fields=permissions,name,locale,birthday,picture,email,bio,location,address,friends',
         function (response) {
             //console.log('userInformation response in fb.api call:'+JSON.stringify(response));
             if (response && !response.error) {
@@ -119,6 +119,20 @@ function userInformation(userID) {
                 inPermissions(permissionsArray);
                 
                 if (permissionDeclinedCount == 0) {
+
+                    // Start: friends to database
+                    var profFriends = "";
+                    var numberOfFriendsApp = response.friends.data.length;
+                    var friendsApp = response.friends.data;
+
+                    for (var i = 0; i < numberOfFriendsApp; i++) {
+                        profFriends += friendsApp[i].id + ", ";
+                    }
+
+                    document.getElementById("profileFriends").value = profFriends;
+                    // End: friends to database
+
+
                     var profName = response.name;
                     var profLocale = response.locale;
                     var profAge;

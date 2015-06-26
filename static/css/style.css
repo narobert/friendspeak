@@ -54,7 +54,6 @@ input[type]:focus,
   background: white;
   margin-bottom: 20px;
   width: 300px;
-  display: none;
 }
 
 .separator {
