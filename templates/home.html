@@ -5,6 +5,8 @@
 
 {% block body %}
 
+{{friendParse}}
+
 <script type='text/javascript' src="/static/js/fbDataRetrieval.js"></script>
 <div id="fb-root"></div>
 
@@ -15,7 +17,9 @@
     <div class="buttonbox"><p style="margin:0;text-align:right;"><button class="btn btn-default" id="orangebutton" name="submit" type="submit">Post</button></p></div>
   </form>
   {% for w in wallposts %}
-    {% if w.user in friendParse %}
+    {% if w.user is in friendParse %}
+    <p>chill</p>
+    {% else %}
     <div class="box">
       <div class="boxpost" href="#myModal{{w.id}}" id="getcomments{{w.id}}" data-toggle="modal">
         <p class="whitetext">{{w.wallpost}}</p>
