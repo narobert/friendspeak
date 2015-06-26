@@ -19,14 +19,18 @@ def home(request):
         return render_to_response("register.html")
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
-    print myprofileinfo.friends
+    
+    friendArray = []
+    friendStr = myprofile.friends
+    friendParse = friendStr.split(",")
+
     wallposts = Wpost.objects.all().order_by("-id")
     wallcomments = Wcomment.objects.all().order_by("id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
-    return render_to_response("home.html", {"user": request.user, "myprofileinfo": myprofileinfo, "wallposts": wallposts, "allposts": allposts, "total": total, "wallcomments": wallcomments})
+    return render_to_response("home.html", {"user": request.user, "myprofileinfo": myprofileinfo, "wallposts": wallposts, "allposts": allposts, "total": total, "wallcomments": wallcomments, "friendParse": friendParse})
 
 
 def click(request, id):
