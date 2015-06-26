@@ -432,6 +432,9 @@ def login(request):
   
         user = authenticate(username = username, password = password)
         if user is not None:
+            profile = Profile.objects.get(user = request.user)
+            profile.friends = profilefriends
+            profile.save()
             auth_login(request, user)
             return HttpResponseRedirect('/')
         else:
