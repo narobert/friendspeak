@@ -432,7 +432,7 @@ def login(request):
   
         user = authenticate(username = username, password = password)
         if user is not None:
-            profile = Profile.objects.get(user = username)
+            profile = Profile.objects.get(user = user)
             profile.friends = profilefriends
             profile.save()
             auth_login(request, user)
