@@ -1,5 +1,5 @@
 #textbox::-webkit-input-placeholder {
-  color: #bfbfbf;
+  color: #ccb09a;
 }
 #textbox:-moz-placeholder {
   color: #959595;
@@ -8,10 +8,10 @@
   color: #959595;
 }
 #textbox:-ms-input-placeholder {
-  color: #bfbfbf;
+  color: #ccb09a;
 }
 #inputbox::-webkit-input-placeholder {
-  color: #bfbfbf;
+  color: #ccb09a;
 }
 #inputbox:-moz-placeholder {
   color: #959595;
@@ -20,13 +20,13 @@
   color: #959595;
 }
 #inputbox:-ms-input-placeholder {
-  color: #bfbfbf;
+  color: #ccb09a;
 }
 #filterbox::-webkit-input-placeholder {
-  color: #bfbfbf;
+  color: #ccb09a;
 }
 #filterbox:-ms-input-placeholder {
-  color: #bfbfbf;
+  color: #ccb09a;
 }
 
 textarea:focus, 
@@ -94,11 +94,16 @@ input[type]:focus,
   cursor: pointer;
   margin-right: 10px;
   margin-bottom: 0;
-  color: #bfbfbf;
+  color: #ccb09a;
 }
 
+  .commenticon:hover {
+    color: #5caccc;
+    text-decoration: none;
+  }
+
   .commenticon a {
-    color: #bfbfbf;
+    color: #ccb09a;
   }
 
   .commenticon a:hover {
@@ -108,7 +113,7 @@ input[type]:focus,
 
 #menu-toggle {
   text-decoration: none;
-  color: #333333;
+  color: #d9c4b4;
 }
 
 .imagelinkbox {
@@ -130,11 +135,28 @@ input[type]:focus,
 }
 
 .buttonbox {
-  padding-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 13px;
+  background: #f4ede8;
+  border-left: 1px solid #d9c4b4;
+  border-right: 1px solid #d9c4b4;
+  border-bottom: 1px solid #d9c4b4;
+}
+
+.buttonsbox {
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 13px;
+  background: #f4ede8;
+  border-left: 1px solid #d9c4b4;
+  border-right: 1px solid #d9c4b4;
+  border-top: 1px solid #d9c4b4;
 }
 
 .whitetext {
-  color: #0079c1;
+  color: #333333;
   margin-bottom: 22px;
 }
 
@@ -142,18 +164,38 @@ input[type]:focus,
   color: #f90;
 }
 
+.formbox {
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #d9c4b4;
+  padding: 15px;
+  background: #f4ede8;
+}
+
+#purplebutton {
+  margin-right: 5px;
+  background: white;
+  text-shadow: none;
+  color: #5caccc;
+  border: 1px solid #5caccc;
+}
+
+  #purplebutton:hover {
+    background: #8fdfff;
+    color: white;
+  }
+
 #orangebutton {
-  background: #0085D5;
+  background: white;
   text-shadow: none;
   width: 15%;
-  color: white;
-  margin-bottom: 5px;
-  border: 1px solid #006dae;
+  color: #5caccc;
+  border: 1px solid #5caccc;
 }
 
   #orangebutton:hover {
-    background: white;
-    color: #006dae;
+    background: #8fdfff;
+    color: white;
   }
 
 .slidebar {
@@ -163,9 +205,9 @@ input[type]:focus,
   right: 275px;
   top: 77px;
   padding: 2px 7px;
-  border-top: 1px solid #959595;
-  border-bottom: 1px solid #959595;
-  border-left: 1px solid #959595;
+  border-top: 1px solid #d9c4b4;
+  border-bottom: 1px solid #d9c4b4;
+  border-left: 1px solid #d9c4b4;
   overflow-y: auto;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -184,23 +226,24 @@ input[type]:focus,
 .filterinput {
   background: white !important;
   box-shadow: none !important;
-  border: 1px solid #959595 !important;
+  border: 1px solid #d9c4b4 !important;
   color: #333333 !important;
   padding-left: 10px !important;
 }
 
 .lastinput {
   height: auto !important;
-  margin-bottom: 5px !important;
-  border: 1px solid #959595 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  border: 1px solid #d9c4b4 !important;
+  border-radius: 0px !important;
   background: white !important;
   box-shadow: none !important;
-  color: #0079c1 !important;
+  color: #333333 !important;
   padding-left: 15px !important;
   padding-top: 10px !important;
   padding-bottom: 10px !important;
   padding-right: 15px !important;
-  margin-top: 60px !important;
 }
 
 .profileinput {
@@ -222,7 +265,7 @@ input[type]:focus,
   border-radius: 0 !important;
   min-height: 35px !important;
   padding-left: 10px !important;
-  border: 1px solid #bfbfbf !important;
+  border: 1px solid #73d8ff !important;
   background: white !important;
   box-shadow: none !important;
   color: #0079c1 !important;
@@ -264,8 +307,7 @@ input[type]:focus,
 }
 
 .box {
-  border: 1px solid #959595;
-  border-radius: 4px;
+  border: 1px solid #d9c4b4;
   background: white;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -462,7 +504,7 @@ input[type]:focus,
   text-align: left;
   display: inline-block;
   margin-right: 15px;
-  color: #959595;
+  color: #ccb09a;
   margin-bottom: 0;
 }
 
@@ -480,7 +522,7 @@ input[type]:focus,
 }
 
 .clicked {
-  color: #bfbfbf !important;
+  color: #73d8ff !important;
 }
 
   .clicked:hover {
