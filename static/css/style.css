@@ -172,7 +172,7 @@ input[type]:focus,
   background: #f4ede8;
 }
 
-#purplebutton {
+#topbtn {
   margin-right: 5px;
   background: white;
   text-shadow: none;
@@ -180,7 +180,7 @@ input[type]:focus,
   border: 1px solid #5caccc;
 }
 
-  #purplebutton:hover {
+  #topbtn:hover {
     background: #8fdfff;
     color: white;
   }
