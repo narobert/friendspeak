@@ -71,8 +71,8 @@
     text-align: center;
     text-decoration: none;
     color: #333333;
-    border-bottom: 1px solid #959595;
-    background: white;
+    border-bottom: 1px solid #d9c4b4;
+    background: #f4ede8;
 }
 
 .sidebar-nav li p {
@@ -80,15 +80,16 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #bfbfbf;
-    border-bottom: 1px solid #959595;
-    background: white;
+    color: #d9c4b4;
+    border-bottom: 1px solid #d9c4b4;
+    background: #f4ede8;
     cursor: pointer;
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #0079c1;
+    background: white;
+    color: #5caccc;
 }
 
 .sidebar-nav li p:hover {
