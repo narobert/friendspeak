@@ -70,9 +70,9 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #333333;
+    color: #ccb09a;
     border-bottom: 1px solid #d9c4b4;
-    background: #f4ede8;
+    background: white;
 }
 
 .sidebar-nav li p {
@@ -80,7 +80,7 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #d9c4b4;
+    color: #ccb09a;
     border-bottom: 1px solid #d9c4b4;
     background: #f4ede8;
     cursor: pointer;
@@ -94,7 +94,7 @@
 
 .sidebar-nav li p:hover {
     text-decoration: none;
-    color: #afafaf;
+    color: #d9c4b4;
 }
 
 .sidebar-nav li a:active,
@@ -107,7 +107,7 @@
     padding-bottom: 15px;
     padding-top: 10px;
     text-align: center;
-    background: white;
+    background: #f4ede8;
     border-bottom: 1px solid #d9c4b4;
 }
 
@@ -115,7 +115,7 @@
     font-size: 16px;
     color: #333333;
     line-height: 60px;
-    background: white;
+    background: #f4ede8;
     border: none;
 }
 
