@@ -26,7 +26,7 @@
     height: 100%;
     margin-right: -276px;
     margin-top: -10px;
-    overflow-y: auto;
+    overflow-y: hidden;
     background: #f4ede8;
     border-left: 1px solid #d9c4b4;
     -webkit-transition: all 0.5s ease;
@@ -104,8 +104,8 @@
 
 .sidebar-nav > .sidebar-brand {
     color: #333333;
-    padding-bottom: 15px;
-    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 5px;
     text-align: center;
     background: #f4ede8;
     border-bottom: 1px solid #d9c4b4;
