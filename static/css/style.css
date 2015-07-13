@@ -23,16 +23,16 @@
   color: #ccb09a;
 }
 #filterbox::-webkit-input-placeholder {
-  color: #5caccc;
+  color: #ccb09a;
 }
 #filterbox:-moz-placeholder {
-  color: #5caccc;
+  color: #ccb09a;
 }
 #filterbox::-moz-placeholder {
-  color: #5caccc;
+  color: #ccb09a;
 }
 #filterbox:-ms-input-placeholder {
-  color: #5caccc;
+  color: #ccb09a;
 }
 
 textarea:focus, 
@@ -232,7 +232,7 @@ input[type]:focus,
 .filterinput {
   background: white !important;
   box-shadow: none !important;
-  border: 1px solid #5caccc !important;
+  border: 1px solid #d9c4b4 !important;
   color: #333333 !important;
   padding-left: 10px !important;
 }
