@@ -23,16 +23,16 @@
   color: #ccb09a;
 }
 #filterbox::-webkit-input-placeholder {
-  color: #4da4c7;
+  color: #3485a6;
 }
 #filterbox:-moz-placeholder {
-  color: #4da4c7;
+  color: #3485a6;
 }
 #filterbox::-moz-placeholder {
-  color: #4da4c7;
+  color: #3485a6;
 }
 #filterbox:-ms-input-placeholder {
-  color: #4da4c7;
+  color: #3485a6;
 }
 
 textarea:focus, 
@@ -119,7 +119,7 @@ input[type]:focus,
 
 #menu-toggle {
   text-decoration: none;
-  color: #4da4c7;
+  color: #3485a6;
 }
 
 .imagelinkbox {
@@ -211,9 +211,9 @@ input[type]:focus,
   right: 275px;
   top: 70px;
   padding: 2px 7px;
-  border-top: 1px solid #4da4c7;
-  border-bottom: 1px solid #4da4c7;
-  border-left: 1px solid #4da4c7;
+  border-top: 1px solid #3485a6;
+  border-bottom: 1px solid #3485a6;
+  border-left: 1px solid #3485a6;
   overflow-y: auto;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -232,7 +232,7 @@ input[type]:focus,
 .filterinput {
   background: white !important;
   box-shadow: none !important;
-  border: 1px solid #4da4c7 !important;
+  border: 1px solid #3485a6 !important;
   color: #333333 !important;
   padding-left: 10px !important;
 }
