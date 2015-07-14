@@ -70,7 +70,7 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #3485a6;
+    color: white;
     border-bottom: 1px solid #3485a6;
     background: white;
 }
@@ -80,7 +80,7 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    color: white;
+    color: #3485a6;
     border-bottom: 1px solid #3485a6;
     background: #5caccc;
     cursor: pointer;
@@ -94,7 +94,7 @@
 
 .sidebar-nav li p:hover {
     text-decoration: none;
-    color: #3485a6;
+    color: white;
 }
 
 .sidebar-nav li a:active,
