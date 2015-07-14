@@ -28,7 +28,7 @@
     margin-top: -10px;
     overflow-y: hidden;
     background: #e2f0f6;
-    border-left: 1px solid #3485a6;
+    border-left: 1px solid #4da4c7;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -71,7 +71,7 @@
     text-align: center;
     text-decoration: none;
     color: #3485a6;
-    border-bottom: 1px solid #3485a6;
+    border-bottom: 1px solid #4da4c7;
     background: white;
 }
 
@@ -80,8 +80,8 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #3485a6;
-    border-bottom: 1px solid #3485a6;
+    color: #4da4c7;
+    border-bottom: 1px solid #4da4c7;
     background: #e2f0f6;
     cursor: pointer;
 }
@@ -108,7 +108,7 @@
     padding-top: 5px;
     text-align: center;
     background: #e2f0f6;
-    border-bottom: 1px solid #3485a6;
+    border-bottom: 1px solid #4da4c7;
 }
 
 .sidebar-nav > .sidebar-brand a {
