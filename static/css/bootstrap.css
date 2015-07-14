@@ -4360,11 +4360,11 @@ input[type="submit"].btn.btn-mini {
   padding-right: 20px;
   padding-left: 20px;
   background-color: #5caccc;
-  background-image: -moz-linear-gradient(top, #5caccc, #5caccc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5caccc), to(#5caccc));
-  background-image: -webkit-linear-gradient(top, #5caccc, #5caccc);
-  background-image: -o-linear-gradient(top, #5caccc, #5caccc);
-  background-image: linear-gradient(to bottom, #5caccc, #5caccc);
+  background-image: -moz-linear-gradient(top, #3485a6, #5caccc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3485a6), to(#5caccc));
+  background-image: -webkit-linear-gradient(top, #3485a6, #5caccc);
+  background-image: -o-linear-gradient(top, #3485a6, #5caccc);
+  background-image: linear-gradient(to bottom, #3485a6, #5caccc);
   background-repeat: repeat-x;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
