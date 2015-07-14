@@ -23,16 +23,16 @@
   color: #ccb09a;
 }
 #filterbox::-webkit-input-placeholder {
-  color: #3485a6;
+  color: #4da4c7;
 }
 #filterbox:-moz-placeholder {
-  color: #3485a6;
+  color: #4da4c7;
 }
 #filterbox::-moz-placeholder {
-  color: #3485a6;
+  color: #4da4c7;
 }
 #filterbox:-ms-input-placeholder {
-  color: #3485a6;
+  color: #4da4c7;
 }
 
 textarea:focus, 
