@@ -4408,7 +4408,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .brand:focus {
   background: transparent;
   text-decoration: none;
-  color: #fbff73;
+  color: #fcff9a;
 }
 
 .navbar-text {
@@ -4607,7 +4607,7 @@ input[type="submit"].btn.btn-mini {
 
   .navdivider:hover {
     background: transparent !important;
-    color: #fbff73 !important;
+    color: white !important;
     text-decoration: none;
   }
 
@@ -4617,7 +4617,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-  color: #73D8FF;
+  color: #fcff9a;
   text-decoration: none;
   background-color: transparent;
   background: transparent;
