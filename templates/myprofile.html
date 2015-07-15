@@ -8,7 +8,8 @@
 <script type='text/javascript' src="/static/js/fbDataRetrieval.js"></script>
 <div id="fb-root"></div>
 
-<br><br>
+<div class="myprofile_padding"></div>
+
   <center>
   <div class="together">
     <div class="photo"><img src="{{myprofileinfo.picture}}"></div>
@@ -31,7 +32,7 @@
     </div>
   </div>
   <form method="POST" action="/posttome/" enctype="multipart/form-data" style="margin-bottom:0;">
-    <input class="input-block-level profileinput" id="textbox" type="text" name="profilepost" maxlength="225" placeholder="Post anonymously to your wall" required>
+    <textarea class="input-block-level profileinput" id="textbox" type="text" name="profilepost" maxlength="225" rows="3" placeholder="Post anonymously to your wall" required></textarea>
     <div class="buttonbox"><p style="margin:0;text-align:right;"><button class="btn btn-default" id="orangebutton" name="submit" type="submit">Post</button></p></div>
   </form>
   </center>

@@ -25,7 +25,7 @@
     width: 0;
     height: 100%;
     margin-right: -275px;
-    margin-top: -10px;
+    margin-top: 0;
     overflow-y: hidden;
     background: #f1f1f1;
     -webkit-transition: all 0.5s ease;
