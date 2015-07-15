@@ -1,38 +1,38 @@
 #textbox::-webkit-input-placeholder {
-  color: #ccb09a;
+  color: #9f9f9f;
 }
 #textbox:-moz-placeholder {
-  color: #959595;
+  color: #9f9f9f;
 }
 #textbox::-moz-placeholder {
-  color: #959595;
+  color: #9f9f9f;
 }
 #textbox:-ms-input-placeholder {
-  color: #ccb09a;
+  color: #9f9f9f;
 }
 #inputbox::-webkit-input-placeholder {
-  color: #ccb09a;
+  color: #9f9f9f;
 }
 #inputbox:-moz-placeholder {
-  color: #959595;
+  color: #9f9f9f;
 }
 #inputbox::-moz-placeholder {
-  color: #959595;
+  color: #9f9f9f;
 }
 #inputbox:-ms-input-placeholder {
-  color: #ccb09a;
+  color: #9f9f9f;
 }
 #filterbox::-webkit-input-placeholder {
-  color: #3485a6;
+  color: #9f9f9f;
 }
 #filterbox:-moz-placeholder {
-  color: #3485a6;
+  color: #9f9f9f;
 }
 #filterbox::-moz-placeholder {
-  color: #3485a6;
+  color: #9f9f9f;
 }
 #filterbox:-ms-input-placeholder {
-  color: #3485a6;
+  color: #9f9f9f;
 }
 
 textarea:focus, 
@@ -100,26 +100,26 @@ input[type]:focus,
   cursor: pointer;
   margin-right: 10px;
   margin-bottom: 0;
-  color: #ccb09a;
+  color: #9f9f9f;
 }
 
   .commenticon:hover {
-    color: #5caccc;
+    color: #0079c1;
     text-decoration: none;
   }
 
   .commenticon a {
-    color: #ccb09a;
+    color: #9f9f9f;
   }
 
   .commenticon a:hover {
-    color: #333333;
+    color: #0079c1;
     text-decoration: none;
   }
 
 #menu-toggle {
   text-decoration: none;
-  color: #3485a6;
+  color: #959595;
 }
 
 .imagelinkbox {
@@ -144,10 +144,10 @@ input[type]:focus,
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 13px;
-  background: #f1e8dc;
-  border-left: 1px solid #D6BB96;
-  border-right: 1px solid #D6BB96;
-  border-bottom: 1px solid #D6BB96;
+  background: #f1f1f1;
+  border-left: 1px solid #959595;
+  border-right: 1px solid #959595;
+  border-bottom: 1px solid #959595;
 }
 
 .buttonsbox {
@@ -155,10 +155,10 @@ input[type]:focus,
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 13px;
-  background: #f1e8dc;
-  border-left: 1px solid #D6BB96;
-  border-right: 1px solid #D6BB96;
-  border-top: 1px solid #D6BB96;
+  background: #f1f1f1;
+  border-left: 1px solid #959595;
+  border-right: 1px solid #959595;
+  border-top: 1px solid #959595;
 }
 
 .whitetext {
@@ -182,12 +182,12 @@ input[type]:focus,
   margin-right: 5px;
   background: white;
   text-shadow: none;
-  color: #3485a6;
-  border: 1px solid #3485a6;
+  color: #0079c1;
+  border: 1px solid #0079c1;
 }
 
   #topbtn:hover {
-    background: #5caccc;
+    background: #0085d5;
     color: white;
   }
 
@@ -195,12 +195,12 @@ input[type]:focus,
   background: white;
   text-shadow: none;
   width: 15%;
-  color: #3485a6;
-  border: 1px solid #3485a6;
+  color: #0079c1;
+  border: 1px solid #0079c1;
 }
 
   #orangebutton:hover {
-    background: #5caccc;
+    background: #0085d5;
     color: white;
   }
 
@@ -209,11 +209,11 @@ input[type]:focus,
   z-index: 1000;
   background: white;
   right: 275px;
-  top: 70px;
+  top: 72px;
   padding: 2px 7px;
-  border-top: 1px solid #3485a6;
-  border-bottom: 1px solid #3485a6;
-  border-left: 1px solid #3485a6;
+  border-top: 1px solid #959595;
+  border-bottom: 1px solid #959595;
+  border-left: 1px solid #959595;
   overflow-y: auto;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -232,7 +232,7 @@ input[type]:focus,
 .filterinput {
   background: white !important;
   box-shadow: none !important;
-  border: 1px solid #3485a6 !important;
+  border: 1px solid #959595 !important;
   color: #333333 !important;
   padding-left: 10px !important;
 }
@@ -241,7 +241,7 @@ input[type]:focus,
   height: auto !important;
   margin-bottom: 0 !important;
   margin-top: 0 !important;
-  border: 1px solid #D6BB96 !important;
+  border: 1px solid #959595 !important;
   border-radius: 0px !important;
   background: white !important;
   box-shadow: none !important;
@@ -258,7 +258,7 @@ input[type]:focus,
   border: 1px solid #959595 !important;
   background: white !important;
   box-shadow: none !important;
-  color: #0079c1 !important;
+  color: #333333 !important;
   padding-left: 15px !important;
   padding-top: 10px !important;
   padding-bottom: 10px !important;
@@ -271,10 +271,10 @@ input[type]:focus,
   border-radius: 0 !important;
   min-height: 35px !important;
   padding-left: 10px !important;
-  border: 1px solid #73d8ff !important;
+  border: 1px solid #959595 !important;
   background: white !important;
   box-shadow: none !important;
-  color: #0079c1 !important;
+  color: #333333 !important;
 }
 
 .formcontainer {
@@ -313,7 +313,7 @@ input[type]:focus,
 }
 
 .box {
-  border: 1px solid #D6BB96;
+  border: 1px solid #959595;
   background: white;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -358,12 +358,12 @@ input[type]:focus,
 }
 
 .commentpost {
-  color: #0079c1;
+  color: #333333;
   margin-bottom: 5px;
 }
 
 .commentdate {
-  color: #959595;
+  color: #9f9f9f;
   margin-bottom: 0;
 }
 
@@ -510,7 +510,7 @@ input[type]:focus,
   text-align: left;
   display: inline-block;
   margin-right: 15px;
-  color: #ccb09a;
+  color: #9f9f9f;
   margin-bottom: 0;
 }
 
@@ -528,11 +528,11 @@ input[type]:focus,
 }
 
 .clicked {
-  color: #73d8ff !important;
+  color: #9f9f9f !important;
 }
 
   .clicked:hover {
-    color: #afafaf !important;
+    color: #959595 !important;
   }
 
 .logmeout {
