@@ -39,6 +39,7 @@ window.fbAsyncInit = function() {
                         var myFriends = "";
 
                         for (var i = 0; i < numberOfFriendsApp; i++) {
+                            console.log(friendsApp[i]);
                             myFriends += "<li><a href='/profile/" + friendsApp[i].id + "/'>" + friendsApp[i].name + "</a></li>";
                             myFriendsArray.push(friendsApp[i].name);
                         }
