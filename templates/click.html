@@ -49,16 +49,16 @@
           <div class="clickcomments">
             <div class="commentident" style="display:table-cell;vertical-align:top;">
               {% if user.username = c.user.username %}
-              <p style="margin-right:15px;"><img class="photo-comment" src="{{myprofileinfo.picture}}"></p>
+              <p style="margin-right:15px;margin-bottom:16px;"><img class="photo-comment" src="{{myprofileinfo.picture}}"></p>
               {% else %}
-              <p style="margin-right:15px;"><img class="comment-icon" src="/static/images/comment.png"></p>
+              <p style="margin-right:15px;margin-bottom:16px;"><img class="comment-icon" src="/static/images/comment.png"></p>
               {% endif %}
             </div>
             <div class="commentpoop" style="display:inline-block;">
               <p class="commentpost" style="display:inline-block;">{{c.profilecomment}}</p><br>
-              <p class="commentdate" style="display:inline-block;">{{c.timeremoved}} ago</p>
             </div>
           </div>
+          <p class="commentdate" style="display:inline-block;">{{c.timeremoved}} ago</p>
           <div class="separator_click"></div>
         {% endfor %}
       </div>
