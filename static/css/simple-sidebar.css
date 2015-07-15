@@ -68,7 +68,7 @@
 .sidebar-nav li a {
     font-size: 14px;
     display: block;
-    text-align: center;
+    padding-left: 15px;
     text-decoration: none;
     color: #333333;
     border-bottom: 1px solid #959595;
@@ -78,7 +78,7 @@
 .sidebar-nav li p {
     font-size: 14px;
     display: block;
-    text-align: center;
+    padding-left: 15px;
     text-decoration: none;
     color: #9f9f9f;
     border-bottom: 1px solid #959595;
