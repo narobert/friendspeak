@@ -54,8 +54,8 @@ window.fbAsyncInit = function() {
                                 //take out of taggable friends
                             } 
                             else {
-                                console.log(data[i]);
-                                taggableFriends += "<li><p id='sendInviteButton' style='margin:0;'>" + data[i].name + "</p></li>";
+                                console.log(data[i].picture.data.url);
+                                taggableFriends += "<li><p id='sendInviteButton' style='margin:0;'><img class='photo-icon' src=" + data[i].picture.data.url + ">" + data[i].name + "</p></li>";
                             }
                         }
 
