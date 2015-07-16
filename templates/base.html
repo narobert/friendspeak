@@ -37,7 +37,7 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="brand" href="/">Friend<font style="color:#73d8ff;">Speak</font></a>
+          <a class="brand" href="/">FriendSpeak</a>
           <ul class="nav pull-right">
 
             {% if user.is_authenticated %}
@@ -45,7 +45,7 @@
             <li><a class="navdivider">|</a></li>
             <li class="dropdown">
               {% if total > 0 %}
-              <a data-toggle="dropdown" style="cursor:pointer;" id="changemessage"><img id="changemessagecolor" src="/static/images/message.png">&nbsp;&nbsp;<font style="color:#73d8ff;">{{total}}</font></a>
+              <a data-toggle="dropdown" style="cursor:pointer;" id="changemessage"><img id="changemessagecolor" src="/static/images/message.png">&nbsp;&nbsp;<font style="color:#11a6ff;">{{total}}</font></a>
               {% else %}
               <a data-toggle="dropdown" style="cursor:pointer;" id="changemessage"><img id="changemessagecolor" src="/static/images/message.png"></a>
               {% endif %}
