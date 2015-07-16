@@ -78,14 +78,17 @@
     </div>
 
     {% if user.is_authenticated %}
-    <div class="slidebar">
+    <!--<div class="slidebar">
       <a href="#menu-toggle" id="menu-toggle">&gt;</a>
-    </div>
+    </div>-->
 
     <div id="wrapper">
       <div id="sidebar-wrapper">
         <ul class="sidebar-nav" id="friendsList">
-          <div class="sidebar-brand"><input class="filterinput" id="filterbox" type="text" onkeyup="filter(this)" placeholder="Search..."></div>
+          <div class="sidebar-brand">
+            <div style="float:right;background:#f1f1f1;margin-top:9px;margin-left:10px;border-radius:4px;border:none;color:#bfbfbf;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(270deg);"><img src="/static/images/10.png" style="cursor:pointer;"></div>
+            <span><input class="filterinput input-block-level" id="filterbox" type="text" onkeyup="filter(this)" placeholder="Search..."></span>
+          </div>
           <div id="profileFriendsApp"></div>
           <div id="profileTaggableFriends"></div>
         </ul>
