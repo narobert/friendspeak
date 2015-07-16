@@ -67,8 +67,9 @@
       <div class="separator_click"></div>
     {% endif %}
     <div class="commentbox">
-      <form method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid">
-        <input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
+      <form class="commentform" method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" id="formid">
+        <button class="btn btn-default" id="commentbutton" name="submit" type="submit">Send</button>
+        <span><input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required></span>
       </form>
     </div>
   </div>

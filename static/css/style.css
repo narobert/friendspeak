@@ -294,14 +294,37 @@ input[type]:focus,
 
 .commentinput {
   margin-top: 0 !important;
-  border-radius: 0 !important;
-  min-height: 35px !important;
   padding-left: 10px !important;
   border: 1px solid #959595 !important;
   background: white !important;
   box-shadow: none !important;
   color: #333333 !important;
 }
+
+#formid {
+  margin: 0;
+}
+
+.commentform > span {
+  display: block;
+  padding-right: 10px;
+  overflow: hidden;
+}
+
+#commentbutton {
+  float: right;
+  background: white;
+  text-shadow: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #00609a;
+  border: 1px solid #00609a;
+}
+
+  #commentbutton:hover {
+    background: #0085d5;
+    color: white;
+  }
 
 .formcontainer {
   padding-left: 10px;
