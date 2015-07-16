@@ -106,7 +106,7 @@
 .sidebar-nav > .sidebar-brand {
     color: #333333;
     padding-bottom: 5px;
-    padding-top: 5px;
+    padding-top: 4px;
     padding-left: 15px;
     padding-right: 15px;
     text-align: center;
@@ -115,7 +115,8 @@
 }
 
 .sidebar-nav > .sidebar-brand > span {
-    display: block;      overflow: hidden;
+    display: block;
+    overflow: hidden;
 }
 
 .sidebar-nav > .sidebar-brand a {
