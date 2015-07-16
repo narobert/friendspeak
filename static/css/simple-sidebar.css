@@ -15,17 +15,17 @@
 }
 
 #wrapper.toggled {
-    padding-right: 275px;
+    padding-right: 230px;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    right: 275px;
+    right: 230px;
     width: 0;
     height: 100%;
-    margin-right: -275px;
-    margin-top: 0;
+    margin-right: -230px;
+    margin-top: 1px;
     overflow-y: hidden;
     background: #f1f1f1;
     border-left: 1px solid #959595;
@@ -36,7 +36,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 275px;
+    width: 230px;
 }
 
 #page-content-wrapper {
@@ -47,7 +47,7 @@
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -275px;
+    margin-right: -230px;
 }
 
 /* Sidebar Styles */
@@ -55,7 +55,7 @@
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 275px;
+    width: 230px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -71,8 +71,8 @@
     padding-left: 15px;
     text-decoration: none;
     color: #333333;
-    border-bottom: 1px solid #959595;
-    background: white;
+    border-bottom: 1px solid #eeeeee;
+    background: #f1f1f1;
 }
 
 .sidebar-nav li p {
@@ -81,7 +81,7 @@
     padding-left: 15px;
     text-decoration: none;
     color: #9f9f9f;
-    border-bottom: 1px solid #959595;
+    border-bottom: 1px solid #eeeeee;
     background: #f1f1f1;
     margin: 0;
     cursor: pointer;
@@ -90,7 +90,7 @@
 .sidebar-nav li a:hover {
     text-decoration: none;
     background: white;
-    color: #0079c1;
+    color: #00609a;
 }
 
 .sidebar-nav li p:hover {
@@ -105,11 +105,17 @@
 
 .sidebar-nav > .sidebar-brand {
     color: #333333;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: center;
     background: #f1f1f1;
-    border-bottom: 1px solid #959595;
+    border-bottom: none;
+}
+
+.sidebar-nav > .sidebar-brand > span {
+    display: block;      overflow: hidden;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -126,7 +132,7 @@
 
 @media(min-width:768px) {
     #wrapper {
-        padding-right: 275px;
+        padding-right: 230px;
     }
 
     #wrapper.toggled {
@@ -134,7 +140,7 @@
     }
 
     #sidebar-wrapper {
-        width: 275px;
+        width: 230px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
