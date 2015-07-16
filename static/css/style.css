@@ -257,7 +257,7 @@ input[type]:focus,
 .filterinput {
   background: white !important;
   box-shadow: none !important;
-  border: 1px solid #959595 !important;
+  border: 1px solid #bfbfbf !important;
   color: #333333 !important;
   padding-left: 10px !important;
 }
@@ -295,7 +295,7 @@ input[type]:focus,
 .commentinput {
   margin-top: 0 !important;
   padding-left: 10px !important;
-  border: 1px solid #959595 !important;
+  border: 1px solid #bfbfbf !important;
   background: white !important;
   box-shadow: none !important;
   color: #333333 !important;
