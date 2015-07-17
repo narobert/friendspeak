@@ -72,7 +72,7 @@ window.fbAsyncInit = function() {
                                     $(this).hide();
                                 }
                             });
-                        }
+                        });
 
                         $(document).on("click", "#sendInviteButton", function() {
                             FB.ui({
