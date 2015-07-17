@@ -311,7 +311,6 @@ input[type]:focus,
 
 .commentform > span {
   display: block;
-  padding-right: 10px;
   overflow: hidden;
 }
 
