@@ -40,7 +40,7 @@ window.fbAsyncInit = function() {
 
                         for (var i = 0; i < numberOfFriendsApp; i++) {
                             console.log(friendsApp[i]);
-                            myFriends += "<li><a href='/profile/" + friendsApp[i].id + "/'>" + friendsApp[i].name + "</a></li>";
+                            myFriends += "<li><a href='/profile/" + friendsApp[i].id + "/'><image class='menu-icon' src='https://graph.facebook.com/" + friendsApp[i].id + "/picture?width=200>&nbsp;&nbsp;&nbsp;" + friendsApp[i].name + "</a></li>";
                             myFriendsArray.push(friendsApp[i].name);
                         }
 
