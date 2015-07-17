@@ -59,14 +59,10 @@ window.fbAsyncInit = function() {
                             }
                         }
 
-                        var profileFriendsApp = document.getElementById("profileFriendsApp");
-                        var profileFriendsApp = document.getElementById("profileFriendsApp");
-
-                        $(document).on("keypress", "#filterbox", function() {
+                        function filter(element) {
                             console.log("hello");
-                            var value = $(this).val();
+                            var value = $(element).val();
                             $("#friendsList > li").each(function() {
-                                console.log("hi");
                                 if ($(this).text().search(value) > -1) {
                                     $(this).show();
                                 }
@@ -74,7 +70,7 @@ window.fbAsyncInit = function() {
                                     $(this).hide();
                                 }
                             });
-                        });
+                        }
 
                         $(document).on("click", "#sendInviteButton", function() {
                             FB.ui({
@@ -84,10 +80,8 @@ window.fbAsyncInit = function() {
                             });
                         });
 
-                        sidebarMenuTop.innerHTML = "<ul class='sidebar-nav' id='friendsList'><div class='sidebar-brand'><div style='float:right;background:#f1f1f1;margin-top:9px;margin-left:10px;border-radius:4px;border:none;color:#bfbfbf;-webkit-transform:rotate(270deg);-moz-transform:rotate(270deg);-o-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg);'><img src='/static/images/10.png' style='cursor:pointer;'></div><span><input class='filterinput input-block-level' id='filterbox' type='text' placeholder='Search...'></span></div>";
                         profileFriendsApp.innerHTML = myFriends;
                         profileTaggableFriends.innerHTML = taggableFriends;
-                        sidebarMenuBottom.innerHTML = "</ul>";
                         console.log(profileFriendsApp);
                         console.log(profileTaggableFriends);
                         // End: menu bar
