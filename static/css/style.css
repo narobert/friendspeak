@@ -144,11 +144,6 @@ input[type]:focus,
     text-decoration: none;
   }
 
-#menu-toggle {
-  text-decoration: none;
-  color: #d4d4d4;
-}
-
 .back-arrow {
   transform: rotate(90deg);
   cursor: pointer;
