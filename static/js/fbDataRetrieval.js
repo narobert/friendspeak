@@ -59,9 +59,10 @@ window.fbAsyncInit = function() {
                         }
 
                         $(document).on("keyup", "#filterbox", function() {
-                            console.log("hello");
-                            var value = $(element).val();
+                            var value = $(this).val();
+                            console.log(value);
                             $("#friendsList > li").each(function() {
+                                console.log("chiller");
                                 if ($(this).text().search(value) > -1) {
                                     $(this).show();
                                 }
