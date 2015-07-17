@@ -40,7 +40,7 @@ window.fbAsyncInit = function() {
 
                         for (var i = 0; i < numberOfFriendsApp; i++) {
                             console.log(friendsApp[i]);
-                            myFriends += "<li><a href='/profile/" + friendsApp[i].id + "/'><img class='menu-icon' src='https://graph.facebook.com/" + friendsApp[i].id + "/picture?width=200'>&nbsp;&nbsp;&nbsp;" + friendsApp[i].name + "</a></li>";
+                            myFriends += "<li><a href='/profile/" + friendsApp[i].id + "/'><img class='menu-icon-friends' src='https://graph.facebook.com/" + friendsApp[i].id + "/picture?width=200'>&nbsp;&nbsp;&nbsp;" + friendsApp[i].name + "</a></li>";
                             myFriendsArray.push(friendsApp[i].name);
                         }
 
@@ -55,7 +55,7 @@ window.fbAsyncInit = function() {
                                 //take out of taggable friends
                             } 
                             else {
-                                taggableFriends += "<li><p id='sendInviteButton' style='margin:0;'><img class='menu-icon' src='" + data[i].picture.data.url + "'>&nbsp;&nbsp;&nbsp;" + data[i].name + "</p></li>";
+                                taggableFriends += "<li><p id='sendInviteButton' style='margin:0;'><img class='menu-icon-taggable' src='" + data[i].picture.data.url + "'>&nbsp;&nbsp;&nbsp;" + data[i].name + "</p></li>";
                             }
                         }
 

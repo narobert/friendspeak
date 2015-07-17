@@ -490,7 +490,15 @@ input[type]:focus,
   border: 1px solid black; 
 }
 
-.menu-icon {
+.menu-icon-friends {
+  border-radius: 4px;
+  width: auto;
+  height: 20px;
+  margin-top: -3px;
+  border: 1px solid #959595; 
+}
+
+.menu-icon-taggable-friends {
   border-radius: 4px;
   width: auto;
   height: 20px;
