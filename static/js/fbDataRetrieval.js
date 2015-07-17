@@ -39,7 +39,6 @@ window.fbAsyncInit = function() {
                         var myFriends = "";
 
                         for (var i = 0; i < numberOfFriendsApp; i++) {
-                            console.log(friendsApp[i]);
                             myFriends += "<li><a href='/profile/" + friendsApp[i].id + "/'><img class='menu-icon-friends' src='https://graph.facebook.com/" + friendsApp[i].id + "/picture?width=200'>&nbsp;&nbsp;&nbsp;" + friendsApp[i].name + "</a></li>";
                             myFriendsArray.push(friendsApp[i].name);
                         }
@@ -70,7 +69,7 @@ window.fbAsyncInit = function() {
                                     $(this).hide();
                                 }
                             });
-                        }
+                        });
 
                         $(document).on("click", "#sendInviteButton", function() {
                             FB.ui({
