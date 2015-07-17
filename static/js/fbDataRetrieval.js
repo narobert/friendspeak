@@ -59,18 +59,6 @@ window.fbAsyncInit = function() {
                             }
                         }
 
-                        function filter(element) {
-                            var value = $(element).val();
-                            $("#friendsList > li").each(function() {
-                                if ($(this).text().search(value) > -1) {
-                                    $(this).show();
-                                }
-                                else {
-                                    $(this).hide();
-                                }
-                            });
-                        }
-
                         $(document).on("click", "#sendInviteButton", function() {
                             FB.ui({
                                 app_id: '1603028726617777',

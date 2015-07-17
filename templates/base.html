@@ -144,6 +144,18 @@
         $("#changemessagecolor").attr("src", "/static/images/message_fff.png");
     });
 
+    function filter(element) {
+        var value = $(element).val();
+        $("#friendsList > li").each(function() {
+            if ($(this).text().search(value) > -1) {
+                $(this).show();
+            }
+            else {
+                $(this).hide();
+            }
+        });
+    }
+
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
