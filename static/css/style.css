@@ -92,7 +92,7 @@ input[type]:focus,
   }
 
 .separator_click_top {
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #bfbfbf;
   margin-top: 15px;
   margin-bottom: 15px;
   margin-left: -15px;
@@ -104,15 +104,15 @@ input[type]:focus,
   margin-top: 15px;
   margin-bottom: 15px;
   margin-left: -15px;
-  margin-right: -10px;
+  margin-right: -15px;
 }
 
 .separator_click:last-child {
-  border-bottom: 1px solid #bfbfbf;
+  border-bottom: 1px solid #eeeeee;
   margin-top: 15px;
   margin-bottom: 15px;
   margin-left: -15px;
-  margin-right: -10px;
+  margin-right: -15px;
 }
 
 .commentslide {
