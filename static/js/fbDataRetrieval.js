@@ -36,7 +36,7 @@ window.fbAsyncInit = function() {
                         var numberOfFriendsApp = response.friends.data.length;
                         var friendsApp = response.friends.data;
                         var profileFriendsApp = document.getElementById("profileFriendsApp");
-                        var myFriends = "";
+                        var myFriends = "<div id='friendsList'>";
 
                         for (var i = 0; i < numberOfFriendsApp; i++) {
                             myFriends += "<li><a href='/profile/" + friendsApp[i].id + "/'><img class='menu-icon-friends' src='https://graph.facebook.com/" + friendsApp[i].id + "/picture?width=200'>&nbsp;&nbsp;&nbsp;" + friendsApp[i].name + "</a></li>";
@@ -47,7 +47,7 @@ window.fbAsyncInit = function() {
                         var data = response.taggable_friends.data;
                         //console.log('fbDataRetrieval, taggable_friends.data.length:'+numberOfTaggableFriends+', and taggable_friends.data:'+JSON.stringify(data));
                         var profileTaggableFriends = document.getElementById("profileTaggableFriends");
-                        var taggableFriends = "";
+                        var taggableFriends = "<div id='taggableFriendsList'>";
 
                         for (var i = 0; i < numberOfTaggableFriends; i++) {
                             if (myFriendsArray.indexOf(data[i].name) > -1) {
@@ -60,9 +60,15 @@ window.fbAsyncInit = function() {
 
                         $(document).on("keyup", "#filterbox", function() {
                             var value = $(this).val();
-                            console.log(value);
                             $("#friendsList > li").each(function() {
-                                console.log("chiller");
+                                if ($(this).text().search(value) > -1) {
+                                    $(this).show();
+                                }
+                                else {
+                                    $(this).hide();
+                                }
+                            });
+                            $("#taggableFriendsList > li").each(function() {
                                 if ($(this).text().search(value) > -1) {
                                     $(this).show();
                                 }
@@ -80,8 +86,8 @@ window.fbAsyncInit = function() {
                             });
                         });
 
-                        profileFriendsApp.innerHTML = myFriends;
-                        profileTaggableFriends.innerHTML = taggableFriends;
+                        profileFriendsApp.innerHTML = myFriends + "</div>";
+                        profileTaggableFriends.innerHTML = taggableFriends + "</div>";
                         console.log(profileFriendsApp);
                         console.log(profileTaggableFriends);
                         // End: menu bar
