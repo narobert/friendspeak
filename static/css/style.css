@@ -495,7 +495,7 @@ input[type]:focus,
   width: auto;
   height: 20px;
   margin-top: -3px;
-  border: 1px solid #959595; 
+  border: 1px solid black; 
 }
 
 .menu-icon-taggable-friends {
