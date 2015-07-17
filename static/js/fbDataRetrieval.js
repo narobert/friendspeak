@@ -63,8 +63,10 @@ window.fbAsyncInit = function() {
                         var profileFriendsApp = document.getElementById("profileFriendsApp");
 
                         $(document).on("keypress", "#filterbox", function() {
+                            console.log("hello");
                             var value = $(this).val();
                             $("#friendsList > li").each(function() {
+                                console.log("hi");
                                 if ($(this).text().search(value) > -1) {
                                     $(this).show();
                                 }
