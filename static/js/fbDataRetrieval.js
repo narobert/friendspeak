@@ -59,8 +59,11 @@ window.fbAsyncInit = function() {
                             }
                         }
 
-                        function filter(element) {
-                            var value = $(element).val();
+                        var profileFriendsApp = document.getElementById("profileFriendsApp");
+                        var profileFriendsApp = document.getElementById("profileFriendsApp");
+
+                        $(document).on("keypress", "#filterbox", function() {
+                            var value = $(this).val();
                             $("#friendsList > li").each(function() {
                                 if ($(this).text().search(value) > -1) {
                                     $(this).show();
@@ -79,7 +82,7 @@ window.fbAsyncInit = function() {
                             });
                         });
 
-                        sidebarMenuTop.innerHTML = "<ul class='sidebar-nav' id='friendsList'><div class='sidebar-brand'><div style='float:right;background:#f1f1f1;margin-top:9px;margin-left:10px;border-radius:4px;border:none;color:#bfbfbf;-webkit-transform:rotate(270deg);-moz-transform:rotate(270deg);-o-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg);'><img src='/static/images/10.png' style='cursor:pointer;'></div><span><input class='filterinput input-block-level' id='filterbox' type='text' onkeyup='filter(this)' placeholder='Search...'></span></div>";
+                        sidebarMenuTop.innerHTML = "<ul class='sidebar-nav' id='friendsList'><div class='sidebar-brand'><div style='float:right;background:#f1f1f1;margin-top:9px;margin-left:10px;border-radius:4px;border:none;color:#bfbfbf;-webkit-transform:rotate(270deg);-moz-transform:rotate(270deg);-o-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg);'><img src='/static/images/10.png' style='cursor:pointer;'></div><span><input class='filterinput input-block-level' id='filterbox' type='text' placeholder='Search...'></span></div>";
                         profileFriendsApp.innerHTML = myFriends;
                         profileTaggableFriends.innerHTML = taggableFriends;
                         sidebarMenuBottom.innerHTML = "</ul>";
