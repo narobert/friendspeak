@@ -59,9 +59,9 @@ window.fbAsyncInit = function() {
                         }
 
                         $(document).on("keyup", "#filterbox", function() {
-                            var value = $(this).val();
+                            var value = $(this).val().toLowerCase();
                             $("#friendsList > li").each(function() {
-                                if ($(this).text().search(value) > -1) {
+                                if ($(this).text().toLowerCase().search(value) > -1) {
                                     $(this).show();
                                 }
                                 else {
@@ -69,7 +69,7 @@ window.fbAsyncInit = function() {
                                 }
                             });
                             $("#taggableFriendsList > li").each(function() {
-                                if ($(this).text().search(value) > -1) {
+                                if ($(this).text().toLowerCase().search(value) > -1) {
                                     $(this).show();
                                 }
                                 else {
