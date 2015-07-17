@@ -49,9 +49,9 @@
           <div class="clickcomments">
             <div class="commentident" style="display:table-cell;vertical-align:top;">
               {% if user.username = c.user.username %}
-              <p style="margin-right:15px;margin-bottom:16px;"><img class="photo-comment" src="{{myprofileinfo.picture}}"></p>
+              <p style="margin-right:10px;margin-bottom:11px;"><img class="photo-comment" src="{{myprofileinfo.picture}}"></p>
               {% else %}
-              <p style="margin-right:15px;margin-bottom:16px;"><img class="comment-icon" src="/static/images/comment.png"></p>
+              <p style="margin-right:10px;margin-bottom:11px;"><img class="comment-icon" src="/static/images/comment.png"></p>
               {% endif %}
             </div>
             <div class="commentpoop" style="display:inline-block;">
@@ -68,7 +68,7 @@
     {% endif %}
     <div class="commentbox">
       <form class="commentform" method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" id="formid">
-        <button class="btn btn-default" id="commentbutton" name="submit" type="submit">Send</button>
+        <img class="photo-comment" style="float:left;margin-right:10px;" src="{{myprofileinfo.picture}}">
         <span><input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required></span>
       </form>
     </div>
