@@ -4593,14 +4593,6 @@ input[type="submit"].btn.btn-mini {
   padding: 19px 15px 19px;
   color: #d4d4d4;
   text-decoration: none;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.navbar .nav > li > a.toggled {
-  margin-right: -230px;
 }
 
 .photoadjust {
