@@ -86,10 +86,13 @@ input[type]:focus,
   margin-right: -15px;
 }
 
-  .separator:last-child {
-    margin-bottom: -15px;
-    border-bottom: none;
-  }
+.separator:last-child {
+  border-bottom: 1px solid #eeeeee;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
 
 .separator_click_top {
   border-bottom: 1px solid #bfbfbf;
@@ -144,6 +147,27 @@ input[type]:focus,
 #menu-toggle {
   text-decoration: none;
   color: #d4d4d4;
+}
+
+.back-arrow {
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.back-arrow-box {
+  background: #f1f1f1;
+  padding-top: 9px;
+  padding-right: 12px;
+  padding-left: 12px;
+  padding-bottom: 12px;
+  margin-top: -15px;
+  margin-right: -10px;
+  margin-left: -15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #bfbfbf;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  display: none;
 }
 
 .imagelinkbox {
@@ -272,7 +296,6 @@ input[type]:focus,
   border-bottom: 1px solid #bfbfbf !important;
   border-bottom-left-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
-  background: white !important;
   box-shadow: none !important;
   color: #333333 !important;
   padding-left: 15px !important;
@@ -285,9 +308,12 @@ input[type]:focus,
   height: auto !important;
   margin-bottom: 0 !important;
   margin-top: 0 !important;
-  border: 1px solid #959595 !important;
-  border-radius: 0px !important;
-  background: white !important;
+  border-top: 1px solid #959595 !important;
+  border-left: 1px solid #959595 !important;
+  border-right: 1px solid #959595 !important;
+  border-bottom: 1px solid #bfbfbf !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
   box-shadow: none !important;
   color: #333333 !important;
   padding-left: 15px !important;
@@ -306,6 +332,15 @@ input[type]:focus,
 }
 
 #formid {
+  margin: 0;
+}
+
+.postform {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.commentform {
   margin: 0;
 }
 
@@ -367,12 +402,11 @@ input[type]:focus,
 .box {
   border: 1px solid #959595;
   background: white;
+  margin-bottom: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   border-radius: 4px;
   display: block;
 }
@@ -380,6 +414,7 @@ input[type]:focus,
 .box_click {
   border: 1px solid #959595;
   background: white;
+  margin-bottom: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
@@ -400,15 +435,46 @@ input[type]:focus,
   background: #f1f1f1;
 }
 
+.commentbox_none {
+  display: none;
+  padding: 15px;
+  margin-left: -15px;
+  margin-right: -10px;
+  margin-top: -15px;
+  margin-bottom: -15px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #f1f1f1;
+}
+
 .commentsbox {
-  background: white;
-  margin-bottom: 0px;
+  background: #f1f1f1;
+  margin-bottom: 0;
+  margin-top: -15px;
+  margin-right: -10px;
+  margin-left: -15px;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
   display: block;
 }
 
 .comments {
-  background: white;
+  background: #f1f1f1;
   display: table;
+}
+
+.nocommentsbox {
+  background: #f1f1f1;
+  margin-bottom: 15px;
+  margin-top: -15px;
+  margin-right: -10px;
+  margin-left: -15px;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-bottom: 1px solid #eeeeee;
+  display: block;
 }
 
 .clickcommentsbox {

@@ -10,21 +10,20 @@
 
 <div class="home_padding"></div>
 
-<!--<button class="btn btn-default sendInviteButton" id="orangebutton">Invite friends!</button>-->
-
 <!--<div class="buttonsbox">
     <div style="display:inline-block;"><p style="margin:0;text-align:left;"><button class="btn btn-default" id="topbtn" name="submit" type="submit">Post</button></p></div>
     <div style="display:inline-block;"><p style="margin:0;text-align:left;"><button class="btn btn-default" id="topbtn" name="submit" type="submit">Image</button></p></div>
     <div style="display:inline-block;"><p style="margin:0;text-align:left;"><button class="btn btn-default" id="topbtn" name="submit" type="submit">Link</button></p></div>
   </div>-->
-  <form method="POST" action="/post/" enctype="multipart/form-data" style="margin-bottom:0;">
+  <form class="postform" method="POST" action="/post/" enctype="multipart/form-data">
     <textarea class="input-block-level lastinput" id="textbox" type="text" name="wallpost" maxlength="225" rows="3" placeholder="Post anonymously to your Facebook friends" required></textarea>
     <div class="buttonbox"><p style="margin:0;text-align:right;"><button class="btn btn-default" id="orangebutton" name="submit" type="submit">Post</button></p></div>
   </form>
   {% for w in wallposts %}
     {% if w.user.username in friendParse %}
     <div class="box">
-      <div class="boxpost" href="#myModal{{w.id}}" id="getcomments{{w.id}}" data-toggle="modal">
+      <div class="back-arrow-box"><img class="back-arrow" src="/static/images/10.png"></div>
+      <div class="boxpost" id="getcomments{{w.id}}">
         <p class="whitetext">{{w.wallpost}}</p>
         <p class="textal">{{w.timeremoved}} ago</p>
         <div class="commenticon"><div id="comment_wall_number{{w.id}}"></div></div>
@@ -43,35 +42,11 @@
           </center>
         </div>
       </div>
-    </div>
-
-    <!-- Modal -->
-    <div id="myModal{{w.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-header">
-        <div class="modalbox">
-          <div class="modalboxpost">
-            <p class="whitetext">{{w.wallpost}}</p>
-            <p class="textal">{{w.timeremoved}} ago</p>
-            <div class="commenticon"><div id="comment_modal_wall_number{{w.id}}"></div></div>
-          </div>
-          <div class="boxbuttons">
-            <div style="float:right;">
-              <center>
-                <div id="like_modal_wall{{w.id}}"></div>
-                <div id="likes_modal_wall{{w.id}}"></div>
-                <div id="dislike_modal_wall{{w.id}}"></div>
-              </center>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-body">
-        <div id="comment_wall{{w.id}}"></div>
-      </div>
-      <div class="modal-footer">
-        <!--<img class="photo-mycomment" src="{{myprofileinfo.picture}}">-->
-        <form method="POST" action="/commentwall/{{w.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{w.id}}" data-id="{{w.id}}">
-          <input class="input-block-level commentinput commentfocus{{w.id}}" id="textbox" type="text" name="wallcomment" maxlength="500" placeholder="Write a comment..." required>
+      <div id="comment_wall{{w.id}}"></div>
+      <div class="commentbox_none">
+        <form class="commentform" method="POST" action="/commentwall/{{w.id}}/" enctype="multipart/form-data" id="formid{{w.id}}" data-id="{{w.id}}">
+          <img class="photo-comment" style="float:left;margin-right:10px;" src="{{myprofileinfo.picture}}">
+          <span><input class="input-block-level commentinput" id="textbox" type="text" name="wallcomment" maxlength="500" placeholder="Write a comment..." required></span>
         </form>
       </div>
     </div>
@@ -86,10 +61,28 @@
 
 var username = "{{user.username}}";
 var comment_picture = "{{myprofileinfo.picture}}";
+var tmpScrollTop;
+
+$('.back-arrow-box').click(function() {
+    $('.postform').show();
+    $('.box').show();
+    $('.back-arrow-box').hide();
+    $('.separator_click_top').hide();
+    $('.commentsbox').hide();
+    $('.commentbox_none').hide();
+    $('.nocommentsbox').hide();
+    $('.separator').hide();
+    $(document).scrollTop(tmpScrollTop);
+});
 
 {% for w in wallposts %}
 
 $('#getcomments{{w.id}}').click(function() {
+    tmpScrollTop = $(document).scrollTop();
+    $('.postform').hide();
+    $('.box').hide();
+    $(this).parent().show();
+    $('.back-arrow-box').show();
     loadComments({{w.id}});
 });
 
@@ -156,26 +149,20 @@ function loadComment() {
         success: function(data) {
             if (data["status"] == "OK") {
                 var commentsw = "";
-                var commentsmodalw = "";
                 for (var i = 0; i < data["wallcomment"].length; i++) {
                     var commentw = data["wallcomment"][i];
                     var commentw_id = commentw.id;
                     var commentw_numcomments = commentw.numcomments;
                     if (commentw_numcomments == 0) {
                         commentsw = "be the first to comment!";
-                        commentsmodalw = commentw_numcomments + " comments";
                     }
                     else if (commentw_numcomments == 1) {
                         commentsw = commentw_numcomments + " comment";
-                        commentsmodalw = commentw_numcomments + " comment";
-
                     }
                     else {
                         commentsw = commentw_numcomments + " comments";
-                        commentsmodalw = commentw_numcomments + " comments";
                     }
                     $('#comment_wall_number' + commentw_id).html(commentsw);
-                    $('#comment_modal_wall_number' + commentw_id).html(commentsmodalw);
                 }
             }
         },
@@ -196,7 +183,6 @@ function loadLike() {
                     var likew_color = likew.color;
                     likesw = "<p style='margin:0;'><a id='like" + likew_id + "' href='/likewall/" + likew_id + "/'><img src='/static/images/" + likew_color + ".png'></a></p>";
                     $('#like_wall' + likew_id).html(likesw);
-                    $('#like_modal_wall' + likew_id).html(likesw);
                 }
             }
         },
@@ -217,7 +203,6 @@ function loadLikes() {
                     var like_likes = like.likes;
                     likes = "<p style='margin:0;color:#333333;'>" + like_likes + "</p>";
                     $('#likes_wall' + like_id).html(likes);
-                    $('#likes_modal_wall' + like_id).html(likes);
                 }
             }
         },
@@ -238,7 +223,6 @@ function loadDislike() {
                     var dislikew_color = dislikew.color;
                     dislikesw = "<p style='margin-top:-3px;margin-bottom:0;'><a id='dislike" + dislikew_id + "' href='/dislikewall/" + dislikew_id + "/'><img src='/static/images/" + dislikew_color + ".png'></a></p>";
                     $('#dislike_wall' + dislikew_id).html(dislikesw);
-                    $('#dislike_modal_wall' + dislikew_id).html(dislikesw);
                 }
             }
         },
@@ -261,20 +245,21 @@ function loadComments(id) {
                     var comment_comment = comment.wallcomment;
                     var comment_date = comment.date;
                     if (username == comment_user) {
-                        comments += "<div class='comments'><div class='commentident' style='display:table-cell;vertical-align:top;'><p style='margin-right:15px;margin-bottom:16px;'><img class='photo-comment' src='" + comment_picture + "'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p></div></div><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p><div class='separator'></div>";
+                        comments += "<div class='comments'><div class='commentident' style='display:table-cell;vertical-align:top;'><p style='margin-right:10px;margin-bottom:11px;'><img class='photo-comment' src='" + comment_picture + "'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p></div></div><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p><div class='separator'></div>";
                     }
                     else {
-                        comments += "<div class='comments'><div class='commentident' style='display:table-cell;vertical-align:top;'><p style='margin-right:15px;margin-bottom:16px;'><img class='comment-icon' src='/static/images/comment.png'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p></div></div><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p><div class='separator'></div>";
+                        comments += "<div class='comments'><div class='commentident' style='display:table-cell;vertical-align:top;'><p style='margin-right:10px;margin-bottom:11px;'><img class='comment-icon' src='/static/images/comment.png'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p></div></div><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p><div class='separator'></div>";
                     }
                     total = total + 1;
                 }
                 if (total > 0) {
-                    $('#comment_wall' + id).html("<div class='commentsbox'>" + comments + "</div>");
+                    $('#comment_wall' + id).html("<div class='separator_click_top'></div><div class='commentsbox'>" + comments + "</div>");
                 }
                 else {
-                    $('#comment_wall' + id).html("<p style='color:#bfbfbf;text-align:center;margin-top:120px;'>No comments yet!</p>");
+                    $('#comment_wall' + id).html("<div class='separator_click_top'></div><div class='nocommentsbox'><center><p class='commenticon' style='margin-bottom:50px;margin-top:40px;'>No comments yet!</p></center></div>");
                 }
                 loadComment();
+                $('.commentbox_none').show();
             }
         },
     });
