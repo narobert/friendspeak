@@ -59,7 +59,7 @@ window.fbAsyncInit = function() {
                             }
                         }
 
-                        function filter(element) {
+                        $(document).on("keyup", "#filterbox", function() {
                             console.log("hello");
                             var value = $(element).val();
                             $("#friendsList > li").each(function() {
