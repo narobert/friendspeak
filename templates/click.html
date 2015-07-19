@@ -64,8 +64,10 @@
         {% endfor %}
       </div>
     {% else %}
-      <center><p class="commenticon" style="margin-bottom:40px;margin-top:40px;">No comments yet!</p></center>
-      <div class="separator_click"></div>
+      <div class="separator_click_top"></div>
+      <div class="nocommentsbox">
+        <center><p class="commenticon" style="margin-bottom:50px;margin-top:40px;">No comments yet!</p></center>
+      </div>
     {% endif %}
     <div class="commentbox">
       <form class="commentform" method="POST" action="/commentpost/{{profileposts.id}}/" enctype="multipart/form-data" id="formid">
