@@ -37,7 +37,7 @@
     <div class="buttonbox"><p style="margin:0;text-align:right;"><button class="btn btn-default" id="orangebutton" name="submit" type="submit">Post</button></p></div>
   </form>
   {% for p in profileposts %}
-    {% if p.user.username in friendParse %}
+    {% if p.user1.username in friendParse %}
     <div class="box">
       <div class="back-arrow-box"><img class="back-arrow" src="/static/images/10.png"></div>
       <div class="boxpost" id="getcomments{{p.id}}">
