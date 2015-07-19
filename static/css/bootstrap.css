@@ -634,6 +634,10 @@ a:focus {
 .container-fluid {
   padding-right: 30px;
   padding-left: 30px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 p {
@@ -4546,6 +4550,10 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .navbar-static-top .container,

@@ -87,6 +87,7 @@
         <ul class="sidebar-nav">
           <div class="sidebar-brand">
             <div><a href="#menu-toggle" id="menu-toggle"><img src="/static/images/10.png" style="cursor:pointer;"></a></div>
+            <div><a href="#menu-toggle" id="nomenu-toggle"><img src="/static/images/10.png" style="cursor:pointer;"></a></div>
             <span><input class="filterinput input-block-level" id="filterbox" type="text" placeholder="Search..."></span>
           </div>
           <div id="profileFriendsApp"></div>
@@ -146,14 +147,27 @@
 
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-        $(".slidebar").toggleClass("switched");
-        if ($("#wrapper").hasClass("toggled")) {
-            $(this).html("&lt;");
-        }
-        else {
-            $(this).html("&gt;");
-        }
+        $("#wrapper").addClass("toggled");
+        $(".navbar-inner").addClass("toggled");
+        $("#wrapper").one('webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd', function() {
+            $(".container-fluid").addClass("toggled");
+            setTimeout(function() {
+                $("#nomenu-toggle").fadeIn("fast");
+            }, 400);
+            $(this).off('webkitTransitionEnd transitionend mstransitionend oTransitionEnd');
+        });
+    });
+
+    $("#nomenu-toggle").click(function(e) {
+        e.preventDefault();
+        $(this).fadeOut("fast", function() {
+            $(".container-fluid").removeClass("toggled");
+        });
+        $(".container-fluid").one('webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd', function() {
+            $("#wrapper").removeClass("toggled");
+            $(".navbar-inner").removeClass("toggled");
+            $(this).off('webkitTransitionEnd transitionend mstransitionend oTransitionEnd');
+        });
     });
 
     var dropdown = document.querySelectorAll('.dropdown');

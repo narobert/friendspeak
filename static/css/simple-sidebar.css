@@ -18,6 +18,18 @@
     padding-right: 230px;
 }
 
+#nomenu-toggle {
+    display: none;
+    position: fixed;
+    right: 16px;
+    top: 65px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
@@ -121,7 +133,6 @@
 
 .sidebar-nav > .sidebar-brand a {
     float: right;
-    background: #f1f1f1;
     margin-top: 9px;
     margin-left: 10px;
     border-radius: 4px;
@@ -141,6 +152,14 @@
 @media(min-width:768px) {
     #wrapper {
         padding-right: 230px;
+    }
+
+    .container-fluid.toggled {
+        padding-right: 50px;
+    }
+
+    .navbar-inner.toggled {
+        padding-right: 0;
     }
 
     #wrapper.toggled {
