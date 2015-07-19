@@ -10,6 +10,7 @@
 
 <div class="click_padding"></div>
 
+  {% if profileposts.user.username in friendParse %}
   <div class="box_click">
     <div class="modalboxpost">
       <p class="whitetext">{{profileposts.profilepost}}</p>
@@ -73,6 +74,9 @@
       </form>
     </div>
   </div>
+  {% else %}
+  <p>You do not have permission to see this post!</p> 
+  {% endif %}
 
 {% endblock %}
 

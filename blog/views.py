@@ -38,6 +38,11 @@ def click(request, id):
         return render_to_response("register.html")
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
+
+    friendArray = []
+    friendStr = str(myprofileinfo.friends)
+    friendParse = friendStr.split(",")
+
     profileposts = Ppost.objects.get(id = id)
     profileposts.clicked = True
     profileposts.save()
@@ -48,7 +53,7 @@ def click(request, id):
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
-    return render_to_response("click.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "like": like, "dislike": dislike, "total": total})
+    return render_to_response("click.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "like": like, "dislike": dislike, "total": total, "friendParse": friendParse})
 
 
 def myprofile(request):
@@ -56,13 +61,18 @@ def myprofile(request):
         return render_to_response("register.html")
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
+
+    friendArray = []
+    friendStr = str(myprofileinfo.friends)
+    friendParse = friendStr.split(",")
+
     profileposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     profilecomments = Pcomment.objects.filter(profile = profileposts).order_by("id")
     needclick = Ppost.objects.filter(user2 = request.user.id, clicked = False).order_by("-id")
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
-    return render_to_response("myprofile.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
+    return render_to_response("myprofile.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total, "friendParse": friendParse})
 
 
 def profile(request, username):
@@ -70,6 +80,11 @@ def profile(request, username):
         return render_to_response("register.html")
     total = 0
     myprofileinfo = Profile.objects.get(user = request.user.id)
+
+    friendArray = []
+    friendStr = str(myprofileinfo.friends)
+    friendParse = friendStr.split(",")
+
     if (Profile.objects.filter(user__username = username).count() == 0):
         return render_to_response("error.html")
     profileinfo = Profile.objects.get(user__username = username)
@@ -79,7 +94,7 @@ def profile(request, username):
     allposts = Ppost.objects.filter(user2 = request.user.id).order_by("-id")
     for n in needclick:
         total = total + 1
-    return render_to_response("profile.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileinfo": profileinfo, "username": username, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total})
+    return render_to_response("profile.html", {"user": request.user, "myprofileinfo": myprofileinfo, "profileinfo": profileinfo, "username": username, "profileposts": profileposts, "profilecomments": profilecomments, "allposts": allposts, "total": total, "friendParse": friendParse})
 
 
 def postwall(request):
