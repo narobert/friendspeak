@@ -31,14 +31,15 @@
 
     </div>
   </div>
-  <form method="POST" action="/postto/{{username}}/" enctype="multipart/form-data" style="margin-bottom:0;">
+  </center>
+  <form class="postform" method="POST" action="/postto/{{username}}/" enctype="multipart/form-data">
     <textarea class="input-block-level profileinput" id="textbox" type="text" name="profilepost" maxlength="225" rows="3" placeholder="Post anonymously to {{profileinfo.name}}'s wall" required></textarea>
     <div class="buttonbox"><p style="margin:0;text-align:right;"><button class="btn btn-default" id="orangebutton" name="submit" type="submit">Post</button></p></div>
   </form>
-  </center>
   {% for p in profileposts %}
     <div class="box">
-      <div class="boxpost" href="#myModal{{p.id}}" id="getcomments{{p.id}}" data-toggle="modal">
+      <div class="back-arrow-box"><img class="back-arrow" src="/static/images/10.png"></div>
+      <div class="boxpost" id="getcomments{{p.id}}">
         <p class="whitetext">{{p.profilepost}}</p>
         <p class="textal">{{p.timeremoved}} ago</p>
         <div class="commenticon"><div id="comment_prof_number{{p.id}}"></div></div>
@@ -57,38 +58,15 @@
           </center>
         </div>
       </div>
-    </div>
-
-    <!-- Modal -->
-    <div id="myModal{{p.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-header">
-        <div class="modalbox">
-          <div class="modalboxpost">
-            <p class="whitetext">{{p.profilepost}}</p>
-            <p class="textal">{{p.timeremoved}} ago</p>
-            <div class="commenticon"><div id="comment_modal_prof_number{{p.id}}"></div></div>
-          </div>
-          <div class="boxbuttons">
-            <div style="float:right;">
-              <center>
-                <div id="like_modal_profile{{p.id}}"></div>
-                <div id="likes_modal_profile{{p.id}}"></div>
-                <div id="dislike_modal_profile{{p.id}}"></div>
-              </center>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-body">
-        <div id="comment_profile{{p.id}}"></div>
-      </div>
-      <div class="modal-footer">
-        <!--<img class="photo-mycomment" src="{{myprofileinfo.picture}}">-->
-        <form method="POST" action="/commentprofile/{{p.id}}/" enctype="multipart/form-data" style="margin:0;" id="formid{{p.id}}" data-id="{{p.id}}">
-          <input class="input-block-level commentinput commentfocus{{p.id}}" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required>
+      <div id="comment_profile{{p.id}}"></div>
+      <div class="commentbox_none">
+        <form class="commentform" method="POST" action="/commentprofile/{{p.id}}/" enctype="multipart/form-data" id="formid{{p.id}}" data-id="{{p.id}}">
+          <img class="photo-comment" style="float:left;margin-right:10px;" src="{{myprofileinfo.picture}}">
+          <span><input class="input-block-level commentinput" id="textbox" type="text" name="profilecomment" maxlength="500" placeholder="Write a comment..." required></span>
         </form>
       </div>
     </div>
+
   {% endfor %}
 
 {% endblock %}
@@ -96,13 +74,32 @@
 {% block extra-js %}
 
 <script>
-
 var username = "{{user.username}}";
 var comment_picture = "{{myprofileinfo.picture}}";
+var tmpScrollTop;
+
+$('.back-arrow-box').click(function() {
+    $('.together').show();
+    $('.postform').show();
+    $('.box').show();
+    $('.back-arrow-box').hide();
+    $('.separator_click_top').hide();
+    $('.commentsbox').hide();
+    $('.commentbox_none').hide();
+    $('.nocommentsbox').hide();
+    $('.separator').hide();
+    $(document).scrollTop(tmpScrollTop);
+});
 
 {% for p in profileposts %}
 
 $('#getcomments{{p.id}}').click(function() {
+    tmpScrollTop = $(document).scrollTop();
+    $('.together').hide();
+    $('.postform').hide();
+    $('.box').hide();
+    $(this).parent().show();
+    $('.back-arrow-box').show();
     loadComments({{p.id}});
 });
 
@@ -169,25 +166,20 @@ function loadComment() {
         success: function(data) {
             if (data["status"] == "OK") {
                 var commentsp = "";
-                var commentsmodalp = "";
                 for (var i = 0; i < data["profilecomment"].length; i++) {
                     var commentp = data["profilecomment"][i];
                     var commentp_id = commentp.id;
                     var commentp_numcomments = commentp.numcomments;
                     if (commentp_numcomments == 0) {
                         commentsp = "be the first to comment!";
-                        commentsmodalp = commentp_numcomments + " comments";
                     }
                     else if (commentp_numcomments == 1) {
                         commentsp = commentp_numcomments + " comment";
-                        commentsmodalp = commentp_numcomments + " comment";
                     }
                     else {
                         commentsp = commentp_numcomments + " comments";
-                        commentsmodalp = commentp_numcomments + " comments";
                     }
                     $('#comment_prof_number' + commentp_id).html(commentsp);
-                    $('#comment_modal_prof_number' + commentp_id).html(commentsmodalp);
                 }
             }
         },
@@ -201,7 +193,6 @@ function loadLike() {
         dataType: "json",
         success: function(data) {
             if (data["status"] == "OK") {
-                console.log("hello");
                 var likesp = "";
                 for (var i = 0; i < data["profilelike"].length; i++) {
                     var likep = data["profilelike"][i];
@@ -209,7 +200,6 @@ function loadLike() {
                     var likep_color = likep.color;
                     likesp = "<p style='margin:0;'><a id='like" + likep_id + "' href='/likeprofile/" + likep_id + "/'><img src='/static/images/" + likep_color + ".png'></a></p>";
                     $('#like_profile' + likep_id).html(likesp);
-                    $('#like_modal_profile' + likep_id).html(likesp);
                 }
             }
         },
@@ -230,7 +220,6 @@ function loadLikes() {
                     var like_likes = like.likes;
                     likes = "<p style='margin:0;color:#333333;'>" + like_likes + "</p>";
                     $('#likes_profile' + like_id).html(likes);
-                    $('#likes_modal_profile' + like_id).html(likes);
                 }
             }
         },
@@ -251,7 +240,6 @@ function loadDislike() {
                     var dislikep_color = dislikep.color;
                     dislikesp = "<p style='margin-top:-3px;margin-bottom:0;'><a id='dislike" + dislikep_id + "' href='/dislikeprofile/" + dislikep_id + "/'><img src='/static/images/" + dislikep_color + ".png'></a></p>";
                     $('#dislike_profile' + dislikep_id).html(dislikesp);
-                    $('#dislike_modal_profile' + dislikep_id).html(dislikesp);
                 }
             }
         },
@@ -274,25 +262,25 @@ function loadComments(id) {
                     var comment_comment = comment.profilecomment;
                     var comment_date = comment.date;
                     if (username == comment_user) {
-                        comments += "<div class='comments'><div class='commentident' style='display:table-cell;vertical-align:top;'><p style='margin-right:15px;margin-bottom:16px;'><img class='photo-comment' src='" + comment_picture + "'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p></div></div><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p><div class='separator'></div>";
+                        comments += "<div class='comments'><div class='commentident' style='display:table-cell;vertical-align:top;'><p style='margin-right:10px;margin-bottom:11px;'><img class='photo-comment' src='" + comment_picture + "'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p></div></div><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p><div class='separator'></div>";
                     }
                     else {
-                        comments += "<div class='comments'><div class='commentident' style='display:table-cell;vertical-align:top;'><p style='margin-right:15px;margin-bottom:16px;'><img class='comment-icon' src='/static/images/comment.png'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p></div></div><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p><div class='separator'></div>";
+                        comments += "<div class='comments'><div class='commentident' style='display:table-cell;vertical-align:top;'><p style='margin-right:10px;margin-bottom:11px;'><img class='comment-icon' src='/static/images/comment.png'></p></div><div class='commentpoop' style='display:inline-block;'><p class='commentpost' style='display:inline-block;'>" + comment_comment + "</p></div></div><p class='commentdate' style='display:inline-block;'>" + comment_date + " ago</p><div class='separator'></div>";
                     }
                     total = total + 1;
                 }
                 if (total > 0) {
-                    $('#comment_profile' + id).html("<div class='commentsbox'>" + comments + "</div>");
+                    $('#comment_profile' + id).html("<div class='separator_click_top'></div><div class='commentsbox'>" + comments + "</div>");
                 }
                 else {
-                    $('#comment_profile' + id).html("<p style='color:#bfbfbf;text-align:center;margin-top:120px;'>No comments yet!</p>");
+                    $('#comment_profile' + id).html("<div class='separator_click_top'></div><div class='nocommentsbox'><center><p class='commenticon' style='margin-bottom:50px;margin-top:40px;'>No comments yet!</p></center></div>");
                 }
                 loadComment();
+                $('.commentbox_none').show();
             }
         },
     });
 }
-
 </script>
 
 {% endblock %}
